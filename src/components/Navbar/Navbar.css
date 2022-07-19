@@ -49,3 +49,14 @@
     top: 0;
     z-index: -1;
 }
+
+/* ----------------- Sliding menu ---------------- */
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: inherit;
+}
+

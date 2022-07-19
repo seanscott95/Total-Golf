@@ -17,6 +17,7 @@ const Navbar = () => {
         setBurgerClass('burger-bar unclicked')
         setMenuClass('menu hidden')
       }
+      setIsMenuClicked(!isMenuClicked)
     }
 
   return (
