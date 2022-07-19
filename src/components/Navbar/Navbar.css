@@ -1,7 +1,14 @@
 * {
     margin: 0;
-    box-sizing: 0;
+    box-sizing: border-box;
 }
+
+:root {
+    --primary-color: #ffbe00;
+    --secondary-color: #080808;
+}
+
+/* ------------------------ Navbar and burger menu ----------------------- */
 
 .navbarContainer {
     width: 100%;
@@ -11,15 +18,15 @@
 .navbar {
     width: 100%;
     height: 5em;
-    background-color: black;
+    background-color: var(--secondary-color);
     display: flex;
     justify-content: flex-end;
     padding: 1em;
 }
 
 .burger-menu {
-    height: 100%;
     width: 4em;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -30,6 +37,15 @@
 .burger-bar {
     height: 0.5em;
     width: 4em;
-    background-color: gold;
+    background-color: var(--primary-color);
     border-radius: 0.5em;
+}
+
+.menu {
+    height: 30%;
+    width: 100vw;
+    background-color: var(--primary-color);
+    position: absolute;
+    top: 0;
+    z-index: -1;
 }
