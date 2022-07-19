@@ -1,6 +1,12 @@
-function App() {
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+const App = () => {
   return (
-    <div>Total Golf</div>
+    <Router>
+      <Routes>
+        <Route path="/" />
+      </Routes>
+    </Router>
   );
 }
 
