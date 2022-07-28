@@ -7,6 +7,9 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" />
+        <Route path="/Profile" />
+        <Route path="/History" />
+        <Route path="/Leaderboard" />
       </Routes>
     </Router>
   );
