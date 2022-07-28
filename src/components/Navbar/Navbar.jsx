@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import './Navbar.css'
+import Logo from '../../assets/images/Logo.png'
 
 const Navbar = () => {
 
@@ -24,6 +25,10 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
+      <Link to='/'>
+        <img src={Logo} alt='Logo' />
+      </Link>
+
       <ul className={menu_class}>
         <li className='nav-item'>
           <Link to="/Profile" className='nav-link'>Profile</Link>
