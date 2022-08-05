@@ -1,19 +1,13 @@
 const router = require('express').Router();
+const { 
+    getScorecard,
+    setScorecard, 
+    updateScorecard, 
+    deleteScorecard 
+} = require('../controllers/scorecardController');
 
-router.get('/', (req, res) => {
-    res.status(200).json({ message: 'Get Scorecard'})
-})
+router.route('/').get(getScorecard).post(setScorecard);
 
-router.post('/', (req, res) => {
-    res.status(200).json({ message: 'Create Scorecard'})
-})
+router.route('/:id').put(updateScorecard).delete(deleteScorecard);
 
-router.put('/:id', (req, res) => {
-    res.status(200).json({ message: `Update Scorecard ${req.params.id}`})
-})
-
-router.delete('/:id', (req, res) => {
-    res.status(200).json({ message: `Delete Scorecard ${req.params.id}`})
-})
-
-module.exports = router
+module.exports = router;
