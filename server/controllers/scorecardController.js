@@ -4,7 +4,7 @@ const asyncHandler = require('express-async-handler');
 // @route GET /api/scores
 // @acess Private
 const getScorecard = asyncHandler(async (req, res) => {
-    res.status(200).json({ massage: 'Get scores'});
+    res.status(200).json({ message: 'Get scores'});
 });
 
 // @decription Set scorecard
