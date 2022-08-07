@@ -26,7 +26,20 @@ const setScorecard = asyncHandler(async (req, res) => {
 // @route PUT /api/scores/:id
 // @acess Private
 const updateScorecard = asyncHandler(async (req, res) => {
-    res.status(200).json({ message: `Update Scorecard ${req.params.id}`});
+    const scorecard = await Scorecard.findById(req.params.id)
+
+    if (!scorecard) {
+        res.status(400);
+        throw new Error('Scorecard not found');
+    }
+    const updatedScorecard = await Scorecard.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        {
+            new: true,
+        }
+    );
+    res.status(200).json(updatedScorecard);
 });
 
 // @decription Delete scorecard
