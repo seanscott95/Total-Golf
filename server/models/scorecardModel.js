@@ -9,16 +9,16 @@ const scorecardSchema = new Schema({
     score: [
         {
             name: {
-                String,
+                type: String,
                 required: [true, 'Please add the players name'],
                 trim: true,
             },
             firstNine: {
-                Array,
+                type: Array,
                 required: [true, 'Please add the score'],
             },
             lastNine: {
-                Array,
+                type: Array,
                 required: [true, 'Please add the score'],
             },
         }

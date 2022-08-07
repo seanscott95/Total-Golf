@@ -1,17 +1,25 @@
 const asyncHandler = require('express-async-handler');
+const Scorecard = require('../models/scorecardModel');
 
 // @decription Get scorecard
 // @route GET /api/scores
 // @acess Private
 const getScorecard = asyncHandler(async (req, res) => {
-    res.status(200).json({ message: 'Get scores'});
+    const score = await Scorecard.find();
+    res.status(200).json(score);
 });
 
 // @decription Set scorecard
 // @route POST /api/scores
 // @acess Private
 const setScorecard = asyncHandler(async (req, res) => {
-    res.status(200).json({ message: 'Create Scorecard'});
+    if (!req.body.score) {
+        res.status(400);
+        throw new Error('Please fill out the form');
+    };
+
+    const score = await Scorecard.create(req.body);
+    res.status(200).json(score);
 });
 
 // @decription Update scorecard
