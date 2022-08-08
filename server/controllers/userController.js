@@ -13,9 +13,16 @@ const getMe = asyncHandler(async (req, res) => {
 // @route POST /api/users
 // @acess Public
 const signupUser = asyncHandler(async (req, res) => {
-    if (!req.body) {
+    const { username, email, password } = req.body;
+    if (!username || !!email || !!password) {
         res.status(400);
-        throw new Error('Please fill out the form');
+        throw new Error('Please fill in all fields');
+    };
+
+    const userExists = await User.findOne({ email });
+    if (userExists) {
+        res.status(400);
+        throw new Error('User already exists');
     };
 
     const user = await User.create(req.body);
