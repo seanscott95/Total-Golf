@@ -4,7 +4,7 @@ const scoreSchema = new Schema({
     username: {
         type: Schema.Types.ObjectId,
         ref: 'User',
-        required: [true, 'Please add the players username'],
+        // required: [true, 'Please add the players username'],
     },
     firstNine: {
         type: Array,
