@@ -1,5 +1,6 @@
 const asyncHandler = require('express-async-handler');
 const { User } = require('../models')
+const { signToken } = require('../utils/auth');
 
 // @desc Get user
 // @route GET /api/users
@@ -25,19 +26,25 @@ const signupUser = asyncHandler(async (req, res) => {
         throw new Error('User already exists');
     };
 
-    const user = await User.create(req.body);
-    res.status(200).json(user);
+    const user = await User.create(username, email, password);
+    
+    const token = signToken(user);
+    res.status(200).json(token, user);
 });
 
 // @desc Login user
 // @route POST /api/users/login
 // @acess Public
 const loginUser = asyncHandler(async (req, res) => {
-    const user = User.findOne({ _id: req.body.params});
-    if (!user) {
-        throw new Error('No user found');
+    const user = await User.findOne({ email: req.body.email });
+    const correctPw = await user.isCorrectPassword(password);
+
+    if (!user || !correctPw) {
+        throw new Error('Incorrect credentials');
     };
-    res.status(200).json(user);
+
+    const token = signToken(user);
+    res.status(200).json(token, user);
 });
 
 module.exports = {
