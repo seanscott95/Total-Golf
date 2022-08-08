@@ -1,6 +1,5 @@
 const asyncHandler = require('express-async-handler');
-const Scorecard = require('../models/scorecardModel');
-const Score = require('../models/scoreModel');
+const { Scorecard, Score } = require('../models')
 
 // @decription Get scorecard
 // @route GET /api/scores
@@ -24,7 +23,7 @@ const setScorecard = asyncHandler(async (req, res) => {
     const scorecard = await Scorecard.create({
         courseName: req.body.courseName,
         score: score.map((e) => e._id),
-        datepPlayed: req.body.datePlayed,
+        datePlayed: req.body.datePlayed,
     });
 
     res.status(200).json(scorecard);
