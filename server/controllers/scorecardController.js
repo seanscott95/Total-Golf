@@ -1,5 +1,6 @@
 const asyncHandler = require('express-async-handler');
 const Scorecard = require('../models/scorecardModel');
+const Score = require('../models/scoreModel');
 
 // @decription Get scorecard
 // @route GET /api/scores
@@ -9,17 +10,24 @@ const getScorecard = asyncHandler(async (req, res) => {
     res.status(200).json(score);
 });
 
-// @decription Set scorecard
+// @decription Create scorecard and scores
 // @route POST /api/scores
 // @acess Private
 const setScorecard = asyncHandler(async (req, res) => {
-    if (!req.body.score) {
+    if (!req.body) {
         res.status(400);
         throw new Error('Please fill out the form');
     };
 
-    const score = await Scorecard.create(req.body);
-    res.status(200).json(score);
+    const score = await Score.insertMany(req.body.score);
+    
+    const scorecard = await Scorecard.create({
+        courseName: req.body.courseName,
+        score: score.map((e) => e._id),
+        datepPlayed: req.body.datePlayed,
+    });
+
+    res.status(200).json(scorecard);
 });
 
 // @decription Update scorecard
@@ -52,7 +60,7 @@ const deleteScorecard = asyncHandler(async (req, res) => {
         res.status(400);
         throw new Error('Scorecard not found');
     };
-    res.status(200).json({ message: 'Deleted scorecard', id: req.params.id});
+    res.status(200).json({ message: 'Deleted scorecard', id: req.params.id });
 });
 
 module.exports = {
