@@ -1,7 +1,7 @@
 const asyncHandler = require('express-async-handler');
 const { Scorecard, Score } = require('../models')
 
-// @decription Get scorecard
+// @desc Get scorecard
 // @route GET /api/scores
 // @acess Private
 const getScorecard = asyncHandler(async (req, res) => {
@@ -9,7 +9,7 @@ const getScorecard = asyncHandler(async (req, res) => {
     res.status(200).json(score);
 });
 
-// @decription Create scorecard and scores
+// @desc Create scorecard and scores
 // @route POST /api/scores
 // @acess Private
 const setScorecard = asyncHandler(async (req, res) => {
@@ -29,7 +29,7 @@ const setScorecard = asyncHandler(async (req, res) => {
     res.status(200).json(scorecard);
 });
 
-// @decription Update scorecard
+// @desc Update scorecard
 // @route PUT /api/scores/:id
 // @acess Private
 const updateScorecard = asyncHandler(async (req, res) => {
@@ -49,7 +49,7 @@ const updateScorecard = asyncHandler(async (req, res) => {
     res.status(200).json(updatedScorecard);
 });
 
-// @decription Delete scorecard
+// @desc Delete scorecard
 // @route DELETE /api/scores
 // @acess Private
 const deleteScorecard = asyncHandler(async (req, res) => {
