@@ -8,20 +8,9 @@ const scorecardSchema = new Schema({
     },
     score: [
         {
-            name: {
-                type: String,
-                required: [true, 'Please add the players name'],
-                trim: true,
-            },
-            firstNine: {
-                type: Array,
-                required: [true, 'Please add the score'],
-            },
-            lastNine: {
-                type: Array,
-                required: [true, 'Please add the score'],
-            },
-        }
+            type: Schema.Types.ObjectId,
+            ref: 'Score',
+        },
     ],
     datePlayed: {
         type: Date,
