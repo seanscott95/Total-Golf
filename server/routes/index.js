@@ -4,6 +4,6 @@ const scorecardRoutes = require('./scorecardRoutes');
 const userRoutes = require('./userRoutes');
 
 router.use('/api/scores', scorecardRoutes)
-router.use('/api', userRoutes)
+router.use('/api/users', userRoutes)
 
 module.exports = router;
