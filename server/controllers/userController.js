@@ -15,7 +15,7 @@ const getMe = asyncHandler(async (req, res) => {
 // @acess Public
 const signupUser = asyncHandler(async (req, res) => {
     const { username, email, password } = req.body;
-    
+
     if (!username || !email || !password) {
         res.status(400);
         throw new Error('Please fill in all fields');
@@ -47,15 +47,23 @@ const signupUser = asyncHandler(async (req, res) => {
 // @route POST /api/users/login
 // @acess Public
 const loginUser = asyncHandler(async (req, res) => {
-    const user = await User.findOne({ email: req.body.email });
+    const { email, password } = req.body;
+
+    const user = await User.findOne({ email });
     const correctPw = await user.isCorrectPassword(password);
 
     if (!user || !correctPw) {
+        res.status(400);
         throw new Error('Incorrect credentials');
+    } else {
+        const token = signToken(user);
+        res.status(200).json({
+            _id: user.id,
+            username: user.username,
+            email: user.email,
+            token: token,
+        });
     };
-
-    const token = signToken(user);
-    res.status(200).json(token, user);
 });
 
 module.exports = {
