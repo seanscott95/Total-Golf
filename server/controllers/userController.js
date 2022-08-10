@@ -5,10 +5,9 @@ const { signToken } = require('../utils/auth');
 // @desc Get user
 // @route GET /api/users
 // @acess Private
-const getMe = asyncHandler(async (req, res) => {
-    const user = await User.find();
-    res.status(200).json(user);
-});
+const getMe = (req, res) => {
+    res.status(200).json(req.user);
+};
 
 // @desc Create user
 // @route POST /api/users
