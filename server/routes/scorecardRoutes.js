@@ -6,8 +6,10 @@ const {
     deleteScorecard 
 } = require('../controllers/scorecardController');
 
-router.route('/').get(getScorecard).post(setScorecard);
+const { authMiddleware } = require('../utils/auth');
 
-router.route('/:id').put(updateScorecard).delete(deleteScorecard);
+router.route('/').get(authMiddleware, getScorecard).post(authMiddleware, setScorecard);
+
+router.route('/:id').put(authMiddleware, updateScorecard).delete(authMiddleware, deleteScorecard);
 
 module.exports = router;
