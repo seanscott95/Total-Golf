@@ -8,8 +8,11 @@ const {
 
 const { authMiddleware } = require('../utils/auth');
 
-router.route('/').get(authMiddleware, getScorecard).post(authMiddleware, setScorecard);
+router.route('/').post(authMiddleware, setScorecard);
 
-router.route('/:id').put(authMiddleware, updateScorecard).delete(authMiddleware, deleteScorecard);
+router.route('/:id')
+    .get(authMiddleware, getScorecard)
+    .put(authMiddleware, updateScorecard)
+    .delete(authMiddleware, deleteScorecard);
 
 module.exports = router;

@@ -5,8 +5,13 @@ const { Scorecard, Score } = require('../models')
 // @route GET /api/scores
 // @acess Private
 const getScorecard = asyncHandler(async (req, res) => {
-    const score = await Scorecard.find();
-    res.status(200).json(score);
+    const scorecard = await Scorecard.findById({ _id: req.params.id }).populate('score');
+
+    if (!scorecard) {
+        res.status(400);
+        throw new Error('Scorecard not found');
+    };
+    res.status(200).json(scorecard);
 });
 
 // @desc Create scorecard and scores
@@ -19,10 +24,10 @@ const setScorecard = asyncHandler(async (req, res) => {
     };
 
     const score = await Score.insertMany(req.body.score);
-    
+
     const scorecard = await Scorecard.create({
         courseName: req.body.courseName,
-        score: score.map((e) => e._id),
+        score: score.map((e) => e),
         datePlayed: req.body.datePlayed,
     });
 
@@ -33,20 +38,25 @@ const setScorecard = asyncHandler(async (req, res) => {
 // @route PUT /api/scores/:id
 // @acess Private
 const updateScorecard = asyncHandler(async (req, res) => {
-    const scorecard = await Scorecard.findById(req.params.id)
-
+    const scorecard = await Scorecard.findById({ _id: req.params.id });
     if (!scorecard) {
         res.status(400);
         throw new Error('Scorecard not found');
-    }
+    };
+
+    const exercisesToUpdate = req.body.score.map(async (e) => {
+        return Score.findOneAndUpdate({ _id: e._id }, { $set: { ...e } });
+    });
+
+    await Promise.all(exercisesToUpdate);
+
     const updatedScorecard = await Scorecard.findByIdAndUpdate(
         req.params.id,
         req.body,
-        {
-            new: true,
-        }
+        { new: true, }
     );
     res.status(200).json(updatedScorecard);
+
 });
 
 // @desc Delete scorecard
