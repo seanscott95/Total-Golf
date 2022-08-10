@@ -15,7 +15,8 @@ const getMe = asyncHandler(async (req, res) => {
 // @acess Public
 const signupUser = asyncHandler(async (req, res) => {
     const { username, email, password } = req.body;
-    if (!username || !!email || !!password) {
+    
+    if (!username || !email || !password) {
         res.status(400);
         throw new Error('Please fill in all fields');
     };
@@ -26,10 +27,20 @@ const signupUser = asyncHandler(async (req, res) => {
         throw new Error('User already exists');
     };
 
-    const user = await User.create(username, email, password);
-    
+    const user = await User.create({ username, email, password });
     const token = signToken(user);
-    res.status(200).json(token, user);
+
+    if(user) {
+        res.status(201).json({
+            _id: user.id,
+            username: user.username,
+            email: user.email,
+            token: token,
+        });
+    } else {
+        res.status(400);
+        throw new Error('Invalid user data');
+    };
 });
 
 // @desc Login user
