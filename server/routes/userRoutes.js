@@ -5,8 +5,10 @@ const {
     loginUser 
 } = require('../controllers/userController');
 
+const { authMiddleware } = require('../utils/auth');
+
 router.post('/', signupUser);
 router.post('/login', loginUser);
-router.get('/me', getMe);
+router.get('/me', authMiddleware, getMe);
 
 module.exports = router;
