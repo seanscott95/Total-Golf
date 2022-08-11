@@ -14,6 +14,27 @@ const getScore = asyncHandler(async (req, res) => {
     res.status(200).json(score);
 });
 
+// @desc Update score
+// @route PUT /api/score
+// @access Private
+const updateScore = asyncHandler(async (req, res) => {
+    const score = await Score.findById({ _id: req.params.id });
+
+    if (!score) {
+        res.status(400);
+        throw new Error('Score not found');
+    };
+
+    const updateScore = await Score.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        { new: true }
+    );
+    
+    res.status(200).json(updateScore);
+})
+
 module.exports = {
     getScore,
+    updateScore,
 }
