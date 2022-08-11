@@ -32,9 +32,21 @@ const updateScore = asyncHandler(async (req, res) => {
     );
     
     res.status(200).json(updateScore);
+});
+
+const deleteScore = asyncHandler(async (req, res) => {
+    const deleteScore = await Score.findOneAndDelete({ _id: req.params.id });
+
+    if (!deleteScore) {
+        res.status(400);
+        throw new Error('Score not found');
+    };
+
+    res.status(200).json(deleteScore);
 })
 
 module.exports = {
     getScore,
     updateScore,
+    deleteScore
 }

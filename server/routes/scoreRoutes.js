@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { 
     getScore, 
     updateScore, 
-    // deleteScore 
+    deleteScore 
 } = require('../controllers/scoreController');
 
 const { authMiddleware } = require('../utils/auth');
@@ -10,6 +10,6 @@ const { authMiddleware } = require('../utils/auth');
 router.route('/:id')
     .get(authMiddleware, getScore)
     .put(authMiddleware, updateScore)
-    // .delete(authMiddleware, deleteScore);
+    .delete(authMiddleware, deleteScore);
 
 module.exports = router;
