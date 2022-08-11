@@ -4,14 +4,14 @@ const { signToken } = require('../utils/auth');
 
 // @desc Get user
 // @route GET /api/users
-// @acess Private
+// @access Private
 const getMe = (req, res) => {
     res.status(200).json(req.user);
 };
 
 // @desc Create user
 // @route POST /api/users
-// @acess Public
+// @access Public
 const signupUser = asyncHandler(async (req, res) => {
     const { username, email, password } = req.body;
 
@@ -44,7 +44,7 @@ const signupUser = asyncHandler(async (req, res) => {
 
 // @desc Login user
 // @route POST /api/users/login
-// @acess Public
+// @access Public
 const loginUser = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
 

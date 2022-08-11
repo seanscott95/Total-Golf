@@ -3,7 +3,7 @@ const { Scorecard, Score } = require('../models')
 
 // @desc Get scorecard
 // @route GET /api/scores
-// @acess Private
+// @access Private
 const getScorecard = asyncHandler(async (req, res) => {
     const scorecard = await Scorecard.findById({ _id: req.params.id }).populate('score');
 
@@ -16,7 +16,7 @@ const getScorecard = asyncHandler(async (req, res) => {
 
 // @desc Create scorecard and scores
 // @route POST /api/scores
-// @acess Private
+// @access Private
 const setScorecard = asyncHandler(async (req, res) => {
     if (!req.body) {
         res.status(400);
@@ -36,7 +36,7 @@ const setScorecard = asyncHandler(async (req, res) => {
 
 // @desc Update scorecard
 // @route PUT /api/scores/:id
-// @acess Private
+// @access Private
 const updateScorecard = asyncHandler(async (req, res) => {
     const scorecard = await Scorecard.findById({ _id: req.params.id });
     if (!scorecard) {
@@ -61,7 +61,7 @@ const updateScorecard = asyncHandler(async (req, res) => {
 
 // @desc Delete scorecard
 // @route DELETE /api/scores
-// @acess Private
+// @access Private
 const deleteScorecard = asyncHandler(async (req, res) => {
     const scorecard = await Scorecard.findById({ _id: req.params.id })
     

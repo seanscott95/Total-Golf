@@ -3,7 +3,7 @@ const { Score } = require('../models');
 
 // @desc Get score
 // @route GET /api/score
-// @acess Private
+// @access Private
 const getScore = asyncHandler(async (req, res) => {
     const score = await Score.findById({ _id: req.params.id });
 
