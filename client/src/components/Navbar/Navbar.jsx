@@ -31,13 +31,16 @@ const Navbar = () => {
 
       <ul className={menu_class}>
         <li className='nav-item'>
-          <Link to="/Profile" className='nav-link'>Profile</Link>
+          <Link to="/personal" className='nav-link'>Personal</Link>
         </li>
         <li className='nav-item'>
-          <Link to="/History" className='nav-link'>History</Link>
+          <Link to="/leaderboard" className='nav-link'>Leaderboard</Link>
         </li>
         <li className='nav-item'>
-          <Link to="/Leaderboard" className='nav-link'>Leaderboard</Link>
+          <Link to="/login" className='nav-link'>Login</Link>
+        </li>
+        <li className='nav-item'>
+          <Link to="/signup" className='nav-link'>Sign Up</Link>
         </li>
       </ul>
 

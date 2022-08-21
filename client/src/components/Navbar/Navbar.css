@@ -1,23 +1,15 @@
-* {
-    margin: 0;
-    box-sizing: border-box;
-}
-
 :root {
     --primary-color: #ffbe00;
     --secondary-color: #080808;
-}
-
-li {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
+    --third-color: #343434;
 }
 
 img {
     height: 50px;
+}
+
+a {
+    color: var(--primary-color)
 }
 
 /* ------------------------ Navbar and burger menu ----------------------- */
@@ -69,7 +61,7 @@ img {
         flex-direction: column;
         transform: translateX(100%);
         transition: 0.5s ease-in;
-        background-color: var(--primary-color);
+        background-color: var(--third-color);
     }
 }
 
