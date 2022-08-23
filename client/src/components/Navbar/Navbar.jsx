@@ -1,10 +1,17 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux';
+import { logout, reset } from '../../utils/authSlice';
+import { useNavigate } from 'react-router-dom';
 
 import './Navbar.css'
 import Logo from '../../assets/images/Logo.png'
 
 const Navbar = () => {
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.auth)
 
   // Changes classes for burger
   const [burger_class, setBurgerClass] = useState('burger')
@@ -23,6 +30,12 @@ const Navbar = () => {
     setIsMenuClicked(!isMenuClicked)
   }
 
+  const onLogout = () => {
+    dispatch(logout());
+    dispatch(reset());
+    navigate('/');
+  };
+
   return (
     <nav className="navbar">
       <Link to='/'>
@@ -36,12 +49,20 @@ const Navbar = () => {
         <li className='nav-item'>
           <Link to="/leaderboard" className='nav-link'>Leaderboard</Link>
         </li>
-        <li className='nav-item'>
-          <Link to="/login" className='nav-link'>Login</Link>
-        </li>
-        <li className='nav-item'>
-          <Link to="/signup" className='nav-link'>Sign Up</Link>
-        </li>
+        {user ? (
+          <li className='nav-item'>
+            <button to="/logout" className='btn' onClick={onLogout}>Logout</button>
+          </li>
+        ) : (
+          <>
+            <li className='nav-item'>
+              <Link to="/login" className='nav-link'>Login</Link>
+            </li>
+            <li className='nav-item'>
+              <Link to="/signup" className='nav-link'>Sign Up</Link>
+            </li>
+          </>
+        )}
       </ul>
 
       <div className={burger_class} onClick={updateMenu}>
