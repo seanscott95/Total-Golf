@@ -11,10 +11,15 @@ const signup = async (userData) => {
     };
 
     return response.data;
-}
+};
+
+const logout = () => {
+    localStorage.removeItem('user');
+};
 
 const authService = {
     signup,
-}
+    logout,
+};
 
 export default authService
