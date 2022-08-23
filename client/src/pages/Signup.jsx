@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { login, reset } from '../utils/authSlice';
+import spinner from '../assets/gif/Ghost.gif';
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -53,6 +54,10 @@ function Signup() {
     }
   }
 
+  if(isLoading) {
+    return <img src={spinner} alt='Loading' />
+  }
+  
   return (
     <>
       <section className="heading">
