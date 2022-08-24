@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
-import { logout, reset } from '../../utils/authSlice';
+import { logout, reset } from '../../utils/auth/authSlice';
 import { useNavigate } from 'react-router-dom';
 
 import './Navbar.css'

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { login, reset } from '../utils/authSlice';
+import { login, reset } from '../utils/auth/authSlice';
 import spinner from '../assets/gif/Ghost.gif';
 
 function Login() {
