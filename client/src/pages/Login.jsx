@@ -62,7 +62,7 @@ function Login() {
         <form onSubmit={onSubmit}>
           <div className="form-group">
             <input
-              type="text"
+              type="email"
               className="form-control"
               id="email"
               name='email'
@@ -73,7 +73,7 @@ function Login() {
           </div>
           <div className="form-group">
             <input
-              type="text"
+              type="password"
               className="form-control"
               id="password"
               name='password'
@@ -82,7 +82,7 @@ function Login() {
               onChange={onChange}
             />
           </div>
-          <div className="form-">
+          <div className="form-group">
             <button type='submit' className='btn'>Submit</button>
           </div>
         </form>

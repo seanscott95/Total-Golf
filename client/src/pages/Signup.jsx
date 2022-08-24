@@ -80,7 +80,7 @@ function Signup() {
           </div>
           <div className="form-group">
             <input
-              type="text"
+              type="email"
               className="form-control"
               id="email"
               name='email'
@@ -91,7 +91,7 @@ function Signup() {
           </div>
           <div className="form-group">
             <input
-              type="text"
+              type="password"
               className="form-control"
               id="password"
               name='password'
@@ -102,16 +102,16 @@ function Signup() {
           </div>
           <div className="form-group">
             <input
-              type="text"
+              type="password"
               className="form-control"
-              id="name"
+              id="password2"
               name='password2'
               value={password2}
               placeholder='Confirm password'
               onChange={onChange}
             />
           </div>
-          <div className="form-">
+          <div className="form-group">
             <button type='submit' className='btn'>Submit</button>
           </div>
         </form>
