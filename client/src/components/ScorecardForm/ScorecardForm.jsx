@@ -12,7 +12,7 @@ function ScorecardForm() {
 
     const onSubmit = (e) => {
         e.preventDefault();
-    }
+    };
 
     const onChange = (e) => {
         setFormData((prev) => ({
@@ -59,4 +59,4 @@ function ScorecardForm() {
     )
 }
 
-export default ScorecardForm
+export default ScorecardForm;
