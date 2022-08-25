@@ -15,7 +15,10 @@ function Homepage() {
 
   return (
     <>
-      <div>Homepage</div>
+      <section className="heading">
+        <h1>Welcome { user && user.username } !</h1>
+        <p>Scorecard Dashboard</p>
+      </section>
     </>
   )
 }
