@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+import { ScorecardForm } from '../components/ScorecardForm/ScorecardForm';
+
 function Homepage() {
   const navigate = useNavigate();
   
@@ -19,6 +21,7 @@ function Homepage() {
         <h1>Welcome { user && user.username } !</h1>
         <p>Scorecard Dashboard</p>
       </section>
+      <ScorecardForm />
     </>
   )
 }
