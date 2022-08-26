@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 import { createScorecard } from '../../utils/scorecard/scorecardSlice';
 
 function ScorecardForm() {
+    const [scoresList, setScoresList] = useState([]);
+
     const [formData, setFormData] = useState({
         courseName: '',
         score: [],
@@ -49,6 +51,7 @@ function ScorecardForm() {
             courseName: '',
             datePlayed: ''
         });
+        setScoresList([]);
     };
 
     const handleFormChange = (e) => {
@@ -58,6 +61,41 @@ function ScorecardForm() {
         }));
     };
 
+    const handlePlayerSubmit = (e) => {
+        e.preventDefault();
+
+        const list = scoresList;
+        list.push(scoreInputData);
+        setScoresList(list);
+
+        setScoreInputData({
+            username: '',
+            firstNine: {
+                hole1: '',
+                hole2: '',
+                hole3: '',
+                hole4: '',
+                hole5: '',
+                hole6: '',
+                hole7: '',
+                hole8: '',
+                hole9: '',
+            },
+            lastNine: {
+                hole10: '',
+                hole11: '',
+                hole12: '',
+                hole13: '',
+                hole14: '',
+                hole15: '',
+                hole16: '',
+                hole17: '',
+                hole18: '',
+            },
+        });
+    };
+
+
     const handleUsernameChange = (e) => {
         setScoreInputData((prev) => ({
             ...prev,
@@ -66,6 +104,32 @@ function ScorecardForm() {
         console.log(e.target.name)
 
     };
+
+    const handleFirstNineChange = (e) => {
+        setScoreInputData((prev) => ({
+            ...prev,
+            firstNine: {
+                ...prev.firstNine, [e.target.name]: e.target.value
+            }
+        }));
+    };
+
+    const handleLastNineChange = (e) => {
+        setScoreInputData((prev) => ({
+            ...prev,
+            lastNine: {
+                ...prev.lastNine, [e.target.name]: e.target.value
+            }
+        }));
+    };
+
+    useEffect(() => {
+        const list = scoresList;
+        setFormData((prev) => ({
+            ...prev,
+            score: list,
+        }));
+    }, [scoresList]);
 
     return (
         <section className="form">
@@ -122,7 +186,7 @@ function ScorecardForm() {
                                         name="hole1"
                                         id="hole1"
                                         value={scoreInputData.firstNine.hole1}
-                                        onChange={()=>{}} />
+                                        onChange={handleFirstNineChange} />
                                 </td>
                                 <td>
                                     <input
@@ -130,7 +194,7 @@ function ScorecardForm() {
                                         name="hole2"
                                         id="hole2"
                                         value={scoreInputData.firstNine.hole2}
-                                        onChange={()=>{}} />
+                                        onChange={handleFirstNineChange} />
                                 </td>
                                 <td>
                                     <input
@@ -138,7 +202,7 @@ function ScorecardForm() {
                                         name="hole3"
                                         id="hole3"
                                         value={scoreInputData.firstNine.hole3}
-                                        onChange={()=>{}} />
+                                        onChange={handleFirstNineChange} />
                                 </td>
                                 <td>
                                     <input
@@ -146,7 +210,7 @@ function ScorecardForm() {
                                         name="hole4"
                                         id="hole4"
                                         value={scoreInputData.firstNine.hole4}
-                                        onChange={()=>{}} />
+                                        onChange={handleFirstNineChange} />
                                 </td>
                                 <td>
                                     <input
@@ -154,7 +218,7 @@ function ScorecardForm() {
                                         name="hole5"
                                         id="hole5"
                                         value={scoreInputData.firstNine.hole5}
-                                        onChange={()=>{}} />
+                                        onChange={handleFirstNineChange} />
                                 </td>
                                 <td>
                                     <input
@@ -162,7 +226,7 @@ function ScorecardForm() {
                                         name="hole6"
                                         id="hole6"
                                         value={scoreInputData.firstNine.hole6}
-                                        onChange={()=>{}} />
+                                        onChange={handleFirstNineChange} />
                                 </td>
                                 <td>
                                     <input
@@ -170,7 +234,7 @@ function ScorecardForm() {
                                         name="hole7"
                                         id="hole7"
                                         value={scoreInputData.firstNine.hole7}
-                                        onChange={()=>{}} />
+                                        onChange={handleFirstNineChange} />
                                 </td>
                                 <td>
                                     <input
@@ -178,7 +242,7 @@ function ScorecardForm() {
                                         name="hole8"
                                         id="hole8"
                                         value={scoreInputData.firstNine.hole8}
-                                        onChange={()=>{}} />
+                                        onChange={handleFirstNineChange} />
                                 </td>
                                 <td>
                                     <input
@@ -186,7 +250,7 @@ function ScorecardForm() {
                                         name="hole9"
                                         id="hole9"
                                         value={scoreInputData.firstNine.hole9}
-                                        onChange={()=>{}} />
+                                        onChange={handleFirstNineChange} />
                                 </td>
                                 <td>
                                     <input
@@ -194,7 +258,7 @@ function ScorecardForm() {
                                         name="hole10"
                                         id="hole10"
                                         value={scoreInputData.lastNine.hole10}
-                                        onChange={()=>{}} />
+                                        onChange={handleLastNineChange} />
                                 </td>
                                 <td>
                                     <input
@@ -202,7 +266,7 @@ function ScorecardForm() {
                                         name="hole11"
                                         id="hole11"
                                         value={scoreInputData.lastNine.hole11}
-                                        onChange={()=>{}} />
+                                        onChange={handleLastNineChange} />
                                 </td>
                                 <td>
                                     <input
@@ -210,7 +274,7 @@ function ScorecardForm() {
                                         name="hole12"
                                         id="hole12"
                                         value={scoreInputData.lastNine.hole12}
-                                        onChange={()=>{}} />
+                                        onChange={handleLastNineChange} />
                                 </td>
                                 <td>
                                     <input
@@ -218,7 +282,7 @@ function ScorecardForm() {
                                         name="hole13"
                                         id="hole13"
                                         value={scoreInputData.lastNine.hole13}
-                                        onChange={()=>{}} />
+                                        onChange={handleLastNineChange} />
                                 </td>
                                 <td>
                                     <input
@@ -226,7 +290,7 @@ function ScorecardForm() {
                                         name="hole14"
                                         id="hole14"
                                         value={scoreInputData.lastNine.hole14}
-                                        onChange={()=>{}} />
+                                        onChange={handleLastNineChange} />
                                 </td>
                                 <td>
                                     <input
@@ -234,7 +298,7 @@ function ScorecardForm() {
                                         name="hole15"
                                         id="hole15"
                                         value={scoreInputData.lastNine.hole15}
-                                        onChange={()=>{}} />
+                                        onChange={handleLastNineChange} />
                                 </td>
                                 <td>
                                     <input
@@ -242,7 +306,7 @@ function ScorecardForm() {
                                         name="hole16"
                                         id="hole16"
                                         value={scoreInputData.lastNine.hole16}
-                                        onChange={()=>{}} />
+                                        onChange={handleLastNineChange} />
                                 </td>
                                 <td>
                                     <input
@@ -250,7 +314,7 @@ function ScorecardForm() {
                                         name="hole17"
                                         id="hole17"
                                         value={scoreInputData.lastNine.hole17}
-                                        onChange={()=>{}} />
+                                        onChange={handleLastNineChange} />
                                 </td>
                                 <td>
                                     <input
@@ -258,10 +322,10 @@ function ScorecardForm() {
                                         name="hole18"
                                         id="hole18"
                                         value={scoreInputData.lastNine.hole18}
-                                        onChange={()=>{}} />
+                                        onChange={handleLastNineChange} />
                                 </td>
                                 <td>
-                                    <button type='submit' onClick={()=>{}}>Add</button>
+                                    <button type='submit' onClick={handlePlayerSubmit}>Add</button>
                                 </td>
                             </tr>
                         </tbody>
