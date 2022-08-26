@@ -32,3 +32,11 @@ h3 {
   font-weight: 600;
   margin-bottom: 10px;
 }
+
+table, th {
+  border: 1px solid black;
+}
+
+table input {
+  width: 30px;
+}

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { ScorecardForm } from '../components/ScorecardForm/ScorecardForm';
+import ScorecardForm from '../components/ScorecardForm/ScorecardForm';
 
 function Homepage() {
   const navigate = useNavigate();
