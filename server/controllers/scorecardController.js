@@ -2,7 +2,7 @@ const asyncHandler = require('express-async-handler');
 const { Scorecard, Score } = require('../models')
 
 // @desc Get scorecard
-// @route GET /api/scores
+// @route GET /api/scores:id
 // @access Private
 const getScorecard = asyncHandler(async (req, res) => {
     const scorecard = await Scorecard.findById({ _id: req.params.id }).populate('score');
@@ -10,6 +10,19 @@ const getScorecard = asyncHandler(async (req, res) => {
     if (!scorecard) {
         res.status(400);
         throw new Error('Scorecard not found');
+    };
+    res.status(200).json(scorecard);
+});
+
+// @desc Get ALL scorecards
+// @route GET /api/scores
+// @access Private
+const getAllScorecards = asyncHandler(async (req, res) => {
+    const scorecard = await Scorecard.find().populate('score');
+
+    if (!scorecard) {
+        res.status(400);
+        throw new Error('There are no scorecards');
     };
     res.status(200).json(scorecard);
 });
@@ -90,6 +103,7 @@ const deleteScorecard = asyncHandler(async (req, res) => {
 
 module.exports = {
     getScorecard,
+    getAllScorecards,
     setScorecard,
     updateScorecard,
     deleteScorecard

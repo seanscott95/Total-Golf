@@ -16,7 +16,7 @@ const createScorecard = async (scorecardData, token) => {
 };
 
 // Get ALL scorecards
-const getAllScorecards = async (scorecardData, token) => {
+const getAllScorecards = async (token) => {
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
@@ -24,8 +24,8 @@ const getAllScorecards = async (scorecardData, token) => {
     };
 
     const response = await axios.get(API_URL, config);
-
-    return response.data;
+    console.log(response.data);
+    return response.data.scores;
 };
 
 const scorecardService = {
