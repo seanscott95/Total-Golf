@@ -4,8 +4,10 @@ import { useDispatch } from 'react-redux';
 import { createScorecard } from '../../utils/scorecard/scorecardSlice';
 
 function ScorecardForm() {
+    // Holds the scoreInputData of each player added to the scorecard
     const [scoresList, setScoresList] = useState([]);
 
+    // 
     const [formData, setFormData] = useState({
         courseName: '',
         score: [],
@@ -54,6 +56,7 @@ function ScorecardForm() {
         setScoresList([]);
     };
 
+    // Handles the input for courseName and datePlayed
     const handleFormChange = (e) => {
         setFormData((prev) => ({
             ...prev,
@@ -61,6 +64,7 @@ function ScorecardForm() {
         }));
     };
 
+    // Handles the username and score input for each players score
     const handlePlayerSubmit = (e) => {
         e.preventDefault();
 
@@ -95,7 +99,7 @@ function ScorecardForm() {
         });
     };
 
-
+    // Handles the username change input
     const handleUsernameChange = (e) => {
         setScoreInputData((prev) => ({
             ...prev,
@@ -105,6 +109,7 @@ function ScorecardForm() {
 
     };
 
+    // Handles the first nine holes scores input
     const handleFirstNineChange = (e) => {
         setScoreInputData((prev) => ({
             ...prev,
@@ -114,6 +119,7 @@ function ScorecardForm() {
         }));
     };
 
+    // Handles the last nine holes scores input
     const handleLastNineChange = (e) => {
         setScoreInputData((prev) => ({
             ...prev,
@@ -123,6 +129,7 @@ function ScorecardForm() {
         }));
     };
 
+    // Sets the formData score key as the scoresList array everytime scoresList is rendered
     useEffect(() => {
         const list = scoresList;
         setFormData((prev) => ({
