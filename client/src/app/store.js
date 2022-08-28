@@ -5,6 +5,6 @@ import scorecardReducer from '../utils/scorecard/scorecardSlice';
 export const store = configureStore({
     reducer: {
         auth: authReducer,
-        scorecard: scorecardReducer,
+        scores: scorecardReducer,
     },
 });
