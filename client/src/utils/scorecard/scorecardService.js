@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const API_URL = '/api/scores/';
 
+// Create scorecard
 const createScorecard = async (scorecardData, token) => {
     const config = {
         headers: {
@@ -14,8 +15,22 @@ const createScorecard = async (scorecardData, token) => {
     return response.data;
 };
 
+// Get ALL scorecards
+const getAllScorecards = async (scorecardData, token) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        },
+    };
+
+    const response = await axios.get(API_URL, config);
+
+    return response.data;
+};
+
 const scorecardService = {
     createScorecard,
+    getAllScorecards,
 };
 
 export default scorecardService;

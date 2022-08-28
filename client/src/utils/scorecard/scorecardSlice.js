@@ -18,19 +18,32 @@ export const scorecardSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(createScorecard.pending, (state, action) => {
-                state.isLoading = true
+                state.isLoading = true;
             })
             .addCase(createScorecard.fulfilled, (state, action) => {
-                state.isLoading = false
-                state.isSuccess = true
-                state.scores.push(action.payload)
+                state.isLoading = false;
+                state.isSuccess = true;
+                state.scores.push(action.payload);
             })
             .addCase(createScorecard.rejected, (state, action) => {
-                state.isLoading = false
-                state.isError = true
-                state.message = action.payload
+                state.isLoading = false;
+                state.isError = true;
+                state.message = action.payload;
             })
-    }
+            .addCase(getAllScorecards.pending, (state, action) => {
+                state.isLoading = true;
+            })
+            .addCase(getAllScorecards.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.isSuccess = true;
+                state.scores = action.payload;
+            })
+            .addCase(getAllScorecards.rejected, (state, action) => {
+                state.isLoading = false;
+                state.isError = true;
+                state.message = action.payload;
+            })
+    },
 });
 
 export const createScorecard = createAsyncThunk(
@@ -41,13 +54,28 @@ export const createScorecard = createAsyncThunk(
             return await scorecardService.createScorecard(scorecardData, token)
         } catch (error) {
             const message =
-            (error.response &&
-                error.response.data &&
-                error.response.data.message) ||
-            error.message ||
-            error.toString();
-        return thunkAPI.rejectWithValue(message);
-        }
+                (error.response &&
+                    error.response.data &&
+                    error.response.data.message) ||
+                error.message ||
+                error.toString();
+            return thunkAPI.rejectWithValue(message);
+        };
+    });
+
+export const getAllScorecards = createAsyncThunk('scorecard/getAll', async (_, thunkAPI) => {
+    try {
+        const token = thunkAPI.getState().auth.user.token;
+            return await scorecardService.getAllScorecards(token);
+    } catch (error) {
+        const message =
+        (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+        error.message ||
+        error.toString();
+    return thunkAPI.rejectWithValue(message);
+    }
 })
 
 export const { reset } = scorecardSlice.actions;
