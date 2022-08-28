@@ -36,7 +36,7 @@ const setScorecard = asyncHandler(async (req, res) => {
         throw new Error('Please fill out the form');
     };
 
-    const { courseName, scores, datePlayed } = req.body.formData;
+    const { courseName, score, datePlayed } = req.body;
 
     // Score model not being used yet due to incompletion
     // let score;
@@ -48,7 +48,7 @@ const setScorecard = asyncHandler(async (req, res) => {
 
     const scorecard = await Scorecard.create({
         courseName: courseName,
-        score: scores.map((e) => e),
+        score: score.map((e) => e),
         datePlayed: datePlayed,
     });
 
