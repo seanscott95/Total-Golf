@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+import ScorecardCard from '../components/ScorecardCard/ScorecardCard';
 import ScorecardForm from '../components/ScorecardForm/ScorecardForm';
 import { getAllScorecards, reset } from '../utils/scorecard/scorecardSlice';
 import spinner from '../assets/gif/Ghost.gif';
@@ -11,7 +12,7 @@ function Homepage() {
   const dispatch = useDispatch();
   
   const { user } = useSelector((state) => state.auth);
-  const { scorecard, isLoading, isError, message } = useSelector((state) => state.scorecard);
+  const { scores, isLoading, isError, message } = useSelector((state) => state.scores);
 
   useEffect(() => {
     if(!user) {
@@ -19,10 +20,12 @@ function Homepage() {
     };
 
     if(isError) {
-      console.log(message);
+      console.log(`Error: ${message}`);
     };
 
-    dispatch(getAllScorecards());
+    if(user) {
+      dispatch(getAllScorecards());
+    };
 
     return () => {
       dispatch(reset());
@@ -39,7 +42,20 @@ function Homepage() {
         <h1>Welcome { user && user.username } !</h1>
         <p>Scorecard Dashboard</p>
       </section>
+
       <ScorecardForm />
+
+      <section className='content'>
+        {scores.length > 0 ? (
+          <div className='scores'>
+            {scores.map((item) => (
+              <ScorecardCard key={item._id} scorecard={item} />
+            ))}
+          </div>
+        ) : (
+          <h3>There are no scorecards</h3>
+        )}
+      </section>
     </>
   )
 }
