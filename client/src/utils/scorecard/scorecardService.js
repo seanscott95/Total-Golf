@@ -24,8 +24,8 @@ const getAllScorecards = async (token) => {
     };
 
     const response = await axios.get(API_URL, config);
-    console.log(response.data);
-    return response.data.scores;
+
+    return response.data;
 };
 
 const scorecardService = {
