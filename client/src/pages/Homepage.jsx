@@ -53,7 +53,7 @@ function Homepage() {
             ))}
           </div>
         ) : (
-          <h3>There are no scorecards</h3>
+          <h3>There are no scorecards!</h3>
         )}
       </section>
     </>
