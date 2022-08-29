@@ -1,5 +1,4 @@
 function ScorecardCard({ scorecard }) {
-    // console.log('scorecard---', scorecard)
     return (
         <div className="scorecard">
             <div>
