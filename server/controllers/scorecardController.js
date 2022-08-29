@@ -37,21 +37,15 @@ const setScorecard = asyncHandler(async (req, res) => {
     };
 
     const { courseName, score, datePlayed } = req.body;
-
-    // Score model not being used yet due to incompletion
-    // let score;
-    // if(scores.length <= 1 ) {
-    //     score = await Score.create(scores);
-    // } else {
-    //     score = await Score.insertMany(scores);
-    // };
-
+    
+    const scoreList = await Score.insertMany(score);
+    
     const scorecard = await Scorecard.create({
         courseName: courseName,
-        score: score.map((e) => e),
+        score: scoreList.map((e) => e._id),
         datePlayed: datePlayed,
     });
-
+    
     res.status(200).json(scorecard);
 });
 
