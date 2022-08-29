@@ -51,6 +51,7 @@ function ScorecardForm() {
 
         setFormData({
             courseName: '',
+            score: [],
             datePlayed: ''
         });
         setScoresList([]);
