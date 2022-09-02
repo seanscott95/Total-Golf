@@ -1,10 +1,8 @@
 function ScorecardCard({ scorecard }) {
     return (
         <div className="scorecard">
-            <div>
-                {new Date(scorecard.datePlayed).toLocaleString('en-AU')}
-                {scorecard.courseName}
-            </div>
+            <div>Date: {scorecard.datePlayed}</div>
+            <div>Course: {scorecard.courseName}</div>
             <div>
                 <table>
                     <thead>
