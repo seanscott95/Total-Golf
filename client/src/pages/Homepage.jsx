@@ -10,20 +10,20 @@ import spinner from '../assets/gif/Ghost.gif';
 function Homepage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  
+
   const { user } = useSelector((state) => state.auth);
   const { scores, isLoading, isError, message } = useSelector((state) => state.scores);
 
   useEffect(() => {
-    if(!user) {
+    if (!user) {
       navigate('/login');
     };
 
-    if(isError) {
+    if (isError) {
       console.log(`Error: ${message}`);
     };
 
-    if(user) {
+    if (user) {
       dispatch(getAllScorecards());
     };
 
@@ -32,30 +32,31 @@ function Homepage() {
     }
   }, [user, navigate, isError, message, dispatch]);
 
-  if(isLoading) {
-    return <img src={spinner} alt='Loading' />
-  };
-
   return (
     <>
       <section className="heading">
-        <h1>Welcome { user && user.username } !</h1>
+        <h1>Welcome {user && user.username} !</h1>
         <p>Scorecard Dashboard</p>
       </section>
 
       <ScorecardForm />
+      {isLoading ? (
+        <img src={spinner} alt='Loading' />
+      ) : (
+        <section className='content'>
+          {scores.length > 0 ? (
+            <div className='scores'>
+              {scores.map((item) => (
+                <ScorecardCard key={item._id} scorecard={item} />
+              ))}
+            </div>
+          ) : (
+            <h3>There are no scorecards!</h3>
+          )}
+        </section>
+      )};
 
-      <section className='content'>
-        {scores.length > 0 ? (
-          <div className='scores'>
-            {scores.map((item) => (
-              <ScorecardCard key={item._id} scorecard={item} />
-            ))}
-          </div>
-        ) : (
-          <h3>There are no scorecards!</h3>
-        )}
-      </section>
+
     </>
   )
 }
