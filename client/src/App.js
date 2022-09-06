@@ -13,13 +13,15 @@ const App = () => {
     <>
       <Router>
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/personal" element={<Personal />} />
-          <Route path="/Leaderboard" element={<Leaderboard />} />
-        </Routes>
+        <div className='container'>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/personal" element={<Personal />} />
+            <Route path="/Leaderboard" element={<Leaderboard />} />
+          </Routes>
+        </div>
       </Router>
       <ToastContainer />
     </>
