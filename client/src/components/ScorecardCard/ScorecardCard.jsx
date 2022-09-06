@@ -8,7 +8,7 @@ function ScorecardCard({ scorecard }) {
                 <p><span>Date:</span> {scorecard.datePlayed}</p>
             </div>
             <div>
-                <table class='styled-table'>
+                <table className='styled-table'>
                     <thead>
                         <tr>
                             <th>Username</th>
