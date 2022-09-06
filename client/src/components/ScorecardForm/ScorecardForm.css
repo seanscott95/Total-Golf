@@ -1,29 +1,34 @@
 .form,
 .content {
-  width: 70%;
-  margin: 0 auto;
+    width: 70%;
+    margin: 0 auto;
 }
 
 .form-group {
-  margin-bottom: 3px;
+    margin-bottom: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .form-group input,
 .form-group textarea,
 .form-group select {
-  width: 100%;
-  padding: 5px;
-  border: 1px solid black;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  font-family: inherit;
+    width: 100%;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-family: inherit;
 }
 
 .form-group label {
-  text-align: left;
-  display: block;
-  margin: 0 0 5px 3px;
-  font-weight: bold;
+    width: 150px;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-family: inherit;
+    font-weight: bold;
 }
 
 .btn-square {
