@@ -48,7 +48,7 @@ function Homepage() {
             <div className='scores'>
               {scores.map((item) => (
                 <ScorecardCard key={item._id} scorecard={item} />
-              ))}
+              )).reverse()}
             </div>
           ) : (
             <h3>There are no scorecards!</h3>
