@@ -1,6 +1,7 @@
+/* --------- STYLED TABLE---------- */
 .styled-table {
     border-collapse: collapse;
-    margin: 25px 0;
+    margin: 10px 0;
     font-size: 0.9em;
     font-family: sans-serif;
     min-width: 400px;
@@ -14,10 +15,11 @@
 
 .styled-table th,
 .styled-table td {
-    padding: 5px 8px;
+    padding: 5px;
 }
 
 .styled-table tbody tr {
+    background-color: white;
     border-bottom: 1px solid grey;
 }
 
@@ -27,4 +29,32 @@
 
 .styled-table tbody tr:last-of-type {
     border-bottom: 1px solid var(--secondary-color);
+}
+
+/* -----------SCORECARD----------- */
+.scorecard {
+    background: var(--third-color);
+    padding: 10px;
+    margin: 10px;
+    min-width: fit-content;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
+}
+
+.scorecard-header {
+    color: var(--primary-color);
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: var(--secondary-color);
+    border-radius: 20px;
+}
+
+.scorecard-header span {
+    font-weight: bold;
 }

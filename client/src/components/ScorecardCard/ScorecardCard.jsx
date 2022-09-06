@@ -3,8 +3,10 @@ import './ScorecardCard.css'
 function ScorecardCard({ scorecard }) {
     return (
         <div className="scorecard">
-            <div>Date: {scorecard.datePlayed}</div>
-            <div>Course: {scorecard.courseName}</div>
+            <div className='scorecard-header'>
+                <p><span>Course:</span> {scorecard.courseName}</p>
+                <p><span>Date:</span> {scorecard.datePlayed}</p>
+            </div>
             <div>
                 <table class='styled-table'>
                     <thead>
