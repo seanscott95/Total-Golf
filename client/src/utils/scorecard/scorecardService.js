@@ -11,7 +11,7 @@ const createScorecard = async (scorecardData, token) => {
     };
 
     const response = await axios.post(API_URL, scorecardData.formData, config);
-    return response.data;
+    return [...response.data];
 };
 
 // Get ALL scorecards
@@ -23,7 +23,7 @@ const getAllScorecards = async (token) => {
     };
 
     const response = await axios.get(API_URL, config);
-    return response.data;
+    return [...response.data];
 };
 
 const scorecardService = {
