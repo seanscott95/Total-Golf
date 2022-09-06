@@ -51,7 +51,7 @@ const Navbar = () => {
         </li>
         {user ? (
           <li className='nav-item'>
-            <button to="/logout" className='btn' onClick={onLogout}>Logout</button>
+            <button to="/logout" className='logout-btn' onClick={onLogout}>Logout</button>
           </li>
         ) : (
           <>
