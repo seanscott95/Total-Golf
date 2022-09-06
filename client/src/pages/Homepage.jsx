@@ -35,8 +35,8 @@ function Homepage() {
   return (
     <>
       <section className="heading">
-        <h1>Welcome {user && user.username} !</h1>
-        <p>Scorecard Dashboard</p>
+        <h1>Scorecard Dashboard</h1>
+        <p>Welcome {user && user.username} !</p>
       </section>
 
       <ScorecardForm />
