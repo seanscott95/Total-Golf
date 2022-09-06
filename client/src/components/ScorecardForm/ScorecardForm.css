@@ -52,3 +52,29 @@ td input {
 th {
     color: var(--primary-color);
 }
+
+/* --------- STYLED TABLE FOOT---------- */
+tfoot th,
+tfoot td {
+    padding: 5px;
+    border-radius: 5px;
+    font-size: .9em;
+}
+
+tfoot tr {
+    background-color: white;
+    border-bottom: 1px solid grey;
+}
+
+tfoot tr:nth-of-type(even) {
+    background-color: lightgrey;
+}
+
+tfoot tr:last-of-type {
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+tfoot td:nth-child(2) {
+    background-color: var(--fourth-color);
+    border-radius: 0px;
+}
