@@ -53,6 +53,25 @@ button:hover {
   transform: scale(0.98);
 }
 
+.heading {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+  padding: 0 20px;
+}
+
+.heading p {
+  color: #828282;
+}
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
 /* ------------REMOVES COUNTER ON INPUTS------------ */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
