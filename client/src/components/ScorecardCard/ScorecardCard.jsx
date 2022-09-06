@@ -30,35 +30,35 @@ function ScorecardCard({ scorecard }) {
                         </tr>
                     </thead>
                     <tbody>
-                            {scorecard.score?.map((item) => (
-                                <tr key={item._id}>
-                                    <td>{item.username}</td>
-                                    <td></td>
-                                    <td>{item.firstNine.hole1}</td>
-                                    <td>{item.firstNine.hole2}</td>
-                                    <td>{item.firstNine.hole3}</td>
-                                    <td>{item.firstNine.hole4}</td>
-                                    <td>{item.firstNine.hole5}</td>
-                                    <td>{item.firstNine.hole6}</td>
-                                    <td>{item.firstNine.hole7}</td>
-                                    <td>{item.firstNine.hole8}</td>
-                                    <td>{item.firstNine.hole9}</td>
-                                    <td>{item.lastNine.hole10}</td>
-                                    <td>{item.lastNine.hole11}</td>
-                                    <td>{item.lastNine.hole12}</td>
-                                    <td>{item.lastNine.hole13}</td>
-                                    <td>{item.lastNine.hole14}</td>
-                                    <td>{item.lastNine.hole15}</td>
-                                    <td>{item.lastNine.hole16}</td>
-                                    <td>{item.lastNine.hole17}</td>
-                                    <td>{item.lastNine.hole18}</td>
-                                </tr>
-                            ))}
+                        {scorecard.score.map((item) => (
+                            <tr key={item._id}>
+                                <td>{item.username}</td>
+                                <td></td>
+                                <td>{item.firstNine.hole1}</td>
+                                <td>{item.firstNine.hole2}</td>
+                                <td>{item.firstNine.hole3}</td>
+                                <td>{item.firstNine.hole4}</td>
+                                <td>{item.firstNine.hole5}</td>
+                                <td>{item.firstNine.hole6}</td>
+                                <td>{item.firstNine.hole7}</td>
+                                <td>{item.firstNine.hole8}</td>
+                                <td>{item.firstNine.hole9}</td>
+                                <td>{item.lastNine.hole10}</td>
+                                <td>{item.lastNine.hole11}</td>
+                                <td>{item.lastNine.hole12}</td>
+                                <td>{item.lastNine.hole13}</td>
+                                <td>{item.lastNine.hole14}</td>
+                                <td>{item.lastNine.hole15}</td>
+                                <td>{item.lastNine.hole16}</td>
+                                <td>{item.lastNine.hole17}</td>
+                                <td>{item.lastNine.hole18}</td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>
         </div>
-    )
+    );
 };
 
 export default ScorecardCard;
