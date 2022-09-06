@@ -130,10 +130,9 @@ function ScorecardForm() {
 
     // Sets the formData score key as the scoresList array everytime scoresList is rendered
     useEffect(() => {
-        const list = scoresList;
         setFormData((prev) => ({
             ...prev,
-            score: list,
+            score: scoresList,
         }));
     }, [scoresList]);
 
