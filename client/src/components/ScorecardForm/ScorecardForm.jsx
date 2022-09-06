@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { createScorecard } from '../../utils/scorecard/scorecardSlice';
+import './ScorecardForm.css';
 
 function ScorecardForm() {
     // Holds the formData that is used to create a scorecard
@@ -334,7 +335,7 @@ function ScorecardForm() {
                                         onChange={handleLastNineChange} />
                                 </td>
                                 <td>
-                                    <button type='submit' onClick={handlePlayerSubmit}>Add</button>
+                                    <button type='submit' className='btn-square' onClick={handlePlayerSubmit}>Add</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -376,7 +377,7 @@ function ScorecardForm() {
                         onChange={handleFormChange} />
                 </div>
                 <div className="form-group">
-                    <button type='submit' className='btn'>Submit</button>
+                    <button type='submit' className='btn btn-block'>Submit</button>
                 </div>
             </form>
         </section>

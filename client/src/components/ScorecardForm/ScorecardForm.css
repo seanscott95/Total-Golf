@@ -1,0 +1,44 @@
+.form,
+.content {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 3px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-family: inherit;
+}
+
+.form-group label {
+  text-align: left;
+  display: block;
+  margin: 0 0 5px 3px;
+  font-weight: bold;
+}
+
+.btn-square {
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 8px;
+}
+
+.btn-block {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+td input {
+    width: 50px;
+}
