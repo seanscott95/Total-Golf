@@ -1,10 +1,12 @@
+import './ScorecardCard.css'
+
 function ScorecardCard({ scorecard }) {
     return (
         <div className="scorecard">
             <div>Date: {scorecard.datePlayed}</div>
             <div>Course: {scorecard.courseName}</div>
             <div>
-                <table>
+                <table class='styled-table'>
                     <thead>
                         <tr>
                             <th>Username</th>
