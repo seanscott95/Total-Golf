@@ -29,6 +29,7 @@
     margin-bottom: 10px;
     font-family: inherit;
     font-weight: bold;
+    color: var(--primary-color);
 }
 
 .btn-square {
@@ -46,4 +47,8 @@
 
 td input {
     width: 50px;
+}
+
+th {
+    color: var(--primary-color);
 }

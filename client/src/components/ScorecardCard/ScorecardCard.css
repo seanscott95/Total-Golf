@@ -47,7 +47,7 @@
 }
 
 .scorecard-header {
-    color: var(--primary-color);
+    color: white;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -57,4 +57,5 @@
 
 .scorecard-header span {
     font-weight: bold;
+    color: var(--primary-color);
 }
