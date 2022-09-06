@@ -13,6 +13,7 @@ function Homepage() {
 
   const { user } = useSelector((state) => state.auth);
   const { scores, isLoading, isError, message } = useSelector((state) => state.scores);
+  console.log('scores',scores)
 
   useEffect(() => {
     if (!user) {
@@ -54,9 +55,7 @@ function Homepage() {
             <h3>There are no scorecards!</h3>
           )}
         </section>
-      )};
-
-
+      )}
     </>
   )
 }
