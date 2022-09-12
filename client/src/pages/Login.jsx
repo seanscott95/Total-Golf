@@ -52,7 +52,7 @@ function Login() {
   }
 
   return (
-    <>
+    <div className='loginContainer'>
       <section className="heading">
         <h1>Login</h1>
         <p>Please login</p>
@@ -87,7 +87,7 @@ function Login() {
           </div>
         </form>
       </section>
-    </>
+    </div>
   );
 };
 

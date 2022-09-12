@@ -59,7 +59,7 @@ function Signup() {
   }
   
   return (
-    <>
+    <div className='loginContainer'>
       <section className="heading">
         <h1>Sign Up</h1>
         <p>Please create an account</p>
@@ -116,7 +116,7 @@ function Signup() {
           </div>
         </form>
       </section>
-    </>
+    </div>
   );
 };
 

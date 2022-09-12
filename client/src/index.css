@@ -68,6 +68,14 @@ button:hover {
   font-size: .7em;
 }
 
+.loginContainer {
+  border: 1px solid var(--primary-color);
+  border-radius: 15px;
+  padding: 10px 0;
+  margin: 50px;
+}
+
+/* Toast Container */
 .container {
   width: 100%;
   max-width: 960px;
