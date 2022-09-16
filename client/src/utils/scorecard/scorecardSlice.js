@@ -17,20 +17,22 @@ export const scorecardSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(createScorecard.pending, (state, action) => {
+            .addCase(createScorecard.pending, (state) => {
                 state.isLoading = true;
+                state.isSuccess = false;
             })
             .addCase(createScorecard.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.isSuccess = true;
-                state.scores.push(action.payload);
+                state.scores.push(action.meta.arg.formData);
+                // state.scores.push(action.payload);
             })
             .addCase(createScorecard.rejected, (state, action) => {
                 state.isLoading = false;
                 state.isError = true;
                 state.message = action.payload;
             })
-            .addCase(getAllScorecards.pending, (state, action) => {
+            .addCase(getAllScorecards.pending, (state) => {
                 state.isLoading = true;
             })
             .addCase(getAllScorecards.fulfilled, (state, action) => {
