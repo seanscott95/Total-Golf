@@ -10,7 +10,7 @@ const createScorecard = async (scorecardData, token) => {
                 Authorization: `Bearer ${token}`
             },
         };
-    
+
         const response = await axios.post(API_URL, scorecardData.formData, config);
         return response.data;
     } catch (error) {
@@ -26,9 +26,25 @@ const getAllScorecards = async (token) => {
                 Authorization: `Bearer ${token}`
             },
         };
-    
+
         const response = await axios.get(API_URL, config);
         return [...response.data];
+    } catch (error) {
+        return error.message;
+    };
+};
+
+// Delete scorecards
+const deleteScorecard = async (id, token) => {
+    try {
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`
+            },
+        };
+
+        const response = await axios.delete(API_URL + id, config);
+        return response.data;
     } catch (error) {
         return error.message;
     };
@@ -37,6 +53,7 @@ const getAllScorecards = async (token) => {
 const scorecardService = {
     createScorecard,
     getAllScorecards,
+    deleteScorecard,
 };
 
 export default scorecardService;
