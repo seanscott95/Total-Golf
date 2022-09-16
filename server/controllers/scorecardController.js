@@ -74,7 +74,7 @@ const updateScorecard = asyncHandler(async (req, res) => {
 
 });
 
-// @desc Delete scorecard
+// @desc Deletes scorecard and scores collections
 // @route DELETE /api/scores
 // @access Private
 const deleteScorecard = asyncHandler(async (req, res) => {
@@ -92,7 +92,7 @@ const deleteScorecard = asyncHandler(async (req, res) => {
         res.status(400);
         throw new Error('Scorecard not found');
     };
-    res.status(200).json(deleteScorecard);
+    res.status(200).json({id: req.params.id});
 });
 
 module.exports = {
