@@ -1,6 +1,11 @@
 import './ScorecardCard.css'
 
+import { useDispatch } from 'react-redux';
+import { deleteScorecard } from '../../utils/scorecard/scorecardSlice';
+
 function ScorecardCard({ scorecard }) {
+    const dispatch = useDispatch();
+
     return (
         <div className="scorecard">
             <div className='scorecard-header'>
@@ -60,6 +65,9 @@ function ScorecardCard({ scorecard }) {
                         ))}
                     </tbody>
                 </table>
+            </div>
+            <div>
+                <button type='submit' onClick={() => dispatch(deleteScorecard(scorecard._id))}>X</button>
             </div>
         </div>
     );
