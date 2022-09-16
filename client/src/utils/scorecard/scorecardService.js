@@ -4,26 +4,34 @@ const API_URL = '/api/scores/';
 
 // Create scorecard
 const createScorecard = async (scorecardData, token) => {
-    const config = {
-        headers: {
-            Authorization: `Bearer ${token}`
-        },
+    try {
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`
+            },
+        };
+    
+        const response = await axios.post(API_URL, scorecardData.formData, config);
+        return response.data;
+    } catch (error) {
+        return error.message;
     };
-
-    const response = await axios.post(API_URL, scorecardData.formData, config);
-    return [...response.data];
 };
 
 // Get ALL scorecards
 const getAllScorecards = async (token) => {
-    const config = {
-        headers: {
-            Authorization: `Bearer ${token}`
-        },
+    try {
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`
+            },
+        };
+    
+        const response = await axios.get(API_URL, config);
+        return [...response.data];
+    } catch (error) {
+        return error.message;
     };
-
-    const response = await axios.get(API_URL, config);
-    return [...response.data];
 };
 
 const scorecardService = {
