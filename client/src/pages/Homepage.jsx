@@ -29,7 +29,7 @@ function Homepage() {
 
     return () => {
       dispatch(reset());
-    }
+    };
   }, [user, navigate, isError, message, dispatch]);
 
   return (
@@ -40,6 +40,7 @@ function Homepage() {
       </section>
 
       <ScorecardForm />
+
       {isLoading ? (
         <img src={spinner} alt='Loading' />
       ) : (
