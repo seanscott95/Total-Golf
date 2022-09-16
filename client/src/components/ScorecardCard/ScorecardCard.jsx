@@ -37,7 +37,7 @@ function ScorecardCard({ scorecard }) {
                         {scorecard.score.map((item) => (
                             <tr key={item._id}>
                                 <td>{item.username}</td>
-                                <td></td>
+                                <td>&nbsp;</td>
                                 <td>{item.firstNine.hole1}</td>
                                 <td>{item.firstNine.hole2}</td>
                                 <td>{item.firstNine.hole3}</td>
