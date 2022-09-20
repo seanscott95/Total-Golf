@@ -4,7 +4,8 @@ const {
     getAllScorecards,
     setScorecard, 
     updateScorecard, 
-    deleteScorecard
+    deleteScorecard,
+    getUserScorecards,
 } = require('../controllers/scorecardController');
 
 const { authMiddleware } = require('../utils/auth');
