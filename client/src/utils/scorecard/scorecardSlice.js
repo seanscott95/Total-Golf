@@ -110,7 +110,9 @@ export const deleteScorecard = createAsyncThunk(
                 error.toString();
             return thunkAPI.rejectWithValue(message);
         };
-    });
+});
+
+
 
 export const { reset } = scorecardSlice.actions;
 export default scorecardSlice.reducer;
