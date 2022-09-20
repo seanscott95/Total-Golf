@@ -100,5 +100,5 @@ module.exports = {
     getAllScorecards,
     setScorecard,
     updateScorecard,
-    deleteScorecard
+    deleteScorecard,
 }
