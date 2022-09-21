@@ -2,20 +2,9 @@ import './ScorecardCard.css'
 
 import { useDispatch } from 'react-redux';
 import { deleteScorecard } from '../../utils/scorecard/scorecardSlice';
-
+import { totalScore } from '../../utils/helper/totalScore';
 function ScorecardCard({ scorecard }) {
     const dispatch = useDispatch();
-
-    // Calculates the total score of the firstNine and lastNine holes values
-    const totalScore = (firstNine, lastNine) => {
-        let sum = 0;
-        for (const value in firstNine) {
-            sum += parseInt(firstNine[value]);
-        };
-        for (const value2 in lastNine) {
-            return sum += parseInt(lastNine[value2]);
-        };
-    };
 
     return (
         <div className="scorecard">
