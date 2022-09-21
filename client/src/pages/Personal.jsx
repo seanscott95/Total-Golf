@@ -42,6 +42,10 @@ function Personal() {
         <img src={spinner} alt='Loading' />
       ) : (
         <section className='content'>
+          <div className='section-heading'>
+            <h3>ALL</h3>
+            <p>Below are all of your previous games</p>
+          </div>
           {personal.length > 0 ? (
             <div className='scores'>
               {personal.map((item) => (

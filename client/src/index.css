@@ -55,6 +55,8 @@ button:hover {
   transform: scale(0.98);
 }
 
+/* -------- CSS FOR PAGES ------- */
+/* Page Headings */
 .heading {
   font-size: 2rem;
   font-weight: 700;
@@ -68,11 +70,27 @@ button:hover {
   font-size: .7em;
 }
 
+/* Login Container */
 .loginContainer {
   border: 1px solid var(--primary-color);
   border-radius: 15px;
   padding: 10px 0;
   margin: 50px;
+}
+
+/* Headings for page sections */
+.section-heading {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 20px;
+  color: var(--primary-color);
+}
+
+.section-heading p {
+  padding-left: 20px;
+  margin-bottom: 9px;
+  color: white;
 }
 
 /* Toast Container */
