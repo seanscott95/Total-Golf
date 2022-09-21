@@ -69,6 +69,10 @@ const scoreSchema = new Schema({
             type: String,
         },
     },
+    total: {
+        type: Number,
+    },
+
 },
     {
         timestamps: true,
