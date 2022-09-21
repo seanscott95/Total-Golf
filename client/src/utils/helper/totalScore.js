@@ -5,6 +5,7 @@ export const totalScore = (firstNine, lastNine) => {
         sum += parseInt(firstNine[value]);
     };
     for (const value2 in lastNine) {
-        return sum += parseInt(lastNine[value2]);
+        sum += parseInt(lastNine[value2]);
     };
+    return sum
 };
