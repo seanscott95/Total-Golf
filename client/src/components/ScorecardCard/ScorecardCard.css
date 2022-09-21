@@ -51,6 +51,7 @@
     width: 100%;
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     background-color: var(--secondary-color);
     border-radius: 20px;
 }
@@ -58,4 +59,18 @@
 .scorecard-header span {
     font-weight: bold;
     color: var(--primary-color);
+}
+
+.deleteBtn {
+    margin: 4px;
+    padding: 2px 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-duration: 0.4s;
+}
+.deleteBtn:hover {
+    transform: scale(.9);
+    color: red;
+    border-color: red;
 }

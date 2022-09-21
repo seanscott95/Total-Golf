@@ -10,6 +10,7 @@ function ScorecardCard({ scorecard }) {
             <div className='scorecard-header'>
                 <p><span>Course:</span> {scorecard.courseName}</p>
                 <p><span>Date:</span> {scorecard.datePlayed}</p>
+                <button type='submit' className='deleteBtn' onClick={() => dispatch(deleteScorecard(scorecard._id))}>X</button>
             </div>
             <div>
                 <table className='styled-table'>
@@ -66,9 +67,6 @@ function ScorecardCard({ scorecard }) {
                         ))}
                     </tbody>
                 </table>
-            </div>
-            <div>
-                <button type='submit' onClick={() => dispatch(deleteScorecard(scorecard._id))}>X</button>
             </div>
         </div>
     );
