@@ -1,6 +1,15 @@
 import '../ScorecardCard/ScorecardCard.css';
 
 function ScoreCard({ score }) {
+    // Calculates the total score of the firstNine and lastNine holes values
+    let sum = 0;
+    for (const value in score.firstNine) {
+        sum += parseInt(score.firstNine[value]);
+    };
+    for (const value2 in score.lastNine) {
+        sum += parseInt(score.lastNine[value2]);
+    };
+
     return (
         <div className="scorecard">
             <div>
@@ -27,6 +36,7 @@ function ScoreCard({ score }) {
                             <th>16</th>
                             <th>17</th>
                             <th>18</th>
+                            <th>T</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -51,6 +61,7 @@ function ScoreCard({ score }) {
                             <td>{score.lastNine.hole16}</td>
                             <td>{score.lastNine.hole17}</td>
                             <td>{score.lastNine.hole18}</td>
+                            <td>{sum}</td>
                         </tr>
                     </tbody>
                 </table>
