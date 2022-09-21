@@ -6,6 +6,17 @@ import { deleteScorecard } from '../../utils/scorecard/scorecardSlice';
 function ScorecardCard({ scorecard }) {
     const dispatch = useDispatch();
 
+    // Calculates the total score of the firstNine and lastNine holes values
+    const totalScore = (firstNine, lastNine) => {
+        let sum = 0;
+        for (const value in firstNine) {
+            sum += parseInt(firstNine[value]);
+        };
+        for (const value2 in lastNine) {
+            return sum += parseInt(lastNine[value2]);
+        };
+    };
+
     return (
         <div className="scorecard">
             <div className='scorecard-header'>
@@ -36,6 +47,7 @@ function ScorecardCard({ scorecard }) {
                             <th>16</th>
                             <th>17</th>
                             <th>18</th>
+                            <th>T</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -61,6 +73,7 @@ function ScorecardCard({ scorecard }) {
                                 <td>{item.lastNine.hole16}</td>
                                 <td>{item.lastNine.hole17}</td>
                                 <td>{item.lastNine.hole18}</td>
+                                <td>{totalScore(item.firstNine, item.lastNine)}</td>
                             </tr>
                         ))}
                     </tbody>
