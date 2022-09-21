@@ -1,7 +1,5 @@
 import '../ScorecardCard/ScorecardCard.css';
 
-import { totalScore } from '../../utils/helper/totalScore';
-
 function ScoreCard({ score }) {
     return (
         <div className="scorecard">
@@ -54,7 +52,7 @@ function ScoreCard({ score }) {
                             <td>{score.lastNine.hole16}</td>
                             <td>{score.lastNine.hole17}</td>
                             <td>{score.lastNine.hole18}</td>
-                            <td>{totalScore(score.firstNine, score.lastNine)}</td>
+                            <td>{score.total}</td>
                         </tr>
                     </tbody>
                 </table>

@@ -2,7 +2,6 @@ import './ScorecardCard.css'
 
 import { useDispatch } from 'react-redux';
 import { deleteScorecard } from '../../utils/scorecard/scorecardSlice';
-import { totalScore } from '../../utils/helper/totalScore';
 function ScorecardCard({ scorecard }) {
     const dispatch = useDispatch();
 
@@ -62,7 +61,7 @@ function ScorecardCard({ scorecard }) {
                                 <td>{item.lastNine.hole16}</td>
                                 <td>{item.lastNine.hole17}</td>
                                 <td>{item.lastNine.hole18}</td>
-                                <td>{totalScore(item.firstNine, item.lastNine)}</td>
+                                <td>{item.total}</td>
                             </tr>
                         ))}
                     </tbody>
