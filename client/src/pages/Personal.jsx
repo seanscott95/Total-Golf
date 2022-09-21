@@ -44,7 +44,7 @@ function Personal() {
         <section className='content'>
           <div className='section-heading'>
             <h3>ALL</h3>
-            <p>Below are all of your previous games</p>
+            <p>Below are all of your previous scores</p>
           </div>
           {personal.length > 0 ? (
             <div className='scores'>
@@ -53,7 +53,7 @@ function Personal() {
               )).reverse()}
             </div>
           ) : (
-            <h3>There are no scorecards!</h3>
+            <h3>You have no scores!</h3>
           )}
         </section>
       )}
