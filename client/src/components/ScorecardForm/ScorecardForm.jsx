@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { createScorecard } from '../../utils/scorecard/scorecardSlice';
+import { totalScore } from '../../utils/helper/totalScore';
 import './ScorecardForm.css';
 
 function ScorecardForm() {
@@ -40,11 +41,14 @@ function ScorecardForm() {
             hole17: '',
             hole18: '',
         },
+        total: '',
     });
 
     const { courseName, datePlayed } = formData;
+    
 
     const dispatch = useDispatch();
+
 
     // Handles the form submit that creates the dispatch that creates the scorecard depending
     // on the formData variable, then resets the formData and the scoresList
@@ -73,9 +77,13 @@ function ScorecardForm() {
     const handlePlayerSubmit = (e) => {
         e.preventDefault();
 
+        
+        
+
         const list = scoresList;
         list.push(scoreInputData);
         setScoresList(list);
+        console.log("list---", list)
 
         setScoreInputData({
             username: '',
@@ -101,6 +109,7 @@ function ScorecardForm() {
                 hole17: '',
                 hole18: '',
             },
+            total: '',
         });
     };
 
@@ -118,7 +127,7 @@ function ScorecardForm() {
             ...prev,
             firstNine: {
                 ...prev.firstNine, [e.target.name]: e.target.value
-            }
+            },
         }));
     };
 
@@ -128,10 +137,12 @@ function ScorecardForm() {
             ...prev,
             lastNine: {
                 ...prev.lastNine, [e.target.name]: e.target.value
-            }
+            },
         }));
     };
 
+    
+    
     // Sets the formData score property as the scoresList variable everytime scoresList is 
     // changed between rendering
     useEffect(() => {
@@ -140,6 +151,16 @@ function ScorecardForm() {
             score: scoresList,
         }));
     }, [scoresList]);
+
+    // Sets the scoreInputData total property to be the total of the scoreInputData's 
+    // lastNine and firstNine holes 
+    useEffect(() => {
+        const sum = totalScore(scoreInputData.firstNine, scoreInputData.lastNine)
+        setScoreInputData((prev) => ({
+            ...prev, 
+            total: JSON.stringify(sum)
+        }));
+    }, [scoreInputData.firstNine, scoreInputData.lastNine])
 
     return (
         <section className="form">
@@ -177,6 +198,8 @@ function ScorecardForm() {
                                 <th>16</th>
                                 <th>17</th>
                                 <th>18</th>
+                                <th></th>
+                                <th>T</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -334,6 +357,8 @@ function ScorecardForm() {
                                         value={scoreInputData.lastNine.hole18}
                                         onChange={handleLastNineChange} />
                                 </td>
+                                <td></td>
+                                <td></td>
                                 <td>
                                     <button type='submit' className='btn-square' onClick={handlePlayerSubmit}>Add</button>
                                 </td>
@@ -362,6 +387,8 @@ function ScorecardForm() {
                                     <td>{item.lastNine.hole16}</td>
                                     <td>{item.lastNine.hole17}</td>
                                     <td>{item.lastNine.hole18}</td>
+                                    <td className='hide'></td>
+                                    <td>{item.total}</td>
                                 </tr>
                             ))}
                         </tfoot>
