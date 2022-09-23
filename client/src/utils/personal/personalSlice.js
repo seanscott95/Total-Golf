@@ -13,7 +13,7 @@ export const personalSlice = createSlice({
     name: 'personal',
     initialState,
     reducers: {
-        reset: (state) => initialState
+        resetPersonal: (state) => initialState
     },
     extraReducers: (builder) => {
         builder
@@ -51,5 +51,5 @@ export const getAllPersonal = createAsyncThunk(
 });
 
 
-export const { reset } = personalSlice.actions;
+export const { resetPersonal } = personalSlice.actions;
 export default personalSlice.reducer;
