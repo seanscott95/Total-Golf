@@ -21,6 +21,17 @@ function Personal() {
     return obj.score.some(item => item.username === user.username);
   });
 
+  // Sorts the personal scores array by the total (lower is better in golf)
+  const orderedPersonalScores = [...personal].sort((a, b) => a.total - b.total);
+
+  // Creates an average score for the personal totals by getting the sum then dividing by the length
+  let sum = 0;
+  personal.forEach((item) => {
+    sum += item.total;
+  });
+  const personalAverage = sum / personal.length;
+
+
   useEffect(() => {
     if (!user) {
       navigate('/login');
@@ -64,6 +75,16 @@ function Personal() {
         <p>Welcome {user && user.username} !</p>
       </section>
 
+      <section className='content'>
+        <div className='section-heading'>
+          <h3>STATS</h3>
+          <p>Played: {personal.length > 0 ? personal.length : 'N/A'}</p>
+          <p>Best: {orderedPersonalScores.length > 0 ? orderedPersonalScores[0].total : 'N/A'}</p>
+          <p>Average: {personalAverage}</p>
+          <p>Worst: {orderedPersonalScores.length > 0 ? [...orderedPersonalScores].reverse()[0].total : 'N/A'}</p>
+        </div>
+      </section>
+
       {isLoading ? (
         <img src={spinner} alt='Loading' />
       ) : (
@@ -71,14 +92,14 @@ function Personal() {
           <section className='content'>
             <div className='section-heading'>
               <h3>ALL</h3>
-              <p>Below are all of your previous scores</p>
+              <p>Below are all of your previous scores from best to worst</p>
             </div>
 
-            {personal.length > 0 ? (
+            {orderedPersonalScores.length > 0 ? (
               <div className='scores'>
-                {personal.map((item) => (
+                {orderedPersonalScores.map((item) => (
                   <ScoreCard key={item._id} score={item} />
-                )).reverse()}
+                ))}
               </div>
             ) : (
               <h3>You have no scores!</h3>
@@ -106,13 +127,6 @@ function Personal() {
             ) : (
               <h3>You have no scores!</h3>
             )}
-          </section>
-
-          <section className='content'>
-            <div className='section-heading'>
-              <h3>BEST AND BLURST</h3>
-              <p>Lets see your best and worst scores</p>
-            </div>
           </section>
         </>
       )}
