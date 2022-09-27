@@ -25,11 +25,13 @@ function Personal() {
   const orderedPersonalScores = [...personal].sort((a, b) => a.total - b.total);
 
   // Creates an average score for the personal totals by getting the sum then dividing by the length
-  let sum = 0;
-  personal.forEach((item) => {
-    sum += item.total;
-  });
-  const personalAverage = sum / personal.length;
+  const personalAverage = (arr) => {
+    let sum = 0;
+    arr.forEach((item) => {
+      sum += item.total;
+    });
+    return sum / arr.length;
+  };
 
 
   useEffect(() => {
@@ -80,7 +82,7 @@ function Personal() {
           <h3>STATS</h3>
           <p>Played: {personal.length > 0 ? personal.length : 'N/A'}</p>
           <p>Best: {orderedPersonalScores.length > 0 ? orderedPersonalScores[0].total : 'N/A'}</p>
-          <p>Average: {personalAverage}</p>
+          <p>Average: {personalAverage(personal) || 'N/A'}</p>
           <p>Worst: {orderedPersonalScores.length > 0 ? [...orderedPersonalScores].reverse()[0].total : 'N/A'}</p>
         </div>
       </section>
