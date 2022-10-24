@@ -13,60 +13,60 @@ const scoreSchema = new Schema({
     // },
     firstNine: {
         hole1: {
-            type: String,
+            type: Number,
         },
         hole2: {
-            type: String,
+            type: Number,
         },
         hole3: {
-            type: String,
+            type: Number,
         },
         hole4: {
-            type: String,
+            type: Number,
         },
         hole5: {
-            type: String,
+            type: Number,
         },
         hole6: {
-            type: String,
+            type: Number,
         },
         hole7: {
-            type: String,
+            type: Number,
         },
         hole8: {
-            type: String,
+            type: Number,
         },
         hole9: {
-            type: String,
+            type: Number,
         },
     },
     lastNine: {
         hole10: {
-            type: String,
+            type: Number,
         },
         hole11: {
-            type: String,
+            type: Number,
         },
         hole12: {
-            type: String,
+            type: Number,
         },
         hole13: {
-            type: String,
+            type: Number,
         },
         hole14: {
-            type: String,
+            type: Number,
         },
         hole15: {
-            type: String,
+            type: Number,
         },
         hole16: {
-            type: String,
+            type: Number,
         },
         hole17: {
-            type: String,
+            type: Number,
         },
         hole18: {
-            type: String,
+            type: Number,
         },
     },
     total: {
