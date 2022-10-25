@@ -32,7 +32,7 @@ function Personal() {
     });
     return sum / arr.length;
   };
-
+  
 
   useEffect(() => {
     if (!user) {
