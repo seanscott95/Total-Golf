@@ -76,6 +76,7 @@ function Signup() {
               value={username}
               placeholder='Enter your username'
               onChange={onChange}
+              required
             />
           </div>
           <div className="form-group">
@@ -87,6 +88,7 @@ function Signup() {
               value={email}
               placeholder='Enter your email'
               onChange={onChange}
+              required
             />
           </div>
           <div className="form-group">
@@ -98,6 +100,8 @@ function Signup() {
               value={password}
               placeholder='Enter your password'
               onChange={onChange}
+              minlength='8'
+              required
             />
           </div>
           <div className="form-group">
@@ -109,6 +113,8 @@ function Signup() {
               value={password2}
               placeholder='Confirm password'
               onChange={onChange}
+              minlength='8'
+              required
             />
           </div>
           <div className="form-group">

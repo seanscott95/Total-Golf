@@ -69,6 +69,7 @@ function Login() {
               value={email}
               placeholder='Enter your email'
               onChange={onChange}
+              required
             />
           </div>
           <div className="form-group">
@@ -80,6 +81,8 @@ function Login() {
               value={password}
               placeholder='Enter your password'
               onChange={onChange}
+              minlength='8'
+              required
             />
           </div>
           <div className="form-group">
