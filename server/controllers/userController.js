@@ -49,7 +49,7 @@ const loginUser = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
 
     const user = await User.findOne({ email });
-    const correctPw = await user.isCorrectPassword(password);
+    const correctPw = await user?.isCorrectPassword(password);
 
     if (!user || !correctPw) {
         res.status(400);
