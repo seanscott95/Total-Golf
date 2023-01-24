@@ -100,7 +100,7 @@ function Signup() {
               value={password}
               placeholder='Enter your password'
               onChange={onChange}
-              minlength='8'
+              minLength='8'
               required
             />
           </div>
@@ -113,7 +113,7 @@ function Signup() {
               value={password2}
               placeholder='Confirm password'
               onChange={onChange}
-              minlength='8'
+              minLength='8'
               required
             />
           </div>
