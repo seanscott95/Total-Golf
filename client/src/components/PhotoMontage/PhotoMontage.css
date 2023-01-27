@@ -1,0 +1,23 @@
+.photoContainer {
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    color: var(--primary-color);
+    font-family: var(--cursive-font-family);
+}
+
+.photoItem {
+    flex-direction: column;
+    width: 20%;
+    margin: .3em;
+}
+
+.photoItem > img {
+    min-height: 300px;
+    width: 100%;
+    border: .3em solid white;
+}
+
+.photoItem > p {
+    font-size: 2.5em;
+}

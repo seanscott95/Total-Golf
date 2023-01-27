@@ -6,6 +6,7 @@ import ScorecardCard from '../components/ScorecardCard/ScorecardCard';
 import ScorecardForm from '../components/ScorecardForm/ScorecardForm';
 import { getAllScorecards, reset } from '../utils/scorecard/scorecardSlice';
 import spinner from '../assets/gif/Ghost.gif';
+import PhotoMontage from '../components/PhotoMontage/PhotoMontage';
 
 function Homepage() {
   const navigate = useNavigate();
@@ -34,10 +35,7 @@ function Homepage() {
 
   return (
     <>
-      <section className="heading">
-        <h1>Scorecard Dashboard</h1>
-        <p>Welcome {user && user.username} !</p>
-      </section>
+      <PhotoMontage />
 
       <ScorecardForm />
 
