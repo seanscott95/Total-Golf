@@ -42,6 +42,8 @@ const Navbar = () => {
         <img src={Logo} alt='Logo' />
       </Link>
 
+      <h1>Yeah The Boys</h1>
+ 
       <ul className={menu_class}>
         <li className='nav-item'>
           <Link to="/personal" className='nav-link'>Personal</Link>

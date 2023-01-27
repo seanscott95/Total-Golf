@@ -35,8 +35,14 @@ a {
     /* background-image: linear-gradient(140deg, var(--fourth-color) 10%, var(--secondary-color) 40%, var(--fourth-color) 100%); */
     /* background-image: linear-gradient(30deg, var(--secondary-color) 25%, var(--primary-color) 40%, var(--secondary-color) 55%); */
     /* background-color: var(--secondary-color); */
-    
-    
+}
+
+.navbar > h1 {
+    font-family: var(--cursive-font-family);
+    color: var(--primary-color);
+    margin: 0;
+    margin-left: 14%;
+    font-size: 2em;
 }
 
 .menu {
