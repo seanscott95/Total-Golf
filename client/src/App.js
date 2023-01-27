@@ -8,7 +8,7 @@ import Homepage from './pages/Homepage';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Personal from './pages/Personal';
-import Leaderboard from './pages/Leaderboard';
+import Scores from './pages/Scores';
 import PrivateRoutes from "./utils/auth/PrivateRoutes";
 
 const App = () => {
@@ -24,7 +24,7 @@ const App = () => {
             <Route element={<PrivateRoutes user={user} />}>
               <Route path="/" element={<Homepage />} />
               <Route path="/personal" element={<Personal />} />
-              <Route path="/Leaderboard" element={<Leaderboard />} />
+              <Route path="/Scores" element={<Scores />} />
             </Route>
           </Routes>
         </div>

@@ -49,7 +49,7 @@ const Navbar = () => {
           <Link to="/personal" className='nav-link'>Personal</Link>
         </li>
         <li className='nav-item'>
-          <Link to="/leaderboard" className='nav-link'>Leaderboard</Link>
+          <Link to="/scores" className='nav-link'>Scores</Link>
         </li>
         {user ? (
           <li className='nav-item'>
