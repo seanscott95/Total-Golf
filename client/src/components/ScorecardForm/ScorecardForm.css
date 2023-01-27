@@ -4,6 +4,10 @@
     margin: 0 auto;
 }
 
+.scorecard-form {
+    margin: 10em auto;
+}
+
 .form-group {
     margin-bottom: 3px;
     display: flex;

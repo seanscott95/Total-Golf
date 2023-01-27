@@ -163,7 +163,7 @@ function ScorecardForm() {
     }, [scoreInputData.firstNine, scoreInputData.lastNine])
 
     return (
-        <section className="form">
+        <section className="form scorecard-form">
             <form onSubmit={handleFormSubmit}>
                 <div className="form-group">
                     <label htmlFor="courseName">Course Name:</label>

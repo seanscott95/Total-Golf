@@ -1,6 +1,10 @@
+import ScorecardForm from '../components/ScorecardForm/ScorecardForm';
+
 function CreateScorecard() {
   return (
-    <div>CreateScorecard</div>
+    <div>
+      <ScorecardForm />
+    </div>
   )
 }
 
