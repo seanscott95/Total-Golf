@@ -3,6 +3,7 @@
   --secondary-color: #000000;
   --third-color: #2a2e34;
   --fourth-color: #14213D;
+  --cursive-font-family: 'Brush Script MT', 'Brush Script Std', cursive;
 }
 
 * {
