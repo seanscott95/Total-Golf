@@ -1,4 +1,4 @@
-.container-button {
+.button-container {
     background: black;
     color: var(--primary-color);
     display: flex;
@@ -42,7 +42,7 @@
     .svg {
         display: none;
     }
-    .container-button {
+    .button-container {
         width: fit-content;
         text-align: center;
         justify-content: center;
