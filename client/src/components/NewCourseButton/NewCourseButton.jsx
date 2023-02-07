@@ -5,7 +5,7 @@ import './NewCourseButton.css';
 function NewCourseButton({ header, text, link, image }) {
   return (
     <div className="container-button">
-        <section className="">
+        <section className="text-section">
             <h1>{header}</h1>
             <p>Create a new Scorecard for {text}</p>
             <Link to={link}>

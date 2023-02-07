@@ -13,7 +13,7 @@
     border: 1px solid var(--primary-color);
 }
 
-section {
+.text-section {
     padding-right: 2em;
     width: 60%;
 }
@@ -35,7 +35,7 @@ section {
 }
 
 @media screen and (max-width: 768px) {
-    section {
+    .text-section {
         padding: 0;
         margin: 0;
     }
