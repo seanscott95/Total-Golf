@@ -6,7 +6,7 @@
     text-align: left;
     padding: 1em;
     height: auto;
-    width: fit-content;
+    width: 50%;
     border-radius: 25px;
     color: var(--primary-color);
     border: 1px solid var(--primary-color);
@@ -17,10 +17,17 @@ section {
 }
 
 .croc-svg {
-    height: 150px;
+    height: auto;
+    width: 30%;
 }
 
 .btn {
     margin-top: 1em;
     font-size: large;
+}
+
+@media screen and (max-width: 768px) {
+    .croc-svg {
+        display: none;
+    }
 }
