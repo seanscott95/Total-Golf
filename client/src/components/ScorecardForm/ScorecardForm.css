@@ -1,11 +1,20 @@
+.scorecard-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 95%;
+    height: 70vh;
+    margin: 0 auto;
+}
+
 .form,
 .content {
-    width: 70%;
+    width: 90%;
     margin: 0 auto;
 }
 
 .scorecard-form {
-    margin: 10em auto;
+    margin: 1em auto;
 }
 
 .form-group {
@@ -41,12 +50,13 @@
     height: 100%;
     width: 100%;
     padding: 5px;
-    margin-bottom: 8px;
+    margin: 5px;
 }
 
 .btn-block {
     width: 100%;
     margin-bottom: 20px;
+    padding: 8px;
 }
 
 td input {
@@ -57,10 +67,46 @@ th {
     color: var(--primary-color);
 }
 
+.body-inputs input {
+    width: 2rem;
+    height: auto;
+    text-align: center;
+    margin: 1px;
+}
+
+#username {
+    width: 7rem;
+    padding: 6px;
+}
+
+.username-header {
+    text-align: left;
+}
+
+.course-date-group > label {
+    min-width: fit-content;
+    padding: 0 1rem 0 .1rem;
+}
+
+.course-date-group > input {
+    margin-right: 1rem;
+}
+
+/* Button Group */
+.btn-group {
+    display: flex;
+    margin: 1.5rem 0;
+}
+
+.btn-group button {
+    margin: 1rem;
+}
+
 /* --------- STYLED TABLE FOOT---------- */
 tfoot th,
 tfoot td {
     padding: 5px;
+    margin: 1px;
     border-radius: 5px;
     font-size: .9em;
 }
