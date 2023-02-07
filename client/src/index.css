@@ -83,6 +83,14 @@ button:hover {
   margin: 50px;
 }
 
+/* Homepage */
+.course-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  padding: 0;
+}
+
 /* Headings for page sections */
 .section-heading {
   display: flex;
@@ -118,5 +126,5 @@ input::-webkit-inner-spin-button {
 }
 /* Firefox */
 input[type=number] {
-    -moz-appearance:textfield;
+    -moz-appearance: textfield;
 }
