@@ -12,6 +12,18 @@
   box-sizing: border-box;
 }
 
+/* Container */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   height: 100vh;
@@ -23,8 +35,13 @@ a {
   color: #000;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
 p {
   line-height: 1.7;
+  color: white;
 }
 
 ul {
@@ -75,12 +92,23 @@ button:hover {
   font-size: .7em;
 }
 
-/* Login Container */
+/* Login and Signup Page Background*/
+.container > .login-page, 
+.container > .signup-page {
+  background-image: url(./assets/images/golf-karts.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 100vw;
+  height: calc(100vh - 88px); 
+  padding: 0;
+}
+
 .loginContainer {
-  border: 1px solid var(--primary-color);
   border-radius: 15px;
-  padding: 10px 0;
-  margin: 50px;
+  padding: 6rem 0;
+  margin: 4rem auto;
+  width: 40%;
+  background: 	rgba(6, 6, 6, 0.8);
 }
 
 /* Homepage */
@@ -106,15 +134,6 @@ button:hover {
   padding-left: 20px;
   margin-bottom: 9px;
   color: white;
-}
-
-/* Toast Container */
-.container {
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 20px;
-  text-align: center;
 }
 
 /* ------------REMOVES COUNTER ON INPUTS------------ */
