@@ -16,7 +16,7 @@ function ScorecardForm() {
     // Holds the scoreInputData of each player added to the scorecard
     const [scoresList, setScoresList] = useState([]);
 
-    // Holds each individal players username, firstNine and lastNine scores for each hole
+    // Holds each individal players name, firstNine and lastNine scores for each hole
     const [scoreInputData, setScoreInputData] = useState({
         username: '',
         firstNine: {
@@ -73,17 +73,13 @@ function ScorecardForm() {
         }));
     };
 
-    // Handles the username and score input for each players score
+    // Handles the name and score input for each players score
     const handlePlayerSubmit = (e) => {
         e.preventDefault();
-
-
-
 
         const list = scoresList;
         list.push(scoreInputData);
         setScoresList(list);
-        console.log("list---", list)
 
         setScoreInputData({
             username: '',
@@ -113,8 +109,8 @@ function ScorecardForm() {
         });
     };
 
-    // Handles the username change input
-    const handleUsernameChange = (e) => {
+    // Handles the name change input
+    const handleNameChange = (e) => {
         setScoreInputData((prev) => ({
             ...prev,
             [e.target.name]: e.target.value
@@ -195,7 +191,7 @@ function ScorecardForm() {
                         <table>
                             <thead>
                                 <tr>
-                                    <th className="username-header">Username</th>
+                                    <th className="name-header">Name</th>
                                     <th>Hole</th>
                                     <th>1</th>
                                     <th>2</th>
@@ -225,9 +221,9 @@ function ScorecardForm() {
                                         <input
                                             type="text"
                                             name="username"
-                                            id="username"
+                                            id="name"
                                             value={scoreInputData.username}
-                                            onChange={handleUsernameChange} />
+                                            onChange={handleNameChange} />
                                     </td>
                                     <td></td>
                                     <td>
@@ -383,8 +379,8 @@ function ScorecardForm() {
                             </tbody>
                             <tfoot>
                                 {scoresList.map((item) => (
-                                    <tr key={item.username}>
-                                        <td>{item.username}</td>
+                                    <tr key={item.name}>
+                                        <td>{item.name}</td>
                                         <td></td>
                                         <td>{item.firstNine.hole1}</td>
                                         <td>{item.firstNine.hole2}</td>

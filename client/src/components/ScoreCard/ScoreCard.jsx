@@ -7,7 +7,7 @@ function ScoreCard({ score }) {
                 <table className='styled-table'>
                     <thead>
                         <tr>
-                            <th>Username</th>
+                            <th>Name</th>
                             <th>Hole</th>
                             <th>1</th>
                             <th>2</th>
