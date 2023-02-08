@@ -21,11 +21,11 @@ function Signup() {
   const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    if(isError) {
+    if (isError) {
       toast.error(message);
     };
 
-    if(isSuccess || user) {
+    if (isSuccess || user) {
       navigate('/');
     };
 
@@ -54,74 +54,80 @@ function Signup() {
     }
   }
 
-  if(isLoading) {
+  if (isLoading) {
     return <img src={spinner} alt='Loading' />
   }
-  
-  return (
-    <div className='loginContainer'>
-      <section className="heading">
-        <h1>Sign Up</h1>
-        <p>Please create an account</p>
-      </section>
 
-      <section className="form">
-        <form onSubmit={onSubmit}>
-          <div className="form-group">
-            <input
-              type="text"
-              className="form-control"
-              id="username"
-              name='username'
-              value={username}
-              placeholder='Enter your username'
-              onChange={onChange}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <input
-              type="email"
-              className="form-control"
-              id="email"
-              name='email'
-              value={email}
-              placeholder='Enter your email'
-              onChange={onChange}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <input
-              type="password"
-              className="form-control"
-              id="password"
-              name='password'
-              value={password}
-              placeholder='Enter your password'
-              onChange={onChange}
-              minLength='8'
-              required
-            />
-          </div>
-          <div className="form-group">
-            <input
-              type="password"
-              className="form-control"
-              id="password2"
-              name='password2'
-              value={password2}
-              placeholder='Confirm password'
-              onChange={onChange}
-              minLength='8'
-              required
-            />
-          </div>
-          <div className="form-group">
-            <button type='submit' className='btn'>Submit</button>
-          </div>
-        </form>
-      </section>
+  return (
+    <div className="signup-page">
+      <div className='loginContainer'>
+        <section className="heading">
+          <h1>Sign Up</h1>
+          <p>Please create an account</p>
+        </section>
+
+        <section className="form">
+          <form onSubmit={onSubmit}>
+            <div className="form-group">
+              <input
+                type="text"
+                className="form-control"
+                id="username"
+                name='username'
+                value={username}
+                placeholder='Name'
+                onChange={onChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="email"
+                className="form-control"
+                id="email"
+                name='email'
+                value={email}
+                placeholder='Email'
+                onChange={onChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="password"
+                className="form-control"
+                id="password"
+                name='password'
+                value={password}
+                placeholder='Password'
+                onChange={onChange}
+                minLength='8'
+                required
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="password"
+                className="form-control"
+                id="password2"
+                name='password2'
+                value={password2}
+                placeholder='Confirm password'
+                onChange={onChange}
+                minLength='8'
+                required
+              />
+            </div>
+            <div>
+              <p>Already have an account? <a href="/login">Sign in here.</a></p>
+            </div>
+            <div className="form-group">
+              <button type='submit' className='btn-square'>Submit</button>
+            </div>
+          </form>
+        </section>
+        
+      </div>
     </div>
   );
 };

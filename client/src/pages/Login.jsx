@@ -19,11 +19,11 @@ function Login() {
   const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    if(isError) {
+    if (isError) {
       toast.error(message);
     };
 
-    if(isSuccess || user) {
+    if (isSuccess || user) {
       navigate('/');
     };
 
@@ -47,49 +47,53 @@ function Login() {
     dispatch(login(userData))
   }
 
-  if(isLoading) {
+  if (isLoading) {
     return <img src={spinner} alt='Loading' />
   }
 
   return (
-    <div className='loginContainer'>
-      <section className="heading">
-        <h1>Login</h1>
-        <p>Please login</p>
-      </section>
+    <div className="login-page">
+      <div className='loginContainer'>
+        <section className="heading">
+          <h1>Sign in</h1>
+        </section>
 
-      <section className="form">
-        <form onSubmit={onSubmit}>
-          <div className="form-group">
-            <input
-              type="email"
-              className="form-control"
-              id="email"
-              name='email'
-              value={email}
-              placeholder='Enter your email'
-              onChange={onChange}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <input
-              type="password"
-              className="form-control"
-              id="password"
-              name='password'
-              value={password}
-              placeholder='Enter your password'
-              onChange={onChange}
-              minLength='8'
-              required
-            />
-          </div>
-          <div className="form-group">
-            <button type='submit' className='btn'>Submit</button>
-          </div>
-        </form>
-      </section>
+        <section className="form">
+          <form onSubmit={onSubmit}>
+            <div className="form-group">
+              <input
+                type="email"
+                className="form-control"
+                id="email"
+                name='email'
+                value={email}
+                placeholder='Enter your email'
+                onChange={onChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="password"
+                className="form-control"
+                id="password"
+                name='password'
+                value={password}
+                placeholder='Enter your password'
+                onChange={onChange}
+                minLength='8'
+                required
+              />
+            </div>
+            <div className="form-group">
+              <button type='submit' className='btn-square'>Sign in</button>
+            </div>
+          </form>
+        </section>
+        <section>
+          <p>New to Total Golf? <a href="/signup">Sign up here.</a></p>
+        </section>
+      </div>
     </div>
   );
 };
