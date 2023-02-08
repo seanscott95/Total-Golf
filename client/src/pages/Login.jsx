@@ -67,7 +67,7 @@ function Login() {
                 id="email"
                 name='email'
                 value={email}
-                placeholder='Enter your email'
+                placeholder='Email'
                 onChange={onChange}
                 required
               />
@@ -79,7 +79,7 @@ function Login() {
                 id="password"
                 name='password'
                 value={password}
-                placeholder='Enter your password'
+                placeholder='Password'
                 onChange={onChange}
                 minLength='8'
                 required
