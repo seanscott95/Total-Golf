@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 import Navbar from "./components/Navbar/Navbar";
 import Homepage from './pages/Homepage';
-import Login from './pages/Login';
+import Signin from './pages/Signin';
 import Signup from './pages/Signup';
 import Personal from './pages/Personal';
 import Scores from './pages/Scores';
@@ -21,7 +21,7 @@ const App = () => {
         <Navbar />
         <div className='container'>
           <Routes>
-            <Route path="/login" element={<Login />} />
+            <Route path="/signin" element={<Signin />} />
             <Route path="/signup" element={<Signup />} />
             <Route element={<PrivateRoutes user={user} />}>
               <Route path="/" element={<Homepage />} />

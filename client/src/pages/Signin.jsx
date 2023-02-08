@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { login, reset } from '../utils/auth/authSlice';
 import spinner from '../assets/gif/Ghost.gif';
 
-function Login() {
+function Signin() {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -52,8 +52,8 @@ function Login() {
   }
 
   return (
-    <div className="login-page">
-      <div className='loginContainer'>
+    <div className="signin-page">
+      <div className='signinContainer'>
         <section className="heading">
           <h1>Sign in</h1>
         </section>
@@ -98,4 +98,4 @@ function Login() {
   );
 };
 
-export default Login;
+export default Signin;

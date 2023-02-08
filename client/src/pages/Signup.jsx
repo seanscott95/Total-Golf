@@ -60,7 +60,7 @@ function Signup() {
 
   return (
     <div className="signup-page">
-      <div className='loginContainer'>
+      <div className='signinContainer'>
         <section className="heading">
           <h1>Sign Up</h1>
           <p>Please create an account</p>
@@ -119,14 +119,13 @@ function Signup() {
               />
             </div>
             <div>
-              <p>Already have an account? <a href="/login">Sign in here.</a></p>
+              <p>Already have an account? <a href="/signin">Sign in here.</a></p>
             </div>
             <div className="form-group">
               <button type='submit' className='btn-square'>Submit</button>
             </div>
           </form>
         </section>
-        
       </div>
     </div>
   );

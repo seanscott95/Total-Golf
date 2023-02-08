@@ -93,7 +93,7 @@ button:hover {
 }
 
 /* Login and Signup Page Background*/
-.container > .login-page, 
+.container > .signin-page, 
 .container > .signup-page {
   background-image: url(./assets/images/golf-karts.jpg);
   background-repeat: no-repeat;
@@ -103,7 +103,7 @@ button:hover {
   padding: 0;
 }
 
-.loginContainer {
+.signinContainer {
   border-radius: 15px;
   padding: 6rem 0;
   margin: 4rem auto;
