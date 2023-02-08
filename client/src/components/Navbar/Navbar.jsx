@@ -43,18 +43,22 @@ const Navbar = () => {
       </Link>
 
       <h1>Yeah The Boys</h1>
- 
+
       <ul className={menu_class}>
-        <li className='nav-item'>
-          <Link to="/personal" className='nav-link'>Personal</Link>
-        </li>
-        <li className='nav-item'>
-          <Link to="/scores" className='nav-link'>Scores</Link>
-        </li>
+
+
         {user ? (
-          <li className='nav-item'>
-            <button to="/logout" className='logout-btn' onClick={onLogout}>Logout</button>
-          </li>
+          <>
+            <li className='nav-item'>
+              <Link to="/personal" className='nav-link'>Personal</Link>
+            </li>
+            <li className='nav-item'>
+              <Link to="/scores" className='nav-link'>Scores</Link>
+            </li>
+            <li className='nav-item'>
+              <button to="/logout" className='logout-btn' onClick={onLogout}>Logout</button>
+            </li>
+          </>
         ) : (
           <>
             <li className='nav-item'>
