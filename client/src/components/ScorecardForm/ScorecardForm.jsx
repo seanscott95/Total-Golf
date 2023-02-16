@@ -140,7 +140,6 @@ function ScorecardForm() {
     // Sets how many holes the user wants
     const numberOfHoles = (e) => {
         setHoles(e.target.value);
-        setScoresList([]);
         setScoreInputData({
             username: '',
             firstNine: {
