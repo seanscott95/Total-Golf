@@ -27,7 +27,7 @@
 body {
   font-family: 'Poppins', sans-serif;
   height: 100vh;
-  background: var(--fourth-color);
+  background: var(--secondary-color);
 }
 
 a {
@@ -103,7 +103,7 @@ button:hover {
   padding: 0;
 }
 
-.signinContainer {
+.signin-container {
   border-radius: 15px;
   padding: 6rem 0;
   margin: 4rem auto;
