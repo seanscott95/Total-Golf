@@ -140,6 +140,33 @@ function ScorecardForm() {
     // Sets how many holes the user wants
     const numberOfHoles = (e) => {
         setHoles(e.target.value);
+        setScoresList([]);
+        setScoreInputData({
+            username: '',
+            firstNine: {
+                hole1: '',
+                hole2: '',
+                hole3: '',
+                hole4: '',
+                hole5: '',
+                hole6: '',
+                hole7: '',
+                hole8: '',
+                hole9: '',
+            },
+            lastNine: {
+                hole10: '',
+                hole11: '',
+                hole12: '',
+                hole13: '',
+                hole14: '',
+                hole15: '',
+                hole16: '',
+                hole17: '',
+                hole18: '',
+            },
+            total: '',
+        });
     };
 
     // Sets the formData score property as the scoresList variable everytime scoresList is 
@@ -590,6 +617,7 @@ function ScorecardForm() {
                                     <tr key={item.username}>
                                         <td>{item.username}</td>
                                         <td></td>
+                                        {}
                                         <td>{item.firstNine.hole1}</td>
                                         <td>{item.firstNine.hole2}</td>
                                         <td>{item.firstNine.hole3}</td>
