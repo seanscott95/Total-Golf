@@ -46,9 +46,9 @@ function ScorecardForm() {
 
     const { courseName, datePlayed } = formData;
 
+    const [ holes, setHoles ] = useState('1-18');
 
     const dispatch = useDispatch();
-
 
     // Handles the form submit that creates the dispatch that creates the scorecard depending
     // on the formData variable, then resets the formData and the scoresList
@@ -137,7 +137,10 @@ function ScorecardForm() {
         }));
     };
 
-
+    // Sets how many holes the user wants
+    const numberOfHoles = (e) => {
+        setHoles(e.target.value);
+    };
 
     // Sets the formData score property as the scoresList variable everytime scoresList is 
     // changed between rendering
@@ -161,9 +164,27 @@ function ScorecardForm() {
     return (
         <div className="scorecard-page">
             <section className="btn-group">
-                <button type='submit' className='btn btn-block'>1-9</button>
-                <button type='submit' className='btn btn-block'>10-18</button>
-                <button type='submit' className='btn btn-block'>1-18</button>
+                <button 
+                    type='submit'
+                    className='btn btn-block'
+                    value='1-9'
+                    onClick={numberOfHoles}
+                    >1-9
+                </button>
+                <button 
+                    type='submit'
+                    className='btn btn-block'
+                    value='10-18'
+                    onClick={numberOfHoles}
+                    >10-18
+                </button>
+                <button 
+                    type='submit'
+                    className='btn btn-block'
+                    value='1-18'
+                    onClick={numberOfHoles}
+                    >1-18
+                </button>
             </section>
             <section className="scorecard-form">
                 <form onSubmit={handleFormSubmit}>
