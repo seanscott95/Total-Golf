@@ -611,7 +611,7 @@ function ScorecardForm() {
                                     <td></td>
                                     <td></td>
                                     <td>
-                                        <button type='submit' className='btn-square' onClick={handlePlayerSubmit}>Add</button>
+                                        <button type='submit' onClick={handlePlayerSubmit}>Add</button>
                                     </td>
                                 </tr>
                             </tbody>

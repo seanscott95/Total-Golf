@@ -48,20 +48,6 @@
     color: var(--primary-color);
 }
 
-.btn-square {
-    border-radius: 5px;
-    height: 100%;
-    width: 50%;
-    padding: 5px;
-    margin: 5px;
-}
-
-.btn-block {
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 8px;
-}
-
 td input {
     width: 50px;
 }

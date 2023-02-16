@@ -60,6 +60,11 @@ h3 {
   margin-bottom: 10px;
 }
 
+.hide {
+  visibility: hidden;
+}
+
+/* Button Types */
 button {
   color: var(--primary-color);
   background: var(--secondary-color);
@@ -74,8 +79,22 @@ button:hover {
   transform: scale(0.98);
 }
 
-.hide {
-  visibility: hidden;
+.add-btn {
+  width: 100%;
+}
+
+.btn-square {
+  border-radius: 5px;
+  height: 100%;
+  width: 50%;
+  padding: 5px;
+  margin: 5px;
+}
+
+.btn-block {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 8px;
 }
 
 /* -------- CSS FOR PAGES ------- */
@@ -122,12 +141,7 @@ button:hover {
 
 /* Scorecard Page */
 .scorecard-page-container {
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* width: 100%; */
   margin: 3rem auto;
-  /* height: calc(100vh - 88px); */
 }
 
 /* Headings for page sections */
