@@ -60,7 +60,7 @@ function Signup() {
 
   return (
     <div className="signup-page">
-      <div className='signinContainer'>
+      <div className='signin-container'>
         <section className="heading">
           <h1>Sign Up</h1>
           <p>Please create an account</p>

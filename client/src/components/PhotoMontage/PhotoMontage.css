@@ -1,23 +1,22 @@
-.photoContainer {
+.photo-container {
     margin: 20px;
     display: flex;
     flex-direction: row;
-    color: var(--primary-color);
     font-family: var(--cursive-font-family);
 }
 
-.photoItem {
+.photo-item {
     flex-direction: column;
     width: 20%;
     margin: .3em;
 }
 
-.photoItem > img {
+.photo-item > img {
     min-height: 300px;
     width: 100%;
     border: .3em solid white;
 }
 
-.photoItem > p {
+.photo-item > p {
     font-size: 2.5em;
 }

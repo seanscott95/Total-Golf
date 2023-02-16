@@ -53,7 +53,7 @@ function Signin() {
 
   return (
     <div className="signin-page">
-      <div className='signinContainer'>
+      <div className='signin-container'>
         <section className="heading">
           <h1>Sign in</h1>
         </section>

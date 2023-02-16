@@ -29,9 +29,9 @@ function PhotoMontage() {
     }];
 
     return (
-        <div className='photoContainer'>
+        <div className='photo-container'>
             {photoArray.map((item, index) =>
-            <div className='photoItem'>
+            <div className='photo-item'>
                 <img src={item.photo} key={index} alt='Montage' />
                 <p>{item.text}</p>
             </div>
