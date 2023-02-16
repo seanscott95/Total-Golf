@@ -587,8 +587,8 @@ function ScorecardForm() {
                             </tbody>
                             <tfoot>
                                 {scoresList.map((item) => (
-                                    <tr key={item.name}>
-                                        <td>{item.name}</td>
+                                    <tr key={item.username}>
+                                        <td>{item.username}</td>
                                         <td></td>
                                         <td>{item.firstNine.hole1}</td>
                                         <td>{item.firstNine.hole2}</td>
