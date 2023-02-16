@@ -3,6 +3,7 @@
   --secondary-color: #000000;
   --third-color: #2a2e34;
   --fourth-color: #14213D;
+  --black-fade: rgba(6, 6, 6, 0.8);
   --cursive-font-family: 'Brush Script MT', 'Brush Script Std', cursive;
 }
 
@@ -117,6 +118,16 @@ button:hover {
   width: 100%;
   justify-content: space-around;
   padding: 0;
+}
+
+/* Scorecard Page */
+.scorecard-page-container {
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* width: 100%; */
+  margin: 3rem auto;
+  /* height: calc(100vh - 88px); */
 }
 
 /* Headings for page sections */

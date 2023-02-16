@@ -189,28 +189,32 @@ function ScorecardForm() {
 
     return (
         <div className="scorecard-page">
-            <section className="btn-group">
-                <button
-                    type='submit'
-                    className='btn btn-block'
-                    value='1-9'
-                    onClick={numberOfHoles}
-                >1-9
-                </button>
-                <button
-                    type='submit'
-                    className='btn btn-block'
-                    value='10-18'
-                    onClick={numberOfHoles}
-                >10-18
-                </button>
-                <button
-                    type='submit'
-                    className='btn btn-block'
-                    value='1-18'
-                    onClick={numberOfHoles}
-                >1-18
-                </button>
+            <section >
+                <h1 className='heading'>SELECT HOW MANY HOLES</h1>
+                <div className="btn-group">
+                    <button
+                        type='submit'
+                        className='btn btn-block'
+                        value='1-9'
+                        onClick={numberOfHoles}
+                    >1-9
+                    </button>
+                    <button
+                        type='submit'
+                        className='btn btn-block'
+                        value='10-18'
+                        onClick={numberOfHoles}
+                    >10-18
+                    </button>
+                    <button
+                        type='submit'
+                        className='btn btn-block'
+                        value='1-18'
+                        onClick={numberOfHoles}
+                    >1-18
+                    </button>
+                </div>
+
             </section>
             <section className="scorecard-form">
                 <form onSubmit={handleFormSubmit}>
@@ -616,7 +620,7 @@ function ScorecardForm() {
                                     <tr key={item.username}>
                                         <td>{item.username}</td>
                                         <td></td>
-                                        {}
+                                        { }
                                         <td>{item.firstNine.hole1}</td>
                                         <td>{item.firstNine.hole2}</td>
                                         <td>{item.firstNine.hole3}</td>
