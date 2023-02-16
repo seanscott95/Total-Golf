@@ -1,6 +1,10 @@
+import ScorecardForm from '../components/ScorecardForm/ScorecardForm';
+
 function CreateScorecardQP() {
   return (
-    <div>CreateScorecardQP</div>
+    <div className='scorecard-page-container'>
+      <ScorecardForm queensPark={true}/>
+    </div>
   )
 }
 

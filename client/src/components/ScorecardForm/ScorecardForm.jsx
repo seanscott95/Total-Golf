@@ -5,10 +5,14 @@ import { createScorecard } from '../../utils/scorecard/scorecardSlice';
 import { totalScore } from '../../utils/helper/totalScore';
 import './ScorecardForm.css';
 
-function ScorecardForm() {
+function ScorecardForm({ queensPark }) {
+    // Sets the course name as Queens Park or blank depending if
+    // the prop queensPark is truthy or not
+    const setCourseName = queensPark ? 'Queens Park' : '';
+    
     // Holds the formData that is used to create a scorecard
     const [formData, setFormData] = useState({
-        courseName: '',
+        courseName: setCourseName,
         score: [],
         datePlayed: ''
     });
