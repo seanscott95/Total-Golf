@@ -152,7 +152,7 @@ button:hover {
   color: var(--primary-color);
   border-bottom: 2px solid var(--primary-color);
   padding: 15px 0px 5px 15px;
-  margin-bottom: 5px; 
+  margin-bottom: 2rem; 
 }
 
 .section-heading p {

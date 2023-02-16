@@ -190,7 +190,7 @@ function ScorecardForm() {
     return (
         <div className="scorecard-page">
             <section >
-                <h1 className='heading'>SELECT HOW MANY HOLES</h1>
+                <h1 className='section-heading'>SELECT HOW MANY HOLES</h1>
                 <div className="btn-group">
                     <button
                         type='submit'
@@ -217,6 +217,7 @@ function ScorecardForm() {
 
             </section>
             <section className="scorecard-form">
+                <h1 className="section-heading">ENTER YOUR SCORECARD</h1>
                 <form onSubmit={handleFormSubmit}>
                     <div className="form-group course-date-group">
                         <label htmlFor="courseName">Course Name:</label>
