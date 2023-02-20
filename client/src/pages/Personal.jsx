@@ -73,8 +73,7 @@ function Personal() {
   return (
     <>
       <section className="heading">
-        <h1>Personal Scores</h1>
-        <p>Welcome {user && user.username} !</p>
+        <h1>{user && user.username}'s Scores</h1>
       </section>
 
       <section className='content'>
