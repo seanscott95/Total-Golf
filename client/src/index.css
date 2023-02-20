@@ -15,9 +15,9 @@
 
 /* Container */
 .container {
+  width: 100%;
   max-width: 960px;
   margin: 0 auto;
-  padding: 0 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -86,7 +86,7 @@ button:hover {
 .btn-square {
   border-radius: 5px;
   height: 100%;
-  width: 50%;
+  width: 80%;
   padding: 5px;
   margin: 5px;
 }
@@ -119,15 +119,16 @@ button:hover {
   background-repeat: no-repeat;
   background-size: cover;
   min-width: 100vw;
-  height: calc(100vh - 88px); 
-  padding: 0;
+  height: calc(100vh - 88px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .signin-container {
   border-radius: 15px;
-  padding: 6rem 0;
-  margin: 4rem auto;
-  width: 40%;
+  padding: 2rem;
   background: 	rgba(6, 6, 6, 0.8);
 }
 
