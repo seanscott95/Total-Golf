@@ -73,7 +73,7 @@ function Personal() {
   return (
     <>
       <section className="heading">
-        <h1>{user && user.username}'s Scores</h1>
+        <h1>{user && user.username.charAt(0).toUpperCase() + user.username.slice(1)}'s Scores</h1>
       </section>
 
       <section className='content'>
