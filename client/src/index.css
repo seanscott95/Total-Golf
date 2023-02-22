@@ -112,7 +112,7 @@ button:hover {
   font-size: .7em;
 }
 
-/* Login and Signup Page Background*/
+/* Signin and Signup Page Background*/
 .container > .signin-page, 
 .container > .signup-page {
   background-image: url(./assets/images/golf-karts.jpg);
