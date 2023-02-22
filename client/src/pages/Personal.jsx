@@ -27,16 +27,20 @@ function Personal() {
   // Creates an average score for the personal totals by getting the sum then dividing by the length
   const personalAverage = (arr) => {
     let sum = 0;
-    arr.forEach((item) => {
-      sum += item.total;
-    });
+    if (arr.length > 0) {
+      return
+    } else {
+      arr.forEach((item) => {
+        sum += item.total;
+      });
+    }
     return sum / arr.length;
   };
   
 
   useEffect(() => {
     if (!user) {
-      navigate('/login');
+      navigate('/signin');
     };
 
     if (isError) {
@@ -54,7 +58,7 @@ function Personal() {
 
   useEffect(() => {
     if (!user) {
-      navigate('/login');
+      navigate('/signin');
     };
 
     if (scoresIsError) {

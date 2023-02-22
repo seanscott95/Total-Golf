@@ -15,7 +15,7 @@ function Scores() {
 
   useEffect(() => {
     if (!user) {
-      navigate('/login');
+      navigate('/signin');
     };
 
     if (isError) {
