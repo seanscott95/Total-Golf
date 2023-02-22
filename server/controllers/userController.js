@@ -42,10 +42,10 @@ const signupUser = asyncHandler(async (req, res) => {
     };
 });
 
-// @desc Login user
-// @route POST /api/users/login
+// @desc Signin user
+// @route POST /api/users/signin
 // @access Public
-const loginUser = asyncHandler(async (req, res) => {
+const signinUser = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
 
     const user = await User.findOne({ email });
@@ -68,5 +68,5 @@ const loginUser = asyncHandler(async (req, res) => {
 module.exports = {
     getMe,
     signupUser,
-    loginUser
+    signinUser
 }
