@@ -6,13 +6,19 @@ import { totalScore } from '../../utils/helper/totalScore';
 import './ScorecardForm.css';
 
 function ScorecardForm({ queensPark }) {
+    const dispatch = useDispatch();
+
     // Sets the course name as Queens Park or blank depending if
     // the prop queensPark is truthy or not
     const setCourseName = queensPark ? 'Queens Park' : '';
     
+    // Holds the number of holes
+    const [holes, setHoles] = useState('1-18');
+
     // Holds the formData that is used to create a scorecard
     const [formData, setFormData] = useState({
         courseName: setCourseName,
+        numberOfHoles: holes,
         score: [],
         datePlayed: ''
     });
@@ -20,7 +26,7 @@ function ScorecardForm({ queensPark }) {
     // Holds the scoreInputData of each player added to the scorecard
     const [scoresList, setScoresList] = useState([]);
 
-    // Holds each individal players name, firstNine and lastNine scores for each hole
+    // Holds each individal players name, number of holes, firstNine and lastNine scores
     const [scoreInputData, setScoreInputData] = useState({
         username: '',
         firstNine: {
@@ -50,19 +56,16 @@ function ScorecardForm({ queensPark }) {
 
     const { courseName, datePlayed } = formData;
 
-    const [holes, setHoles] = useState('1-18');
-
-    const dispatch = useDispatch();
-
     // Handles the form submit that creates the dispatch that creates the scorecard depending
     // on the formData variable, then resets the formData and the scoresList
     const handleFormSubmit = (e) => {
         e.preventDefault();
-
+        
         dispatch(createScorecard({ formData }));
 
         setFormData({
-            courseName: '',
+            courseName: setCourseName,
+            numberOfHoles: holes,
             score: [],
             datePlayed: ''
         });
@@ -144,6 +147,8 @@ function ScorecardForm({ queensPark }) {
     // Sets how many holes the user wants
     const numberOfHoles = (e) => {
         setHoles(e.target.value);
+
+        // Resets the form if the number of holes are changed
         setScoreInputData({
             username: '',
             firstNine: {
@@ -172,14 +177,15 @@ function ScorecardForm({ queensPark }) {
         });
     };
 
-    // Sets the formData score property as the scoresList variable everytime scoresList is 
+    // Sets the formData score and number of holes properties when either value is 
     // changed between rendering
     useEffect(() => {
         setFormData((prev) => ({
             ...prev,
+            numberOfHoles: holes,
             score: scoresList,
         }));
-    }, [scoresList]);
+    }, [scoresList, holes]);
 
     // Sets the scoreInputData total property to be the total of the scoreInputData's 
     // lastNine and firstNine holes 
