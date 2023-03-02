@@ -11,7 +11,7 @@ function ScorecardForm({ queensPark }) {
     // Sets the course name as Queens Park or blank depending if
     // the prop queensPark is truthy or not
     const setCourseName = queensPark ? 'Queens Park' : '';
-    
+
     // Holds the number of holes
     const [holes, setHoles] = useState('1-18');
 
@@ -60,7 +60,7 @@ function ScorecardForm({ queensPark }) {
     // on the formData variable, then resets the formData and the scoresList
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        
+
         dispatch(createScorecard({ formData }));
 
         setFormData({
@@ -631,25 +631,56 @@ function ScorecardForm({ queensPark }) {
                                     <tr key={item.username}>
                                         <td>{item.username}</td>
                                         <td></td>
-                                        { }
-                                        <td>{item.firstNine.hole1}</td>
-                                        <td>{item.firstNine.hole2}</td>
-                                        <td>{item.firstNine.hole3}</td>
-                                        <td>{item.firstNine.hole4}</td>
-                                        <td>{item.firstNine.hole5}</td>
-                                        <td>{item.firstNine.hole6}</td>
-                                        <td>{item.firstNine.hole7}</td>
-                                        <td>{item.firstNine.hole8}</td>
-                                        <td>{item.firstNine.hole9}</td>
-                                        <td>{item.lastNine.hole10}</td>
-                                        <td>{item.lastNine.hole11}</td>
-                                        <td>{item.lastNine.hole12}</td>
-                                        <td>{item.lastNine.hole13}</td>
-                                        <td>{item.lastNine.hole14}</td>
-                                        <td>{item.lastNine.hole15}</td>
-                                        <td>{item.lastNine.hole16}</td>
-                                        <td>{item.lastNine.hole17}</td>
-                                        <td>{item.lastNine.hole18}</td>
+                                        {holes === '1-18' ?
+                                            <>
+
+                                                <td>{item.firstNine.hole1}</td>
+                                                <td>{item.firstNine.hole2}</td>
+                                                <td>{item.firstNine.hole3}</td>
+                                                <td>{item.firstNine.hole4}</td>
+                                                <td>{item.firstNine.hole5}</td>
+                                                <td>{item.firstNine.hole6}</td>
+                                                <td>{item.firstNine.hole7}</td>
+                                                <td>{item.firstNine.hole8}</td>
+                                                <td>{item.firstNine.hole9}</td>
+                                                <td>{item.lastNine.hole10}</td>
+                                                <td>{item.lastNine.hole11}</td>
+                                                <td>{item.lastNine.hole12}</td>
+                                                <td>{item.lastNine.hole13}</td>
+                                                <td>{item.lastNine.hole14}</td>
+                                                <td>{item.lastNine.hole15}</td>
+                                                <td>{item.lastNine.hole16}</td>
+                                                <td>{item.lastNine.hole17}</td>
+                                                <td>{item.lastNine.hole18}</td>
+                                            </> : <></>
+                                        }
+                                        {holes === '1-9' ?
+                                            <>
+                                                <td>{item.firstNine.hole1}</td>
+                                                <td>{item.firstNine.hole2}</td>
+                                                <td>{item.firstNine.hole3}</td>
+                                                <td>{item.firstNine.hole4}</td>
+                                                <td>{item.firstNine.hole5}</td>
+                                                <td>{item.firstNine.hole6}</td>
+                                                <td>{item.firstNine.hole7}</td>
+                                                <td>{item.firstNine.hole8}</td>
+                                                <td>{item.firstNine.hole9}</td>
+                                            </> : <></>
+                                        }
+                                        {holes === '10-18' ?
+                                            <>
+                                                <td>{item.lastNine.hole10}</td>
+                                                <td>{item.lastNine.hole11}</td>
+                                                <td>{item.lastNine.hole12}</td>
+                                                <td>{item.lastNine.hole13}</td>
+                                                <td>{item.lastNine.hole14}</td>
+                                                <td>{item.lastNine.hole15}</td>
+                                                <td>{item.lastNine.hole16}</td>
+                                                <td>{item.lastNine.hole17}</td>
+                                                <td>{item.lastNine.hole18}</td>
+                                            </> : <></>
+                                        }
+
                                         <td className='hide'></td>
                                         <td>{item.total}</td>
                                     </tr>
