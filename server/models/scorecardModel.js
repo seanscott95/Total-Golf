@@ -6,6 +6,10 @@ const scorecardSchema = new Schema({
         required: [true, 'Please add the course name'],
         trim: true,
     },
+    numberOfHoles: {
+        type: String,
+        required: [true, 'Please add the numbers of holes played'],
+    },
     score: [
         {
             type: Schema.Types.ObjectId,
