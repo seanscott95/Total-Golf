@@ -190,7 +190,7 @@ function ScorecardForm({ queensPark }) {
     // Sets the scoreInputData total property to be the total of the scoreInputData's 
     // lastNine and firstNine holes 
     useEffect(() => {
-        const sum = totalScore(scoreInputData.firstNine, scoreInputData.lastNine)
+        let sum = totalScore(scoreInputData.firstNine, scoreInputData.lastNine)
         setScoreInputData((prev) => ({
             ...prev,
             total: JSON.stringify(sum)
