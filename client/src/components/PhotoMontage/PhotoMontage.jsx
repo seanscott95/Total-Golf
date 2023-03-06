@@ -31,8 +31,8 @@ function PhotoMontage() {
     return (
         <div className='photo-container'>
             {photoArray.map((item, index) =>
-            <div className='photo-item'>
-                <img src={item.photo} key={index} alt='Montage' />
+            <div className='photo-item' key={index}>
+                <img src={item.photo} alt='Montage' />
                 <p>{item.text}</p>
             </div>
             )}
