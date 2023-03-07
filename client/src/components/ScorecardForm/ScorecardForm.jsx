@@ -26,8 +26,7 @@ function ScorecardForm({ queensPark }) {
     // Holds the scoreInputData of each player added to the scorecard
     const [scoresList, setScoresList] = useState([]);
 
-    // Holds each individal players name, number of holes, firstNine and lastNine scores
-    const [scoreInputData, setScoreInputData] = useState({
+    const INITIAL_SCORE_STATE = {
         username: '',
         firstNine: {
             hole1: '',
@@ -52,7 +51,10 @@ function ScorecardForm({ queensPark }) {
             hole18: '',
         },
         total: '',
-    });
+    }
+
+    // Holds each individal players name, number of holes, firstNine and lastNine scores
+    const [scoreInputData, setScoreInputData] = useState(INITIAL_SCORE_STATE);
 
     const { courseName, datePlayed } = formData;
 
@@ -88,32 +90,7 @@ function ScorecardForm({ queensPark }) {
         list.push(scoreInputData);
         setScoresList(list);
 
-        setScoreInputData({
-            username: '',
-            firstNine: {
-                hole1: '',
-                hole2: '',
-                hole3: '',
-                hole4: '',
-                hole5: '',
-                hole6: '',
-                hole7: '',
-                hole8: '',
-                hole9: '',
-            },
-            lastNine: {
-                hole10: '',
-                hole11: '',
-                hole12: '',
-                hole13: '',
-                hole14: '',
-                hole15: '',
-                hole16: '',
-                hole17: '',
-                hole18: '',
-            },
-            total: '',
-        });
+        setScoreInputData(INITIAL_SCORE_STATE);
     };
 
     // Handles the name change input
@@ -149,32 +126,7 @@ function ScorecardForm({ queensPark }) {
         setHoles(e.target.value);
 
         // Resets the form if the number of holes are changed
-        setScoreInputData({
-            username: '',
-            firstNine: {
-                hole1: '',
-                hole2: '',
-                hole3: '',
-                hole4: '',
-                hole5: '',
-                hole6: '',
-                hole7: '',
-                hole8: '',
-                hole9: '',
-            },
-            lastNine: {
-                hole10: '',
-                hole11: '',
-                hole12: '',
-                hole13: '',
-                hole14: '',
-                hole15: '',
-                hole16: '',
-                hole17: '',
-                hole18: '',
-            },
-            total: '',
-        });
+        setScoreInputData(INITIAL_SCORE_STATE);
     };
 
     // Sets the formData score and number of holes properties when either value is 
