@@ -36,12 +36,13 @@ const setScorecard = asyncHandler(async (req, res) => {
         throw new Error('Please fill out the form');
     };
 
-    const { courseName, score, datePlayed } = req.body;
+    const { courseName, score, datePlayed, numberOfHoles } = req.body;
     
     const scoreList = await Score.insertMany(score);
     
     const scorecard = await Scorecard.create({
         courseName: courseName,
+        numberOfHoles: numberOfHoles,
         score: scoreList.map((e) => e._id),
         datePlayed: datePlayed,
     });
