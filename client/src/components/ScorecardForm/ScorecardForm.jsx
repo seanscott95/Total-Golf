@@ -51,7 +51,7 @@ function ScorecardForm({ queensPark }) {
             hole18: '',
         },
         total: '',
-    }
+    };
 
     // Holds each individal players name, number of holes, firstNine and lastNine scores
     const [scoreInputData, setScoreInputData] = useState(INITIAL_SCORE_STATE);
@@ -585,7 +585,6 @@ function ScorecardForm({ queensPark }) {
                                         <td></td>
                                         {holes === '1-18' ?
                                             <>
-
                                                 <td>{item.firstNine.hole1}</td>
                                                 <td>{item.firstNine.hole2}</td>
                                                 <td>{item.firstNine.hole3}</td>
@@ -632,7 +631,6 @@ function ScorecardForm({ queensPark }) {
                                                 <td>{item.lastNine.hole18}</td>
                                             </> : <></>
                                         }
-
                                         <td className='hide'></td>
                                         <td>{item.total}</td>
                                     </tr>
@@ -646,7 +644,6 @@ function ScorecardForm({ queensPark }) {
                 </form>
             </section>
         </div>
-
     );
 };
 
