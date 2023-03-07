@@ -14,7 +14,6 @@ function Personal() {
 
   const { user } = useSelector((state) => state.auth);
   const { personal, isLoading, isError, message } = useSelector((state) => state.personal);
-  console.log("personal -", personal)
   const { scores, scoresIsLoading, scoresIsError, scoresMessage } = useSelector((state) => state.scores);
 
   // Filters the scores array and returns all objects if the user is on the scorecard
