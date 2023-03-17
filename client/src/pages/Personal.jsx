@@ -21,6 +21,18 @@ function Personal() {
     return obj.score.some(item => item.username === user.username);
   });
 
+  const firstNineHoleGames = filteredScores.filter(obj => {
+    return obj.numberOfHoles === "1-9";
+  });
+
+  const lastNineHoleGames = filteredScores.filter(obj => {
+    return obj.numberOfHoles === "10-18";
+  });
+
+  const bothNineHoleGames = filteredScores.filter(obj => {
+    return obj.numberOfHoles === "1-18";
+  });
+
   // Sorts the personal scores array by the total (lower is better in golf)
   const orderedPersonalScores = [...personal].sort((a, b) => a.total - b.total);
 
@@ -75,13 +87,44 @@ function Personal() {
         <h1>{user && user.username.charAt(0).toUpperCase() + user.username.slice(1)}'s Scores</h1>
       </section>
 
-      <section className='content'>
+      {/* <section className='content'>
         <div className='section-heading'>
           <h3>STATS</h3>
           <p>Played: {personal.length > 0 ? personal.length : 'N/A'}</p>
           <p>Best: {orderedPersonalScores.length > 0 ? orderedPersonalScores[0].total : 'N/A'}</p>
           <p>Average: {findAverageTotal(personal) || 'N/A'}</p>
           <p>Worst: {orderedPersonalScores.length > 0 ? [...orderedPersonalScores].reverse()[0].total : 'N/A'}</p>
+        </div>
+      </section> */}
+
+      <section className="content">
+        <div className="section-heading">
+          <h3>QUEENS PARK</h3>
+        </div>
+      </section>
+      <section className="content">
+        <div className="section-heading">
+          <div>
+            <h3 className="section-heading">1-18</h3>
+            <p>Played: {personal.length > 0 ? personal.length : 'N/A'}</p>
+            <p>Best: {orderedPersonalScores.length > 0 ? orderedPersonalScores[0].total : 'N/A'}</p>
+            <p>Average: {findAverageTotal(personal) || 'N/A'}</p>
+            <p>Worst: {orderedPersonalScores.length > 0 ? [...orderedPersonalScores].reverse()[0].total : 'N/A'}</p>
+          </div>
+          <div>
+            <h3 className="section-heading">1-9</h3>
+            <p>Played: {personal.length > 0 ? personal.length : 'N/A'}</p>
+            <p>Best: {orderedPersonalScores.length > 0 ? orderedPersonalScores[0].total : 'N/A'}</p>
+            <p>Average: {findAverageTotal(personal) || 'N/A'}</p>
+            <p>Worst: {orderedPersonalScores.length > 0 ? [...orderedPersonalScores].reverse()[0].total : 'N/A'}</p>
+          </div>
+          <div>
+            <h3 className="section-heading">10-18</h3>
+            <p>Played: {personal.length > 0 ? personal.length : 'N/A'}</p>
+            <p>Best: {orderedPersonalScores.length > 0 ? orderedPersonalScores[0].total : 'N/A'}</p>
+            <p>Average: {findAverageTotal(personal) || 'N/A'}</p>
+            <p>Worst: {orderedPersonalScores.length > 0 ? [...orderedPersonalScores].reverse()[0].total : 'N/A'}</p>
+          </div>
         </div>
       </section>
 
