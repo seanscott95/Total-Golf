@@ -16,34 +16,28 @@ function Personal() {
   const { personal, isLoading, isError, message } = useSelector((state) => state.personal);
   const { scores, scoresIsLoading, scoresIsError, scoresMessage } = useSelector((state) => state.scores);
 
-  // Filters the scores array and returns all objects if the user is on the scorecard
-  const filteredScores = scores.filter(obj => {
+  // Filters all scorecards and returns whole scorecard if the user is on it
+  const usersScorecards = scores.filter(obj => {
     return obj.score.some(item => item.username === user.username);
   });
 
-  const firstNineHoleGames = filteredScores.filter(obj => {
+  // Sorts an array of scores by the total property (lower is better in golf)
+  const orderScores = arr => arr.sort((a, b) => a.total - b.total);
+  
+  // Creates variable that contains only the first nine hole games
+  const firstNineHoleGames = usersScorecards.filter(obj => {
     return obj.numberOfHoles === "1-9";
   });
 
-  const lastNineHoleGames = filteredScores.filter(obj => {
+  // Creates variable that contains only the last nine hole games
+  const lastNineHoleGames = usersScorecards.filter(obj => {
     return obj.numberOfHoles === "10-18";
   });
 
-  const bothNineHoleGames = filteredScores.filter(obj => {
+  // Creates variable that contains only the one to eighteen hole games
+  const bothNineHoleGames = usersScorecards.filter(obj => {
     return obj.numberOfHoles === "1-18";
   });
-
-  // Sorts the personal scores array by the total (lower is better in golf)
-  const orderedPersonalScores = [...personal].sort((a, b) => a.total - b.total);
-
-  // Creates an average score for the personal totals by getting the sum then dividing by the length
-  const findAverageTotal = (arr) => {
-    const { length } = arr;
-    return arr.reduce((acc, val) => {
-      let avg = acc + (val.total / length);
-      return +avg.toFixed(2);   // Converts avg to a string and to two deciaml places
-    }, 0);
-  };
 
   useEffect(() => {
     if (!user) {
@@ -87,43 +81,25 @@ function Personal() {
         <h1>{user && user.username.charAt(0).toUpperCase() + user.username.slice(1)}'s Scores</h1>
       </section>
 
-      {/* <section className='content'>
-        <div className='section-heading'>
-          <h3>STATS</h3>
-          <p>Played: {personal.length > 0 ? personal.length : 'N/A'}</p>
-          <p>Best: {orderedPersonalScores.length > 0 ? orderedPersonalScores[0].total : 'N/A'}</p>
-          <p>Average: {findAverageTotal(personal) || 'N/A'}</p>
-          <p>Worst: {orderedPersonalScores.length > 0 ? [...orderedPersonalScores].reverse()[0].total : 'N/A'}</p>
-        </div>
-      </section> */}
-
       <section className="content">
         <div className="section-heading">
           <h3>QUEENS PARK</h3>
         </div>
       </section>
+
       <section className="content">
         <div className="section-heading">
           <div>
             <h3 className="section-heading">1-18</h3>
-            <p>Played: {personal.length > 0 ? personal.length : 'N/A'}</p>
-            <p>Best: {orderedPersonalScores.length > 0 ? orderedPersonalScores[0].total : 'N/A'}</p>
-            <p>Average: {findAverageTotal(personal) || 'N/A'}</p>
-            <p>Worst: {orderedPersonalScores.length > 0 ? [...orderedPersonalScores].reverse()[0].total : 'N/A'}</p>
+            <p>Played: {bothNineHoleGames.length > 0 ? bothNineHoleGames.length : 'N/A'}</p>
           </div>
           <div>
             <h3 className="section-heading">1-9</h3>
-            <p>Played: {personal.length > 0 ? personal.length : 'N/A'}</p>
-            <p>Best: {orderedPersonalScores.length > 0 ? orderedPersonalScores[0].total : 'N/A'}</p>
-            <p>Average: {findAverageTotal(personal) || 'N/A'}</p>
-            <p>Worst: {orderedPersonalScores.length > 0 ? [...orderedPersonalScores].reverse()[0].total : 'N/A'}</p>
+            <p>Played: {firstNineHoleGames.length > 0 ? firstNineHoleGames.length : 'N/A'}</p>
           </div>
           <div>
             <h3 className="section-heading">10-18</h3>
-            <p>Played: {personal.length > 0 ? personal.length : 'N/A'}</p>
-            <p>Best: {orderedPersonalScores.length > 0 ? orderedPersonalScores[0].total : 'N/A'}</p>
-            <p>Average: {findAverageTotal(personal) || 'N/A'}</p>
-            <p>Worst: {orderedPersonalScores.length > 0 ? [...orderedPersonalScores].reverse()[0].total : 'N/A'}</p>
+            <p>Played: {lastNineHoleGames.length > 0 ? lastNineHoleGames.length : 'N/A'}</p>
           </div>
         </div>
       </section>
@@ -138,9 +114,9 @@ function Personal() {
               <p>Below are all of your previous scores from best to worst</p>
             </div>
 
-            {orderedPersonalScores.length > 0 ? (
+            {orderScores([...personal]).length > 0 ? (
               <div className='scores'>
-                {orderedPersonalScores.map((item) => (
+                {orderScores([...personal]).map((item) => (
                   <ScoreCard key={item._id} score={item} />
                 ))}
               </div>
@@ -161,9 +137,9 @@ function Personal() {
               <p>Here are all the games you've be in</p>
             </div>
 
-            {filteredScores.length > 0 ? (
+            {usersScorecards.length > 0 ? (
               <div className='scores'>
-                {filteredScores.map((item) => (
+                {usersScorecards.map((item) => (
                   <ScorecardCard key={item._id} scorecard={item} />
                 )).reverse()}
               </div>
