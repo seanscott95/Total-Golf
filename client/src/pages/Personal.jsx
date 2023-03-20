@@ -39,6 +39,25 @@ function Personal() {
     return obj.numberOfHoles === "1-18";
   });
 
+  // Creates new array of only the scores on the scorecard that belong to the user
+  const getUsersScores = (scores) => scores.map(
+    el => el.score.filter(item => item.username === user.username)
+  ).flat().sort((a, b) => a.total - b.total); // Orders from low to high
+
+  // Finds the average of the users scorecard totals
+  const findTotalAvg = (arr) => {
+    // Narrows the scorecard to just the scores that are the users
+    const scoreArr = getUsersScores(arr);
+    const { length } = scoreArr;
+    // Creates array of totals for each scorecard
+    let arrTotal = scoreArr.map(item => item.total);
+    // Reduces array of totals to a single average value
+    return arrTotal.reduce((acc, val) => {
+      let avg = acc + (val / length);
+      return +avg.toFixed(2);   // Converts avg to a string and to two deciaml places
+    }, 0);
+  };
+
   useEffect(() => {
     if (!user) {
       navigate('/signin');
@@ -92,14 +111,23 @@ function Personal() {
           <div>
             <h3 className="section-heading">1-18</h3>
             <p>Played: {bothNineHoleGames.length > 0 ? bothNineHoleGames.length : 'N/A'}</p>
+            <p>Best: {bothNineHoleGames.length > 0 ? getUsersScores(bothNineHoleGames)[0].total : 'N/A'}</p>
+            <p>Average: {findTotalAvg(bothNineHoleGames) || 'N/A'}</p>
+            <p>Worst: {bothNineHoleGames.length > 0 ? getUsersScores(bothNineHoleGames).reverse()[0].total : 'N/A'}</p>
           </div>
           <div>
             <h3 className="section-heading">1-9</h3>
             <p>Played: {firstNineHoleGames.length > 0 ? firstNineHoleGames.length : 'N/A'}</p>
+            <p>Best: {firstNineHoleGames.length > 0 ? getUsersScores(firstNineHoleGames)[0].total : 'N/A'}</p>
+            <p>Average: {findTotalAvg(firstNineHoleGames) || 'N/A'}</p>
+            <p>Worst: {firstNineHoleGames.length > 0 ? getUsersScores(firstNineHoleGames).reverse()[0].total : 'N/A'}</p>
           </div>
           <div>
             <h3 className="section-heading">10-18</h3>
             <p>Played: {lastNineHoleGames.length > 0 ? lastNineHoleGames.length : 'N/A'}</p>
+            <p>Best: {lastNineHoleGames.length > 0 ? getUsersScores(lastNineHoleGames)[0].total : 'N/A'}</p>
+            <p>Average: {findTotalAvg(lastNineHoleGames) || 'N/A'}</p>
+            <p>Worst: {lastNineHoleGames.length > 0 ? getUsersScores(lastNineHoleGames).reverse()[0].total : 'N/A'}</p>
           </div>
         </div>
       </section>
@@ -150,7 +178,7 @@ function Personal() {
         </>
       )}
     </>
-  )
-}
+  );
+};
 
-export default Personal
+export default Personal;
