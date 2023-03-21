@@ -58,6 +58,18 @@ function Personal() {
     }, 0);
   };
 
+  // Filters through array of scores and returns all courseNames for Queens Park
+  const findQPGames = (arr) => {
+    return arr.filter((obj) => {
+      return obj.courseName === "Queens Park";
+    });
+  };
+
+  // Creates new variables for the Queens Park games
+  const firstNineHoleGamesQP = findQPGames(firstNineHoleGames);
+  const lastNineHoleGamesQP = findQPGames(lastNineHoleGames);
+  const bothNineHoleGamesQP = findQPGames(bothNineHoleGames);
+
   useEffect(() => {
     if (!user) {
       navigate('/signin');
@@ -110,24 +122,24 @@ function Personal() {
         <div className="section-heading">
           <div>
             <h3 className="section-heading">1-18</h3>
-            <p>Played: {bothNineHoleGames.length > 0 ? bothNineHoleGames.length : 'N/A'}</p>
-            <p>Best: {bothNineHoleGames.length > 0 ? getUsersScores(bothNineHoleGames)[0].total : 'N/A'}</p>
-            <p>Average: {findTotalAvg(bothNineHoleGames) || 'N/A'}</p>
-            <p>Worst: {bothNineHoleGames.length > 0 ? getUsersScores(bothNineHoleGames).reverse()[0].total : 'N/A'}</p>
+            <p>Played: {bothNineHoleGamesQP.length > 0 ? bothNineHoleGamesQP.length : 'N/A'}</p>
+            <p>Best: {bothNineHoleGamesQP.length > 0 ? getUsersScores(bothNineHoleGamesQP)[0].total : 'N/A'}</p>
+            <p>Average: {findTotalAvg(bothNineHoleGamesQP) || 'N/A'}</p>
+            <p>Worst: {bothNineHoleGamesQP.length > 0 ? getUsersScores(bothNineHoleGamesQP).reverse()[0].total : 'N/A'}</p>
           </div>
           <div>
             <h3 className="section-heading">1-9</h3>
-            <p>Played: {firstNineHoleGames.length > 0 ? firstNineHoleGames.length : 'N/A'}</p>
-            <p>Best: {firstNineHoleGames.length > 0 ? getUsersScores(firstNineHoleGames)[0].total : 'N/A'}</p>
-            <p>Average: {findTotalAvg(firstNineHoleGames) || 'N/A'}</p>
-            <p>Worst: {firstNineHoleGames.length > 0 ? getUsersScores(firstNineHoleGames).reverse()[0].total : 'N/A'}</p>
+            <p>Played: {firstNineHoleGamesQP.length > 0 ? firstNineHoleGamesQP.length : 'N/A'}</p>
+            <p>Best: {firstNineHoleGamesQP.length > 0 ? getUsersScores(firstNineHoleGamesQP)[0].total : 'N/A'}</p>
+            <p>Average: {findTotalAvg(firstNineHoleGamesQP) || 'N/A'}</p>
+            <p>Worst: {firstNineHoleGamesQP.length > 0 ? getUsersScores(firstNineHoleGamesQP).reverse()[0].total : 'N/A'}</p>
           </div>
           <div>
             <h3 className="section-heading">10-18</h3>
-            <p>Played: {lastNineHoleGames.length > 0 ? lastNineHoleGames.length : 'N/A'}</p>
-            <p>Best: {lastNineHoleGames.length > 0 ? getUsersScores(lastNineHoleGames)[0].total : 'N/A'}</p>
-            <p>Average: {findTotalAvg(lastNineHoleGames) || 'N/A'}</p>
-            <p>Worst: {lastNineHoleGames.length > 0 ? getUsersScores(lastNineHoleGames).reverse()[0].total : 'N/A'}</p>
+            <p>Played: {lastNineHoleGamesQP.length > 0 ? lastNineHoleGamesQP.length : 'N/A'}</p>
+            <p>Best: {lastNineHoleGamesQP.length > 0 ? getUsersScores(lastNineHoleGamesQP)[0].total : 'N/A'}</p>
+            <p>Average: {findTotalAvg(lastNineHoleGamesQP) || 'N/A'}</p>
+            <p>Worst: {lastNineHoleGamesQP.length > 0 ? getUsersScores(lastNineHoleGamesQP).reverse()[0].total : 'N/A'}</p>
           </div>
         </div>
       </section>
