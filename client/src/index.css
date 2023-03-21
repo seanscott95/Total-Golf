@@ -152,8 +152,8 @@ button:hover {
   align-items: center;
   color: var(--primary-color);
   border-bottom: 2px solid var(--primary-color);
-  padding: 15px 0px 5px 15px;
-  margin-bottom: 2rem; 
+  padding: 15px 5px 5px 15px;
+  margin: 1.5rem 1rem; 
 }
 
 .section-heading p {
@@ -176,7 +176,7 @@ button:hover {
   margin-bottom: 1rem;
 }
 
-.stats-section > div > h3 {
+.stats-section > div > h3, .centered-heading {
   display: flex;
   justify-content: center;
   align-items: center;
