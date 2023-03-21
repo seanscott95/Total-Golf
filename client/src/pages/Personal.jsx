@@ -15,15 +15,16 @@ function Personal() {
   const { user } = useSelector((state) => state.auth);
   const { personal, isLoading, isError, message } = useSelector((state) => state.personal);
   const { scores, scoresIsLoading, scoresIsError, scoresMessage } = useSelector((state) => state.scores);
-
+  
+  // Sorts an array of scores by the total property (lower is better in golf)
+  const orderScores = arr => arr.sort((a, b) => a.total - b.total);
+  
   // Filters all scorecards and returns whole scorecard if the user is on it
   const usersScorecards = scores.filter(obj => {
     return obj.score.some(item => item.username === user.username);
   });
 
-  // Sorts an array of scores by the total property (lower is better in golf)
-  const orderScores = arr => arr.sort((a, b) => a.total - b.total);
-  
+
   // Creates variable that contains only the first nine hole games
   const firstNineHoleGames = usersScorecards.filter(obj => {
     return obj.numberOfHoles === "1-9";
@@ -119,27 +120,27 @@ function Personal() {
       </section>
 
       <section className="content stats-section">
-          <div>
-            <h3>1-18</h3>
-            <p>Played: {bothNineHoleGamesQP.length > 0 ? bothNineHoleGamesQP.length : 'N/A'}</p>
-            <p>Best: {bothNineHoleGamesQP.length > 0 ? getUsersScores(bothNineHoleGamesQP)[0].total : 'N/A'}</p>
-            <p>Average: {findTotalAvg(bothNineHoleGamesQP) || 'N/A'}</p>
-            <p>Worst: {bothNineHoleGamesQP.length > 0 ? getUsersScores(bothNineHoleGamesQP).reverse()[0].total : 'N/A'}</p>
-          </div>
-          <div>
-            <h3>1-9</h3>
-            <p>Played: {firstNineHoleGamesQP.length > 0 ? firstNineHoleGamesQP.length : 'N/A'}</p>
-            <p>Best: {firstNineHoleGamesQP.length > 0 ? getUsersScores(firstNineHoleGamesQP)[0].total : 'N/A'}</p>
-            <p>Average: {findTotalAvg(firstNineHoleGamesQP) || 'N/A'}</p>
-            <p>Worst: {firstNineHoleGamesQP.length > 0 ? getUsersScores(firstNineHoleGamesQP).reverse()[0].total : 'N/A'}</p>
-          </div>
-          <div>
-            <h3>10-18</h3>
-            <p>Played: {lastNineHoleGamesQP.length > 0 ? lastNineHoleGamesQP.length : 'N/A'}</p>
-            <p>Best: {lastNineHoleGamesQP.length > 0 ? getUsersScores(lastNineHoleGamesQP)[0].total : 'N/A'}</p>
-            <p>Average: {findTotalAvg(lastNineHoleGamesQP) || 'N/A'}</p>
-            <p>Worst: {lastNineHoleGamesQP.length > 0 ? getUsersScores(lastNineHoleGamesQP).reverse()[0].total : 'N/A'}</p>
-          </div>
+        <div>
+          <h3>1-18</h3>
+          <p>Played: {bothNineHoleGamesQP.length > 0 ? bothNineHoleGamesQP.length : 'N/A'}</p>
+          <p>Best: {bothNineHoleGamesQP.length > 0 ? getUsersScores(bothNineHoleGamesQP)[0].total : 'N/A'}</p>
+          <p>Average: {findTotalAvg(bothNineHoleGamesQP) || 'N/A'}</p>
+          <p>Worst: {bothNineHoleGamesQP.length > 0 ? getUsersScores(bothNineHoleGamesQP).reverse()[0].total : 'N/A'}</p>
+        </div>
+        <div>
+          <h3>1-9</h3>
+          <p>Played: {firstNineHoleGamesQP.length > 0 ? firstNineHoleGamesQP.length : 'N/A'}</p>
+          <p>Best: {firstNineHoleGamesQP.length > 0 ? getUsersScores(firstNineHoleGamesQP)[0].total : 'N/A'}</p>
+          <p>Average: {findTotalAvg(firstNineHoleGamesQP) || 'N/A'}</p>
+          <p>Worst: {firstNineHoleGamesQP.length > 0 ? getUsersScores(firstNineHoleGamesQP).reverse()[0].total : 'N/A'}</p>
+        </div>
+        <div>
+          <h3>10-18</h3>
+          <p>Played: {lastNineHoleGamesQP.length > 0 ? lastNineHoleGamesQP.length : 'N/A'}</p>
+          <p>Best: {lastNineHoleGamesQP.length > 0 ? getUsersScores(lastNineHoleGamesQP)[0].total : 'N/A'}</p>
+          <p>Average: {findTotalAvg(lastNineHoleGamesQP) || 'N/A'}</p>
+          <p>Worst: {lastNineHoleGamesQP.length > 0 ? getUsersScores(lastNineHoleGamesQP).reverse()[0].total : 'N/A'}</p>
+        </div>
       </section>
 
       {isLoading ? (
@@ -147,20 +148,48 @@ function Personal() {
       ) : (
         <>
           <section className='content'>
-            <div className='section-heading'>
-              <h3>ALL</h3>
-              <p>Below are all of your previous scores from best to worst</p>
+            <div className='section-heading centered-heading'>
+              <h3>1-18</h3>
+              <p>Below are all of your 1-18 hole games for Queens Park</p>
             </div>
 
-            {orderScores([...personal]).length > 0 ? (
+            {bothNineHoleGamesQP.length > 0 ? (
               <div className='scores'>
-                {orderScores([...personal]).map((item) => (
+                {getUsersScores(bothNineHoleGamesQP).map((item) => (
                   <ScoreCard key={item._id} score={item} />
                 ))}
               </div>
-            ) : (
-              <h3>You have no scores!</h3>
-            )}
+            ) : (<h3>You have no scores!</h3>)}
+          </section>
+
+          <section className='content'>
+            <div className='section-heading centered-heading'>
+              <h3>1-9</h3>
+              <p>Below are all of your 1-9 hole games for Queens Park</p>
+            </div>
+
+            {firstNineHoleGamesQP.length > 0 ? (
+              <div className='scores'>
+                {getUsersScores(firstNineHoleGamesQP).map((item) => (
+                  <ScoreCard key={item._id} score={item} />
+                ))}
+              </div>
+            ) : (<h3>You have no scores!</h3>)}
+          </section>
+
+          <section className='content'>
+            <div className='section-heading centered-heading'>
+              <h3>10-18</h3>
+              <p>Below are all of your 10-18 hole games for Queens Park</p>
+            </div>
+
+            {lastNineHoleGamesQP.length > 0 ? (
+              <div className='scores'>
+                {getUsersScores(lastNineHoleGamesQP).map((item) => (
+                  <ScoreCard key={item._id} score={item} />
+                ))}
+              </div>
+            ) : (<h3>You have no scores!</h3>)}
           </section>
         </>
       )}
@@ -172,7 +201,7 @@ function Personal() {
           <section className='content'>
             <div className='section-heading'>
               <h3>ALL GAMES</h3>
-              <p>Here are all the games you've be in</p>
+              <p>Here are all the games you're in</p>
             </div>
 
             {usersScorecards.length > 0 ? (
