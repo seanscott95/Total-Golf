@@ -150,10 +150,13 @@ function Personal() {
             </div>
 
             {bothNineHoleGamesQP.length > 0 ? (
-              <div className='scores'>
-                {getUsersScores(bothNineHoleGamesQP).map((item) => (
-                  <ScoreCard key={item._id} score={item} />
-                ))}
+              <div className="position-medals">
+                <div className='scores'>
+                  {getUsersScores(bothNineHoleGamesQP).map((item) => (
+                    <ScoreCard key={item._id} score={item} />
+                  ))}
+                  {console.log()}
+                </div>
               </div>
             ) : (<h3>You have no scores!</h3>)}
           </section>
@@ -165,10 +168,13 @@ function Personal() {
             </div>
 
             {firstNineHoleGamesQP.length > 0 ? (
-              <div className='scores'>
-                {getUsersScores(firstNineHoleGamesQP).map((item) => (
-                  <ScoreCard key={item._id} score={item} />
-                ))}
+              <div className="position-medals">
+
+                <div className='scores'>
+                  {getUsersScores(firstNineHoleGamesQP).map((item) => (
+                    <ScoreCard key={item._id} score={item} />
+                  ))}
+                </div>
               </div>
             ) : (<h3>You have no scores!</h3>)}
           </section>
@@ -180,10 +186,12 @@ function Personal() {
             </div>
 
             {lastNineHoleGamesQP.length > 0 ? (
+                <div className="position-medals">
               <div className='scores'>
-                {getUsersScores(lastNineHoleGamesQP).map((item) => (
-                  <ScoreCard key={item._id} score={item} />
-                ))}
+                  {getUsersScores(lastNineHoleGamesQP).map((item) => (
+                    <ScoreCard key={item._id} score={item} />
+                  ))}
+                </div>
               </div>
             ) : (<h3>You have no scores!</h3>)}
           </section>

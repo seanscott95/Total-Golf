@@ -198,6 +198,33 @@ button:hover {
   margin-top: 1rem;
 }
 
+.position-medals {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.position-medals .scorecard:first-child {
+  background-image: url(./assets/svg/gold-medal.png);
+  background-position: 15px;
+  background-repeat: no-repeat;
+  background-size: 50px;
+  padding-left: 80px;
+}
+.position-medals .scorecard:nth-child(2) {
+  background-image: url(./assets/svg/silver-medal.png);
+  background-position: 15px;
+  background-repeat: no-repeat;
+  background-size: 50px;
+  padding-left: 80px;
+}
+.position-medals .scorecard:nth-child(3) {
+  background-image: url(./assets/svg/bronze-medal.png);
+  background-position: 15px;
+  background-repeat: no-repeat;
+  background-size: 50px;
+  padding-left: 80px;
+}
+
 /* ------------REMOVES COUNTER ON INPUTS------------ */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
