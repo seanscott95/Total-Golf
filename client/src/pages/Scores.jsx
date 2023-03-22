@@ -36,17 +36,25 @@ function Scores() {
       {isLoading ? (
         <img src={spinner} alt='Loading' />
       ) : (
-        <section className='content'>
-          {scores.length > 0 ? (
-            <div className='scores'>
-              {scores.map((item) => (
-                <ScorecardCard key={item._id} scorecard={item} />
-              )).reverse()}
+        <>
+          <section className='content'>
+            <div className='section-heading centered-heading'>
+              <h3>EVERYONE</h3>
+              <p>This is a list of all recorded games for all users</p>
             </div>
-          ) : (
-            <h3>There are no scorecards!</h3>
-          )}
-        </section>
+          </section>
+          <section className='content'>
+            {scores.length > 0 ? (
+              <div className='scores'>
+                {scores.map((item) => (
+                  <ScorecardCard key={item._id} scorecard={item} />
+                )).reverse()}
+              </div>
+            ) : (
+              <h3>There are no scorecards!</h3>
+            )}
+          </section>
+        </>
       )}
     </div>
   )
