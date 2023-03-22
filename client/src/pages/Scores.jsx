@@ -38,11 +38,12 @@ function Scores() {
       ) : (
         <>
           <section className='content'>
-            <div className='section-heading centered-heading'>
-              <h3>EVERYONE</h3>
+            <div className='centered-heading'>
+              <h3 className="heading">EVERYONE</h3>
               <p>This is a list of all recorded games for all users</p>
             </div>
           </section>
+          
           <section className='content'>
             {scores.length > 0 ? (
               <div className='scores'>
