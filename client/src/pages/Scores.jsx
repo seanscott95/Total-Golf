@@ -32,7 +32,7 @@ function Scores() {
   }, [user, navigate, isError, message, dispatch]);
 
   return (
-    <div>
+    <div className="page-container">
       {isLoading ? (
         <img src={spinner} alt='Loading' />
       ) : (

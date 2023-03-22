@@ -1,13 +1,3 @@
-.scorecard-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 56vw;
-    padding: 10px;
-    background: rgba(42, 46, 52, .7);
-    border-radius: 10px;
-}
-
 .form,
 .content {
     width: 90%;

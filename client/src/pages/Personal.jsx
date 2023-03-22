@@ -15,10 +15,10 @@ function Personal() {
   const { user } = useSelector((state) => state.auth);
   const { personal, isLoading, isError, message } = useSelector((state) => state.personal);
   const { scores, scoresIsLoading, scoresIsError, scoresMessage } = useSelector((state) => state.scores);
-  
+
   // Sorts an array of scores by the total property (lower is better in golf)
   const orderScores = arr => arr.sort((a, b) => a.total - b.total);
-  
+
   // Filters all scorecards and returns whole scorecard if the user is on it
   const usersScorecards = scores.filter(obj => {
     return obj.score.some(item => item.username === user.username);
@@ -108,7 +108,7 @@ function Personal() {
   }, [user, navigate, scoresIsError, scoresMessage, dispatch]);
 
   return (
-    <>
+    <div className="page-container">
       <section className="heading">
         <h1>{user && user.username.charAt(0).toUpperCase() + user.username.slice(1)}'s Scores</h1>
       </section>
@@ -216,7 +216,7 @@ function Personal() {
           </section>
         </>
       )}
-    </>
+    </div>
   );
 };
 

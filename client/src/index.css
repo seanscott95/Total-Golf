@@ -25,6 +25,18 @@
   justify-content: center;
 }
 
+.page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 56vw;
+  padding: 10px;
+  background: rgba(42, 46, 52, .7);
+  border-radius: 10px;
+  border: 2px solid var(--primary-color);
+  margin: 2rem 1rem;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   height: 100vh;
