@@ -69,7 +69,7 @@ function ScoreCard({ score }) {
                     </thead>
                     <tbody>
                         <tr key={score._id}>
-                            <td>{score.username}</td>
+                            <td>{score.username.charAt(0).toUpperCase() + score.username.slice(1)}</td>
                             <td>&nbsp;</td>
                             {isFirstNine ?
                                 <>

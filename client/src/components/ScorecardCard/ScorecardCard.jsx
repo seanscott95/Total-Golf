@@ -78,7 +78,7 @@ function ScorecardCard({ scorecard }) {
                     <tbody>
                         {scorecard.score.map((item) => (
                             <tr key={item._id}>
-                                <td>{item.username}</td>
+                                <td>{item.username.charAt(0).toUpperCase() + item.username.slice(1)}</td>
                                 <td>&nbsp;</td>
                                 {isFirstNine ?
                                     <>
