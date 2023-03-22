@@ -109,13 +109,9 @@ function Personal() {
 
   return (
     <div className="page-container">
-      <section className="heading">
-        <h1>{user && user.username.charAt(0).toUpperCase() + user.username.slice(1)}'s Scores</h1>
-      </section>
-
       <section className="content">
-        <div className="section-heading">
-          <h3>QUEENS PARK</h3>
+        <div className="heading centered-heading">
+          <h3>QUEENS PARK - {user && user.username.toUpperCase()}</h3>
         </div>
       </section>
 
