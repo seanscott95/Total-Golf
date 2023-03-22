@@ -195,6 +195,7 @@ button:hover {
   color: var(--primary-color);
   border-bottom: 2px solid var(--primary-color);
   padding: .5rem;
+  margin-top: 1rem;
 }
 
 /* ------------REMOVES COUNTER ON INPUTS------------ */

@@ -194,9 +194,9 @@ function Personal() {
         <img src={spinner} alt='Loading' />
       ) : (
         <>
-          <section className='content'>
-            <div className='section-heading'>
-              <h3>ALL GAMES</h3>
+          <section className='content '>
+            <div className='centered-heading'>
+              <h3 className="heading ">ALL GAMES</h3>
               <p>Here are all the games you're in</p>
             </div>
 
