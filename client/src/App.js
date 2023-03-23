@@ -11,6 +11,7 @@ import Personal from './pages/Personal';
 import Scores from './pages/Scores';
 import CreateScorecardQP from "./pages/CreateScorecardQP";
 import CreateScorecard from "./pages/CreateScorecard";
+import LeaderBoard from "./pages/LeaderBoard";
 import PrivateRoutes from "./utils/auth/PrivateRoutes";
 
 const App = () => {
@@ -26,9 +27,10 @@ const App = () => {
             <Route element={<PrivateRoutes user={user} />}>
               <Route path="/" element={<Homepage />} />
               <Route path="/personal" element={<Personal />} />
-              <Route path="/Scores" element={<Scores />} />
-              <Route path="/CreateScorecardQP" element={<CreateScorecardQP />} />
-              <Route path="/CreateScorecard" element={<CreateScorecard />} />
+              <Route path="/scores" element={<Scores />} />
+              <Route path="/createScorecardQP" element={<CreateScorecardQP />} />
+              <Route path="/createScorecard" element={<CreateScorecard />} />
+              <Route path="/leaderBoard" element={<LeaderBoard />} />
             </Route>
           </Routes>
         </div>
