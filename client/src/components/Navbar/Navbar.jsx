@@ -50,6 +50,9 @@ const Navbar = () => {
         {user ? (
           <>
             <li className='nav-item'>
+              <Link to="/leaderBoard" className='nav-link'>Leaderboard</Link>
+            </li>
+            <li className='nav-item'>
               <Link to="/personal" className='nav-link'>Personal</Link>
             </li>
             <li className='nav-item'>
