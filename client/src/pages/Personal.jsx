@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 
 import ScoreCard from '../components/ScoreCard/ScoreCard';
 import ScorecardCard from '../components/ScorecardCard/ScorecardCard';
-import { getAllPersonal, resetPersonal } from '../utils/personal/personalSlice';
 import { getAllScorecards, reset } from '../utils/scorecard/scorecardSlice';
 import spinner from '../assets/gif/Ghost.gif';
 
@@ -13,32 +12,36 @@ function Personal() {
   const dispatch = useDispatch();
 
   const { user } = useSelector((state) => state.auth);
-  const { personal, isLoading, isError, message } = useSelector((state) => state.personal);
   const { scores, scoresIsLoading, scoresIsError, scoresMessage } = useSelector((state) => state.scores);
-
-  // Sorts an array of scores by the total property (lower is better in golf)
-  const orderScores = arr => arr.sort((a, b) => a.total - b.total);
 
   // Filters all scorecards and returns whole scorecard if the user is on it
   const usersScorecards = scores.filter(obj => {
     return obj.score.some(item => item.username === user.username);
   });
 
+  // Sorts the array depending on how many holes
+  const sortHoles = (arr, str) => {
+    return arr.filter(obj => {
+      return obj.numberOfHoles === str;
+    });
+  };
 
-  // Creates variable that contains only the first nine hole games
-  const firstNineHoleGames = usersScorecards.filter(obj => {
-    return obj.numberOfHoles === "1-9";
-  });
+  // Creates new variables and groups all the scores depending on holes played
+  const firstNineHoleGames = sortHoles(scores, "1-9");
+  const lastNineHoleGames = sortHoles(scores, "10-18");
+  const bothNineHoleGames = sortHoles(scores, "1-18");
 
-  // Creates variable that contains only the last nine hole games
-  const lastNineHoleGames = usersScorecards.filter(obj => {
-    return obj.numberOfHoles === "10-18";
-  });
+  // Filters through array of scores and returns all courseNames for Queens Park
+  const findQPGames = (arr) => {
+    return arr.filter((obj) => {
+      return obj.courseName === "Queens Park";
+    });
+  };
 
-  // Creates variable that contains only the one to eighteen hole games
-  const bothNineHoleGames = usersScorecards.filter(obj => {
-    return obj.numberOfHoles === "1-18";
-  });
+  // Creates new variables for the Queens Park games
+  const firstNineHoleGamesQP = findQPGames(firstNineHoleGames);
+  const lastNineHoleGamesQP = findQPGames(lastNineHoleGames);
+  const bothNineHoleGamesQP = findQPGames(bothNineHoleGames);
 
   // Creates new array of only the scores on the scorecard that belong to the user
   const getUsersScores = (scores) => scores.map(
@@ -58,36 +61,6 @@ function Personal() {
       return +avg.toFixed(2);   // Converts avg to a string and to two deciaml places
     }, 0);
   };
-
-  // Filters through array of scores and returns all courseNames for Queens Park
-  const findQPGames = (arr) => {
-    return arr.filter((obj) => {
-      return obj.courseName === "Queens Park";
-    });
-  };
-
-  // Creates new variables for the Queens Park games
-  const firstNineHoleGamesQP = findQPGames(firstNineHoleGames);
-  const lastNineHoleGamesQP = findQPGames(lastNineHoleGames);
-  const bothNineHoleGamesQP = findQPGames(bothNineHoleGames);
-
-  useEffect(() => {
-    if (!user) {
-      navigate('/signin');
-    };
-
-    if (isError) {
-      console.log(`Error: ${message}`);
-    };
-
-    if (user) {
-      dispatch(getAllPersonal(user.username));
-    };
-
-    return () => {
-      dispatch(resetPersonal());
-    };
-  }, [user, navigate, isError, message, dispatch]);
 
   useEffect(() => {
     if (!user) {
@@ -139,7 +112,7 @@ function Personal() {
         </div>
       </section>
 
-      {isLoading ? (
+      {scoresIsLoading ? (
         <img src={spinner} alt='Loading' />
       ) : (
         <>
@@ -155,7 +128,6 @@ function Personal() {
                   {getUsersScores(bothNineHoleGamesQP).map((item) => (
                     <ScoreCard key={item._id} score={item} />
                   ))}
-                  {console.log()}
                 </div>
               </div>
             ) : (<h3>You have no scores!</h3>)}
@@ -186,8 +158,8 @@ function Personal() {
             </div>
 
             {lastNineHoleGamesQP.length > 0 ? (
-                <div className="position-medals">
-              <div className='scores'>
+              <div className="position-medals">
+                <div className='scores'>
                   {getUsersScores(lastNineHoleGamesQP).map((item) => (
                     <ScoreCard key={item._id} score={item} />
                   ))}
