@@ -163,7 +163,6 @@ function Personal() {
 
             {lastNineHoleGamesQP.length > 0 ? (
               <div className="position-medals">
-                {console.log("lastNineHoleGamesQP", lastNineHoleGamesQP)}
                 <div className='scores'>
                   {getUsersScores(lastNineHoleGamesQP).map((item) => (
                     <ScoreCard key={item._id} score={item} />
