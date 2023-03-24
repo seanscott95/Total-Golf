@@ -8,13 +8,12 @@ import { getAllScorecards, reset } from '../utils/scorecard/scorecardSlice';
 import ScorecardCard from "../components/ScorecardCard/ScorecardCard";
 import spinner from '../assets/gif/Ghost.gif';
 
-
 const ViewScorecard = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const { user } = useSelector((state) => state.auth);
-  const { scores, isLoading, isError, message } = useSelector((state) => state.scores)
+  const { scores, isLoading, isError, message } = useSelector((state) => state.scores);
 
   const { scorecardId } = useParams();
 
@@ -26,15 +25,12 @@ const ViewScorecard = () => {
     if (!user) {
       navigate('/signin');
     };
-
     if (isError) {
       console.log(`Error: ${message}`);
     };
-
     if (user) {
       dispatch(getAllScorecards());
     };
-
     return () => {
       dispatch(reset());
     };
@@ -42,10 +38,10 @@ const ViewScorecard = () => {
 
   if (isLoading) {
     return <img src={spinner} alt='Loading' />
-  }
+  };
 
   return (
-    <div className="page-container">
+    <div className=page-container">
       <ScorecardCard scorecard={scorecard} />
     </div>
   );
