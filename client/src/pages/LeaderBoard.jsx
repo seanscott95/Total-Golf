@@ -84,21 +84,21 @@ const LeaderBoard = () => {
                 <section className="content stats-section">
                     <div>
                         <h3>1-18</h3>
-                        <p>Played: {bothNineHoleGamesQP.length > 0 ? bothNineHoleGamesQP.length : 'N/A'}</p>
+                        <p>Played: {bothNineHoleGamesQP.length > 0 ? getAllUsersScoresArr(bothNineHoleGamesQP).length : 'N/A'}</p>
                         <p>Best: {bothNineHoleGamesQP.length > 0 ? getAllUsersScoresArr(bothNineHoleGamesQP)[0].total : 'N/A'}</p>
                         <p>Average: {findTotalAvg(bothNineHoleGamesQP) || 'N/A'}</p>
                         <p>Worst: {bothNineHoleGamesQP.length > 0 ? getAllUsersScoresArr(bothNineHoleGamesQP).reverse()[0].total : 'N/A'}</p>
                     </div>
                     <div>
                         <h3>1-9</h3>
-                        <p>Played: {firstNineHoleGamesQP.length > 0 ? firstNineHoleGamesQP.length : 'N/A'}</p>
+                        <p>Played: {firstNineHoleGamesQP.length > 0 ? getAllUsersScoresArr(firstNineHoleGamesQP).length : 'N/A'}</p>
                         <p>Best: {firstNineHoleGamesQP.length > 0 ? getAllUsersScoresArr(firstNineHoleGamesQP)[0].total : 'N/A'}</p>
                         <p>Average: {findTotalAvg(firstNineHoleGamesQP) || 'N/A'}</p>
                         <p>Worst: {firstNineHoleGamesQP.length > 0 ? getAllUsersScoresArr(firstNineHoleGamesQP).reverse()[0].total : 'N/A'}</p>
                     </div>
                     <div>
                         <h3>10-18</h3>
-                        <p>Played: {lastNineHoleGamesQP.length > 0 ? lastNineHoleGamesQP.length : 'N/A'}</p>
+                        <p>Played: {lastNineHoleGamesQP.length > 0 ? getAllUsersScoresArr(lastNineHoleGamesQP).length : 'N/A'}</p>
                         <p>Best: {lastNineHoleGamesQP.length > 0 ? getAllUsersScoresArr(lastNineHoleGamesQP)[0].total : 'N/A'}</p>
                         <p>Average: {findTotalAvg(lastNineHoleGamesQP) || 'N/A'}</p>
                         <p>Worst: {lastNineHoleGamesQP.length > 0 ? getAllUsersScoresArr(lastNineHoleGamesQP).reverse()[0].total : 'N/A'}</p>
