@@ -41,7 +41,7 @@ const ViewScorecard = () => {
   };
 
   return (
-    <div className=page-container">
+    <div className="page-container">
       <ScorecardCard scorecard={scorecard} />
     </div>
   );
