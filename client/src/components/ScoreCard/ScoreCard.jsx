@@ -1,6 +1,12 @@
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import '../ScorecardCard/ScorecardCard.css';
 
 function ScoreCard({ score }) {
+    const navigate = useNavigate();
+
+    const { scores } = useSelector((state) => state.scores)
+
     const firstNine = score.firstNine;
     const lastNine = score.lastNine;
 
@@ -8,8 +14,20 @@ function ScoreCard({ score }) {
     const isLastNine = firstNine.hole1 === null && lastNine.hole10 !== null;
     const isBothNine = firstNine.hole1 !== null && lastNine.hole10 !== null;
 
+    const handleScorecardClick = (e) => {
+        e.preventDefault();
+
+        // Returns full scorecard the score was on
+        const scorecard = scores.filter(obj => {
+            return obj.score.some(item => item._id === score._id)
+        })[0];
+
+        const id = scorecard._id;
+        navigate(`/viewScorecard/${id}`);
+    };
+
     return (
-        <div className="scorecard">
+        <div className="scorecard" onClick={handleScorecardClick}>
             <div>
                 <table className='styled-table'>
                     <thead>
