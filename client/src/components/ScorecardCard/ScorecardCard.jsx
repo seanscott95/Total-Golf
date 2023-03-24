@@ -1,22 +1,32 @@
-import './ScorecardCard.css'
+import './ScorecardCard.css';
 
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { deleteScorecard } from '../../utils/scorecard/scorecardSlice';
 import { date_all } from '../../utils/helper/dateHelper';
 
 function ScorecardCard({ scorecard }) {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-    const isFirstNine = scorecard.numberOfHoles === "1-9";
-    const isLastNine = scorecard.numberOfHoles === "10-18";
-    const isBothNine = scorecard.numberOfHoles === "1-18";
+    const isFirstNine = scorecard?.numberOfHoles === "1-9";
+    const isLastNine = scorecard?.numberOfHoles === "10-18";
+    const isBothNine = scorecard?.numberOfHoles === "1-18";
 
+    const scorecardDate = scorecard?.datePlayed || "N/A";
+
+    const handleScorecardClick = (e) => {
+        e.preventDefault();
+        const id = scorecard._id
+        navigate(`/viewScorecard/${id}`);
+    };
+    
     return (
-        <div className="scorecard">
+        <div className="scorecard" onClick={handleScorecardClick}>
             <div className='scorecard-header'>
-                <p><span>Course:</span> {scorecard.courseName}</p>
-                <p><span>Date:</span> {date_all(scorecard.datePlayed)}</p>
-                <button type='submit' className='delete-btn' onClick={() => dispatch(deleteScorecard(scorecard._id))}>X</button>
+                <p><span>Course:</span> {scorecard?.courseName}</p>
+                <p><span>Date:</span> {date_all(scorecardDate)}</p>
+                <button type='submit' className='delete-btn' onClick={() => dispatch(deleteScorecard(scorecard?._id))}>X</button>
             </div>
             <div>
                 <table className='styled-table'>
@@ -76,7 +86,7 @@ function ScorecardCard({ scorecard }) {
                         </tr>
                     </thead>
                     <tbody>
-                        {scorecard.score.map((item) => (
+                        {scorecard?.score.map((item) => (
                             <tr key={item._id}>
                                 <td>{item.username.charAt(0).toUpperCase() + item.username.slice(1)}</td>
                                 <td>&nbsp;</td>
