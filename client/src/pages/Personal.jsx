@@ -48,6 +48,10 @@ function Personal() {
     el => el.score.filter(item => item.username === user.username)
   ).flat().sort((a, b) => a.total - b.total); // Orders from low to high
 
+  const usersScoresFirstNineQP = getUsersScores(firstNineHoleGamesQP);
+  const usersScoresLastNineQP = getUsersScores(lastNineHoleGamesQP);
+  const usersScoresBothNineQP = getUsersScores(bothNineHoleGamesQP);
+
   // Finds the average of the users scorecard totals
   const findTotalAvg = (arr) => {
     // Narrows the scorecard to just the scores that are the users
@@ -91,24 +95,24 @@ function Personal() {
       <section className="content stats-section">
         <div>
           <h3>1-18</h3>
-          <p>Played: {bothNineHoleGamesQP.length > 0 ? getUsersScores(bothNineHoleGamesQP).length : 'N/A'}</p>
-          <p>Best: {bothNineHoleGamesQP.length > 0 ? getUsersScores(bothNineHoleGamesQP)[0].total : 'N/A'}</p>
+          <p>Played: {usersScoresBothNineQP.length > 0 ? usersScoresBothNineQP.length : 'N/A'}</p>
+          <p>Best: {usersScoresBothNineQP.length > 0 ? usersScoresBothNineQP[0].total : 'N/A'}</p>
           <p>Average: {findTotalAvg(bothNineHoleGamesQP) || 'N/A'}</p>
-          <p>Worst: {bothNineHoleGamesQP.length > 0 ? getUsersScores(bothNineHoleGamesQP).reverse()[0].total : 'N/A'}</p>
+          <p>Worst: {usersScoresBothNineQP.length > 0 ? usersScoresBothNineQP[usersScoresBothNineQP.length - 1].total : 'N/A'}</p>
         </div>
         <div>
           <h3>1-9</h3>
-          <p>Played: {firstNineHoleGamesQP.length > 0 ? getUsersScores(firstNineHoleGamesQP).length : 'N/A'}</p>
-          <p>Best: {firstNineHoleGamesQP.length > 0 ? getUsersScores(firstNineHoleGamesQP)[0].total : 'N/A'}</p>
+          <p>Played: {usersScoresFirstNineQP.length > 0 ? usersScoresFirstNineQP.length : 'N/A'}</p>
+          <p>Best: {usersScoresFirstNineQP.length > 0 ? usersScoresFirstNineQP[0].total : 'N/A'}</p>
           <p>Average: {findTotalAvg(firstNineHoleGamesQP) || 'N/A'}</p>
-          <p>Worst: {firstNineHoleGamesQP.length > 0 ? getUsersScores(firstNineHoleGamesQP).reverse()[0].total : 'N/A'}</p>
+          <p>Worst: {usersScoresFirstNineQP.length > 0 ? usersScoresFirstNineQP[usersScoresFirstNineQP.length - 1].total : 'N/A'}</p>
         </div>
         <div>
           <h3>10-18</h3>
-          <p>Played: {lastNineHoleGamesQP.length > 0 ? getUsersScores(lastNineHoleGamesQP).length : 'N/A'}</p>
-          <p>Best: {lastNineHoleGamesQP.length > 0 ? getUsersScores(lastNineHoleGamesQP)[0].total : 'N/A'}</p>
+          <p>Played: {usersScoresLastNineQP.length > 0 ? usersScoresLastNineQP.length : 'N/A'}</p>
+          <p>Best: {usersScoresLastNineQP.length > 0 ? usersScoresLastNineQP[0].total : 'N/A'}</p>
           <p>Average: {findTotalAvg(lastNineHoleGamesQP) || 'N/A'}</p>
-          <p>Worst: {lastNineHoleGamesQP.length > 0 ? getUsersScores(lastNineHoleGamesQP).reverse()[0].total : 'N/A'}</p>
+          <p>Worst: {usersScoresLastNineQP.length > 0 ? usersScoresLastNineQP[usersScoresLastNineQP.length - 1].total : 'N/A'}</p>
         </div>
       </section>
 
@@ -185,7 +189,7 @@ function Personal() {
               <div className='scores'>
                 {usersScorecards.map((item) => (
                   <ScorecardCard key={item._id} scorecard={item} />
-                )).reverse()}
+                ))}
               </div>
             ) : (
               <h3>You have no scores!</h3>
