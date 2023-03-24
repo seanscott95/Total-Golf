@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { getAllScorecards, reset } from '../utils/scorecard/scorecardSlice';
 import spinner from '../assets/gif/Ghost.gif';
+import ScoreCard from '../components/ScoreCard/ScoreCard';
 
 const LeaderBoard = () => {
     const navigate = useNavigate();
@@ -25,10 +26,6 @@ const LeaderBoard = () => {
             return +avg.toFixed(1);   // Converts avg to a string and to two decimal places
         }, 0);
     };
-
-    const getAllUsersScoresArr = (arr) => {
-        return arr.map(item => item.score).flat().sort((a, b) => a.total - b.total);
-    }
 
     useEffect(() => {
         if (!user) {
@@ -70,11 +67,24 @@ const LeaderBoard = () => {
     const lastNineHoleGamesQP = findQPGames(lastNineHoleGames);
     const bothNineHoleGamesQP = findQPGames(bothNineHoleGames);
 
+    // Creates a new array with just the scores data from all the scorecards
+    const getAllUsersScoresArr = (arr) => {
+        return arr.map(item => item.score).flat().sort((a, b) => a.total - b.total);
+    };
+
+    const allScoresFirstNineQP = getAllUsersScoresArr(firstNineHoleGamesQP);
+    const allScoresLastNineQP = getAllUsersScoresArr(lastNineHoleGamesQP);
+    const allScoresBothNineQP = getAllUsersScoresArr(bothNineHoleGamesQP);
     return (
         <div className="page-container">
             <section className="content">
-                <div className="heading centered-heading">
+                <div className="heading">
                     <h3>LEADERBOARD</h3>
+                </div>
+            </section>
+            <section className="content">
+                <div className="section-heading ">
+                    <h3>QUEENS PARK</h3>
                 </div>
             </section>
 
@@ -84,26 +94,82 @@ const LeaderBoard = () => {
                 <section className="content stats-section">
                     <div>
                         <h3>1-18</h3>
-                        <p>Played: {bothNineHoleGamesQP.length > 0 ? getAllUsersScoresArr(bothNineHoleGamesQP).length : 'N/A'}</p>
-                        <p>Best: {bothNineHoleGamesQP.length > 0 ? getAllUsersScoresArr(bothNineHoleGamesQP)[0].total : 'N/A'}</p>
+                        <p>Played: {allScoresBothNineQP.length > 0 ? allScoresBothNineQP.length : 'N/A'}</p>
+                        <p>Best: {allScoresBothNineQP.length > 0 ? allScoresBothNineQP[0].total : 'N/A'}</p>
                         <p>Average: {findTotalAvg(bothNineHoleGamesQP) || 'N/A'}</p>
-                        <p>Worst: {bothNineHoleGamesQP.length > 0 ? getAllUsersScoresArr(bothNineHoleGamesQP).reverse()[0].total : 'N/A'}</p>
+                        <p>Worst: {allScoresBothNineQP.length > 0 ? allScoresBothNineQP.reverse()[0].total : 'N/A'}</p>
                     </div>
                     <div>
                         <h3>1-9</h3>
-                        <p>Played: {firstNineHoleGamesQP.length > 0 ? getAllUsersScoresArr(firstNineHoleGamesQP).length : 'N/A'}</p>
-                        <p>Best: {firstNineHoleGamesQP.length > 0 ? getAllUsersScoresArr(firstNineHoleGamesQP)[0].total : 'N/A'}</p>
+                        <p>Played: {allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP.length : 'N/A'}</p>
+                        <p>Best: {allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP[0].total : 'N/A'}</p>
                         <p>Average: {findTotalAvg(firstNineHoleGamesQP) || 'N/A'}</p>
-                        <p>Worst: {firstNineHoleGamesQP.length > 0 ? getAllUsersScoresArr(firstNineHoleGamesQP).reverse()[0].total : 'N/A'}</p>
+                        <p>Worst: {allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP.reverse()[0].total : 'N/A'}</p>
                     </div>
                     <div>
                         <h3>10-18</h3>
-                        <p>Played: {lastNineHoleGamesQP.length > 0 ? getAllUsersScoresArr(lastNineHoleGamesQP).length : 'N/A'}</p>
-                        <p>Best: {lastNineHoleGamesQP.length > 0 ? getAllUsersScoresArr(lastNineHoleGamesQP)[0].total : 'N/A'}</p>
+                        <p>Played: {allScoresLastNineQP.length > 0 ? allScoresLastNineQP.length : 'N/A'}</p>
+                        <p>Best: {allScoresLastNineQP.length > 0 ? allScoresLastNineQP[0].total : 'N/A'}</p>
                         <p>Average: {findTotalAvg(lastNineHoleGamesQP) || 'N/A'}</p>
-                        <p>Worst: {lastNineHoleGamesQP.length > 0 ? getAllUsersScoresArr(lastNineHoleGamesQP).reverse()[0].total : 'N/A'}</p>
+                        <p>Worst: {allScoresLastNineQP.length > 0 ? allScoresLastNineQP.reverse()[0].total : 'N/A'}</p>
                     </div>
                 </section>
+            )}
+            {isLoading ? (
+                <img src={spinner} alt='Loading' className="spinner" />
+            ) : (
+                <>
+                    <section className='content'>
+                        <div className='section-heading centered-heading'>
+                            <h3>1-18</h3>
+                            <p>Below are the top scores for 1-18 hole games at Queens Park</p>
+                        </div>
+
+                        {allScoresBothNineQP.length > 0 ? (
+                            <div className="position-medals">
+                                <div className='scores'>
+                                    {allScoresBothNineQP.reverse().slice(0, 3).map((item) => (
+                                        <ScoreCard key={item._id} score={item} />
+                                    ))}
+                                </div>
+                            </div>
+                        ) : (<h3>You have no scores!</h3>)}
+                    </section>
+
+                    <section className='content'>
+                        <div className='section-heading centered-heading'>
+                            <h3>1-9</h3>
+                            <p>Below are the top scores for 1-9 hole games at Queens Park</p>
+                        </div>
+
+                        {allScoresFirstNineQP.length > 0 ? (
+                            <div className="position-medals">
+                                <div className='scores'>
+                                    {allScoresFirstNineQP.reverse().slice(0, 3).map((item) => (
+                                        <ScoreCard key={item._id} score={item} />
+                                    ))}
+                                </div>
+                            </div>
+                        ) : (<h3>You have no scores!</h3>)}
+                    </section>
+
+                    <section className='content'>
+                        <div className='section-heading centered-heading'>
+                            <h3>10-18</h3>
+                            <p>Below are the top scores for 10-18 hole games at Queens Park</p>
+                        </div>
+
+                        {allScoresLastNineQP.length > 0 ? (
+                            <div className="position-medals">
+                                <div className='scores'>
+                                    {allScoresLastNineQP.reverse().slice(0, 3).map((item) => (
+                                        <ScoreCard key={item._id} score={item} />
+                                    ))}
+                                </div>
+                            </div>
+                        ) : (<h3>You have no scores!</h3>)}
+                    </section>
+                </>
             )}
         </div>
     );
