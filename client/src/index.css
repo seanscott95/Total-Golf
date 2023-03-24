@@ -225,6 +225,13 @@ button:hover {
   padding-left: 80px;
 }
 
+/* Spinner */
+.spinner {
+  height: 5rem;
+  width: 5rem;
+  margin: 1rem auto;
+}
+
 /* ------------REMOVES COUNTER ON INPUTS------------ */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,

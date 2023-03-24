@@ -36,13 +36,13 @@ const ViewScorecard = () => {
     };
   }, [user, navigate, isError, message, dispatch]);
 
-  if (isLoading) {
-    return <img src={spinner} alt='Loading' />
-  };
-
   return (
     <div className="page-container">
-      <ScorecardCard scorecard={scorecard} />
+      {isLoading ? (
+        <img src={spinner} alt='Loading' className="spinner" /> 
+      )
+        : (<ScorecardCard scorecard={scorecard} />)
+      }
     </div>
   );
 };

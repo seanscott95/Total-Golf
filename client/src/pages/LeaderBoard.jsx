@@ -79,7 +79,7 @@ const LeaderBoard = () => {
             </section>
 
             {isLoading ? (
-                <img src={spinner} alt='Loading' />
+                <img src={spinner} alt='Loading' className="spinner" />
             ) : (
                 <section className="content stats-section">
                     <div>

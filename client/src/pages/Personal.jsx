@@ -113,7 +113,7 @@ function Personal() {
       </section>
 
       {scoresIsLoading ? (
-        <img src={spinner} alt='Loading' />
+        <img src={spinner} alt='Loading' className="spinner" />
       ) : (
         <>
           <section className='content'>
@@ -172,7 +172,7 @@ function Personal() {
       )}
 
       {scoresIsLoading ? (
-        <img src={spinner} alt='Loading' />
+        <img src={spinner} alt='Loading' className="spinner" />
       ) : (
         <>
           <section className='content '>

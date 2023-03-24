@@ -33,17 +33,16 @@ function Scores() {
 
   return (
     <div className="page-container">
+      <section className='content'>
+        <div className='centered-heading'>
+          <h3 className="heading">EVERYONE</h3>
+          <p>This is a list of all recorded games for all users</p>
+        </div>
+      </section>
       {isLoading ? (
-        <img src={spinner} alt='Loading' />
+        <img src={spinner} alt='Loading' className="spinner" />
       ) : (
         <>
-          <section className='content'>
-            <div className='centered-heading'>
-              <h3 className="heading">EVERYONE</h3>
-              <p>This is a list of all recorded games for all users</p>
-            </div>
-          </section>
-          
           <section className='content'>
             {scores.length > 0 ? (
               <div className='scores'>

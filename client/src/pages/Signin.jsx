@@ -48,7 +48,7 @@ function Signin() {
   }
 
   if (isLoading) {
-    return <img src={spinner} alt='Loading' />
+    return <img src={spinner} alt='Loading' className="spinner" />
   }
 
   return (
