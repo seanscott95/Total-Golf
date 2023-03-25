@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { getAllScorecards, reset } from '../utils/scorecard/scorecardSlice';
 import spinner from '../assets/gif/Ghost.gif';
 import ScoreCard from '../components/ScoreCard/ScoreCard';
+import border from '../assets/svg/gb.png';
 
 const LeaderBoard = () => {
     const navigate = useNavigate();
@@ -79,7 +80,7 @@ const LeaderBoard = () => {
     return (
         <div className="page-container">
             <section className="content">
-                <div className="heading">
+                <div className="border-background-img">
                     <h3>LEADERBOARD</h3>
                 </div>
             </section>

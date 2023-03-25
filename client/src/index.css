@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #fed053;
+  --primary-color: #ffc107;
   --secondary-color: #000000;
   --third-color: #2a2e34;
   --fourth-color: #14213D;
@@ -165,7 +165,20 @@ button:hover {
   color: var(--primary-color);
   border-bottom: 2px solid var(--primary-color);
   padding: 15px 5px 5px 15px;
-  margin: 1.5rem 1rem; 
+  margin: 0 1rem;
+}
+
+.border-background-img h3 {
+  font-size: 40px;
+  background-image: url(./assets/svg/gold-border.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  padding-bottom: 8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 0;
+  margin-top: 2rem;
 }
 
 .section-heading p {
