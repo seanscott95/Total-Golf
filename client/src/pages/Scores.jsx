@@ -33,6 +33,12 @@ function Scores() {
 
   return (
     <div className="page-container">
+      <section className="content">
+        <div className="border-background-img">
+          <h3>SCORES</h3>
+        </div>
+      </section>
+
       <section className='content'>
         <div className='centered-heading'>
           <h3 className="heading">EVERYONE</h3>
