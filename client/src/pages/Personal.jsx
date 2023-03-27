@@ -87,8 +87,14 @@ function Personal() {
   return (
     <div className="page-container">
       <section className="content">
-        <div className="heading centered-heading">
-          <h3>QUEENS PARK - {user && user.username.toUpperCase()}</h3>
+        <div className="border-background-img">
+          <h3>{user && user.username.toUpperCase()}</h3>
+        </div>
+      </section>
+
+      <section className="content">
+        <div className="section-heading ">
+          <h2>QUEENS PARK</h2>
         </div>
       </section>
 
@@ -178,10 +184,9 @@ function Personal() {
         <img src={spinner} alt='Loading' className="spinner" />
       ) : (
         <>
-          <section className='content '>
-            <div className='centered-heading'>
-              <h3 className="heading ">ALL GAMES</h3>
-              <p>Here are all the games you're in</p>
+          <section className='content'>
+            <div className="section-heading ">
+              <h2>{user && user.username.toUpperCase()}'S GAMES</h2>
             </div>
 
             {usersScorecards.length > 0 ? (
