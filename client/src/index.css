@@ -1,10 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script');
+
 :root {
   --primary-color: #ffc107;
   --secondary-color: #000000;
   --third-color: #2a2e34;
   --fourth-color: #14213D;
   --black-fade: rgba(6, 6, 6, 0.8);
-  --cursive-font-family: 'Brush Script MT', 'Brush Script Std', cursive;
+  --primary-font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  --secondary-font-family: 'Brush Script MT', 'Brush Script Std', cursive;
+  --cursive-font-family: 'Dancing Script';
 }
 
 * {
@@ -38,14 +42,14 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--primary-font-family);
   height: 100vh;
   background: var(--secondary-color);
 }
 
 a {
   text-decoration: none;
-  color: #000;
+  color: var(--primary-color);
 }
 
 a:hover {
@@ -166,16 +170,18 @@ button:hover {
   border-bottom: 2px solid var(--primary-color);
   padding: 15px 5px 5px 15px;
   margin: 0 1rem;
+  font-family: var(--primary-font-family);
 }
 
 .border-background-img h3 {
-  font-size: 40px;
+  font-size: 3.5rem;
+  font-weight: 700;
+  font-family: var(--cursive-font-family);
   background-image: url(./assets/svg/gold-border.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 50%;
   padding-bottom: 8rem;
-  font-weight: 700;
   color: var(--primary-color);
   margin: 0;
   margin-top: 2rem;
