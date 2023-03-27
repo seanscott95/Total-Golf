@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import { getAllScorecards, reset } from '../utils/scorecard/scorecardSlice';
 import spinner from '../assets/gif/Ghost.gif';
 import ScoreCard from '../components/ScoreCard/ScoreCard';
-import border from '../assets/svg/gb.png';
 
 const LeaderBoard = () => {
     const navigate = useNavigate();
