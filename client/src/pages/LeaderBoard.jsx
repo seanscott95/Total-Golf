@@ -81,12 +81,12 @@ const LeaderBoard = () => {
         <div className="page-container">
             <section className="content">
                 <div className="border-background-img">
-                    <h3>LEADERBOARD</h3>
+                    <h3>LEADER BOARD</h3>
                 </div>
             </section>
             <section className="content">
                 <div className="section-heading ">
-                    <h3>QUEENS PARK</h3>
+                    <h2>QUEENS PARK</h2>
                 </div>
             </section>
 
