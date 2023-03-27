@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { deleteScorecard } from '../../utils/scorecard/scorecardSlice';
 import { date_all } from '../../utils/helper/dateHelper';
 
+import { FaRegEdit } from 'react-icons/fa';
+
 function ScorecardCard({ scorecard }) {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -26,6 +28,9 @@ function ScorecardCard({ scorecard }) {
             <div className='scorecard-header'>
                 <p><span>Course:</span> {scorecard?.courseName}</p>
                 <p><span>Date:</span> {date_all(scorecardDate)}</p>
+                <button type='button' className="edit-btn">
+                    <FaRegEdit />
+                </button>
                 <button type='submit' className='delete-btn' onClick={() => dispatch(deleteScorecard(scorecard?._id))}>X</button>
             </div>
             <div>
