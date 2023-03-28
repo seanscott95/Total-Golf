@@ -3,7 +3,9 @@ import ScorecardForm from '../components/ScorecardForm/ScorecardForm';
 function CreateScorecard() {
   return (
     <div className='scorecard-page-container'>
-      <ScorecardForm />
+      <div className="page-container">
+        <ScorecardForm />
+      </div>
     </div>
   )
 }

@@ -150,7 +150,7 @@ function ScorecardForm({ queensPark }) {
     }, [scoreInputData.firstNine, scoreInputData.lastNine])
 
     return (
-        <div className="page-container">
+        <div>
             <section >
                 <h1 className='section-heading'>SELECT HOW MANY HOLES</h1>
                 <div className="btn-group">

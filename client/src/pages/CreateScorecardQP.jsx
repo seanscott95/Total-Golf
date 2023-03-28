@@ -3,7 +3,9 @@ import ScorecardForm from '../components/ScorecardForm/ScorecardForm';
 function CreateScorecardQP() {
   return (
     <div className='scorecard-page-container'>
-      <ScorecardForm queensPark={true}/>
+      <div className="page-container">
+        <ScorecardForm queensPark={true}/>
+      </div>
     </div>
   )
 }
