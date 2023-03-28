@@ -1,14 +1,11 @@
 import './ScorecardCard.css';
 
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { deleteScorecard } from '../../utils/scorecard/scorecardSlice';
 import { date_all } from '../../utils/helper/dateHelper';
 
 import { FaRegEdit } from 'react-icons/fa';
 
-function ScorecardCard({ scorecard }) {
-    const dispatch = useDispatch();
+function ScorecardCard({ scorecard, showEditBtn }) {
     const navigate = useNavigate();
 
     const isFirstNine = scorecard?.numberOfHoles === "1-9";
@@ -28,16 +25,17 @@ function ScorecardCard({ scorecard }) {
         const id = scorecard._id
         navigate(`/editScorecard/${id}`);
     }
-    
+
     return (
         <div className="scorecard" onClick={handleScorecardClick}>
             <div className='scorecard-header'>
                 <p><span>Course:</span> {scorecard?.courseName}</p>
                 <p><span>Date:</span> {date_all(scorecardDate)}</p>
+                {showEditBtn ? 
                 <button type='button' className="edit-btn" onClick={handleEdit}>
                     <FaRegEdit />
                 </button>
-                <button type='submit' className='delete-btn' onClick={() => dispatch(deleteScorecard(scorecard?._id))}>X</button>
+                : <></>}
             </div>
             <div>
                 <table className='styled-table'>
