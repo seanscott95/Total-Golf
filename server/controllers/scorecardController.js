@@ -60,11 +60,11 @@ const updateScorecard = asyncHandler(async (req, res) => {
         throw new Error('Scorecard not found');
     };
 
-    const exercisesToUpdate = req.body.score.map(async (e) => {
+    const scorecardsToUpdate = req.body.score.map(async (e) => {
         return Score.findOneAndUpdate({ _id: e._id }, { $set: { ...e } });
     });
 
-    await Promise.all(exercisesToUpdate);
+    await Promise.all(scorecardsToUpdate);
 
     const updatedScorecard = await Scorecard.findByIdAndUpdate(
         req.params.id,
@@ -72,7 +72,7 @@ const updateScorecard = asyncHandler(async (req, res) => {
         { new: true, }
     );
     res.status(200).json(updatedScorecard);
-
+    
 });
 
 // @desc Deletes scorecard and scores collections
