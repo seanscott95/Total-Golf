@@ -22,13 +22,19 @@ function ScorecardCard({ scorecard }) {
         const id = scorecard._id
         navigate(`/viewScorecard/${id}`);
     };
+
+    const handleEdit = (e) => {
+        e.stopPropagation()
+        const id = scorecard._id
+        navigate(`/editScorecard/${id}`);
+    }
     
     return (
         <div className="scorecard" onClick={handleScorecardClick}>
             <div className='scorecard-header'>
                 <p><span>Course:</span> {scorecard?.courseName}</p>
                 <p><span>Date:</span> {date_all(scorecardDate)}</p>
-                <button type='button' className="edit-btn">
+                <button type='button' className="edit-btn" onClick={handleEdit}>
                     <FaRegEdit />
                 </button>
                 <button type='submit' className='delete-btn' onClick={() => dispatch(deleteScorecard(scorecard?._id))}>X</button>
