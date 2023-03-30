@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { getAllScorecards, reset } from '../utils/scorecard/scorecardSlice';
 import ScorecardCard from "../components/ScorecardCard/ScorecardCard";
+import EditScorecardForm from "../components/EditScorecardForm/EditScorecardForm";
 import spinner from '../assets/gif/Ghost.gif';
 
 const ViewScorecard = () => {
@@ -13,11 +14,6 @@ const ViewScorecard = () => {
   const navigate = useNavigate();
 
   const [isEditMode, setIsEditMode] = useState(false);
-
-  const toggleEditMode = (e) => {
-    e.stopPropagation();
-    setIsEditMode((current) => !current);
-  };
 
   const { user } = useSelector((state) => state.auth);
   const { scores, isLoading, isError, message } = useSelector((state) => state.scores);
@@ -48,7 +44,7 @@ const ViewScorecard = () => {
       {isLoading ? (
         <img src={spinner} alt='Loading' className="spinner" />
       )
-        : (isEditMode ?
+        : (!isEditMode ?
           <>
             <ScorecardCard 
               scorecard={scorecard}
@@ -59,9 +55,7 @@ const ViewScorecard = () => {
           </>
           :
           <>
-            <button type='button' className="edit-btn" onClick={toggleEditMode}>
-              Hello World
-            </button>
+            <EditScorecardForm scorecard={scorecard} setIsEditMode={setIsEditMode} />
           </>
         )
       }
