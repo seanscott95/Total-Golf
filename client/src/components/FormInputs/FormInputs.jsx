@@ -386,7 +386,7 @@ const FormInputs = ({
                         <>
                             <td></td>
                             <td>
-                                <input value={scoreInputData.total} />
+                                <input readOnly value={scoreInputData.total} />
                             </td>
                             <td>
                                 <button type='submit' onClick={handlePlayerSave}>Save</button>
