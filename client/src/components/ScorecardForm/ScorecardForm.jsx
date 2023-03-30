@@ -198,9 +198,7 @@ function ScorecardForm({ queensPark }) {
                             value={datePlayed}
                             onChange={handleFormChange} />
                     </div>
-                    <div className="form-group">
-
-                    </div>
+                    
                     <div className="form-group">
                         <table>
                             <thead>
