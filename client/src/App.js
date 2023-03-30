@@ -14,7 +14,6 @@ import CreateScorecard from "./pages/CreateScorecard";
 import LeaderBoard from "./pages/LeaderBoard";
 import ViewScorecard from "./pages/ViewScorecard";
 import PrivateRoutes from "./utils/auth/PrivateRoutes";
-import EditScorecard from "./pages/EditScorecard";
 
 const App = () => {
   const { user } = useSelector((state) => state.auth);
@@ -34,7 +33,6 @@ const App = () => {
               <Route path="/createScorecard" element={<CreateScorecard />} />
               <Route path="/leaderBoard" element={<LeaderBoard />} />
               <Route path="/viewScorecard/:scorecardId" element={<ViewScorecard />} />
-              <Route path="/editScorecard/:scorecardId" element={<EditScorecard />} />
             </Route>
           </Routes>
         </div>
