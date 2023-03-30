@@ -1,5 +1,5 @@
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
@@ -11,6 +11,13 @@ import spinner from '../assets/gif/Ghost.gif';
 const ViewScorecard = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const [isEditMode, setIsEditMode] = useState(false);
+
+  const toggleEditMode = (e) => {
+    e.stopPropagation();
+    setIsEditMode((current) => !current);
+  };
 
   const { user } = useSelector((state) => state.auth);
   const { scores, isLoading, isError, message } = useSelector((state) => state.scores);
@@ -39,10 +46,26 @@ const ViewScorecard = () => {
   return (
     <div className="page-container">
       {isLoading ? (
-        <img src={spinner} alt='Loading' className="spinner" /> 
+        <img src={spinner} alt='Loading' className="spinner" />
       )
-        : (<ScorecardCard scorecard={scorecard} />)
+        : (isEditMode ?
+          <>
+            <ScorecardCard 
+              scorecard={scorecard}
+              showEditBtn="true"
+              isEditMode={isEditMode}
+              setIsEditMode={setIsEditMode} 
+            />
+          </>
+          :
+          <>
+            <button type='button' className="edit-btn" onClick={toggleEditMode}>
+              Hello World
+            </button>
+          </>
+        )
       }
+
     </div>
   );
 };
