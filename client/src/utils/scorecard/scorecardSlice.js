@@ -60,6 +60,23 @@ export const scorecardSlice = createSlice({
                 state.isError = true;
                 state.message = action.payload;
             })
+            .addCase(updateScorecard.pending, (state) => {
+                state.isLoading = true;
+                state.isSuccess = false;
+            })
+            .addCase(updateScorecard.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.isSuccess = true;
+                // state.scores.push(action.meta.arg.formData);
+                console.log("scorecardslice, upful state - ", state)
+                console.log("scorecardslice, upful action - ", action)
+                // state.scores.push(action.payload);
+            })
+            .addCase(updateScorecard.rejected, (state, action) => {
+                state.isLoading = false;
+                state.isError = true;
+                state.message = action.payload;
+            })
     },
 });
 
@@ -110,9 +127,24 @@ export const deleteScorecard = createAsyncThunk(
                 error.toString();
             return thunkAPI.rejectWithValue(message);
         };
-});
+    });
 
-
+export const updateScorecard = createAsyncThunk(
+    'scorecard/update',
+    async (scorecardData, thunkAPI) => {
+        try {
+            const token = thunkAPI.getState().auth.user.token;
+            return await scorecardService.updateScorecard(scorecardData, token)
+        } catch (error) {
+            const message =
+                (error.response &&
+                    error.response.data &&
+                    error.response.data.message) ||
+                error.message ||
+                error.toString();
+            return thunkAPI.rejectWithValue(message);
+        };
+    });
 
 export const { reset } = scorecardSlice.actions;
 export default scorecardSlice.reducer;

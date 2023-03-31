@@ -50,10 +50,27 @@ const deleteScorecard = async (id, token) => {
     };
 };
 
+// Create scorecard
+const updateScorecard = async (scorecardData, token) => {
+    try {
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`
+            },
+        };
+        const id = scorecardData.formData.id;
+        const response = await axios.put(`${API_URL}${id}`, scorecardData.formData, config);
+        return response.data;
+    } catch (error) {
+        return error.message;
+    };
+};
+
 const scorecardService = {
     createScorecard,
     getAllScorecards,
     deleteScorecard,
+    updateScorecard,
 };
 
 export default scorecardService;
