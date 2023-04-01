@@ -8,11 +8,9 @@ const FormInputs = ({
     handleLastNineChange,
     handlePlayerSubmit,
     isEditMode,
-    handlePlayerSave,
 }) => {
     return (
         <>
-
             <thead>
                 <tr>
                     <th className="name-header">Name</th>
@@ -389,9 +387,6 @@ const FormInputs = ({
                             <td>
                                 <input readOnly value={scoreInputData.total} />
                             </td>
-                            <td>
-                                <button type='submit' onClick={handlePlayerSave} value={scoreInputData._id}>Save</button>
-                            </td>
                         </>
                         :
                         <>
@@ -403,7 +398,6 @@ const FormInputs = ({
                         </>
                     }
                 </tr>
-
             </tbody>
         </>
     );
