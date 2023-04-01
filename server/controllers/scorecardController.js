@@ -2,7 +2,7 @@ const asyncHandler = require('express-async-handler');
 const { Scorecard, Score } = require('../models')
 
 // @desc Get scorecard
-// @route GET /api/scores:id
+// @route GET /api/scores/:id
 // @access Private
 const getScorecard = asyncHandler(async (req, res) => {
     const scorecard = await Scorecard.findById({ _id: req.params.id }).populate('score');
@@ -60,11 +60,11 @@ const updateScorecard = asyncHandler(async (req, res) => {
         throw new Error('Scorecard not found');
     };
 
-    // const scorecardsToUpdate = req.body.score.map(async (e) => {
-    //     return Score.findOneAndUpdate({ _id: e._id }, { $set: { ...e } });
-    // });
+    const scorecardsToUpdate = req.body.score.map(async (e) => {
+        return Score.findOneAndUpdate({ _id: e._id }, { $set: { ...e } });
+    });
 
-    // await Promise.all(scorecardsToUpdate);
+    await Promise.all(scorecardsToUpdate);
 
     const updatedScorecard = await Scorecard.findByIdAndUpdate(
         req.params.id,
