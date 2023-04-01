@@ -24,11 +24,6 @@ const ViewScorecard = () => {
     return obj._id === scorecardId;
   })[0];
 
-  const toggleEditMode = (e) => {
-        e.stopPropagation();
-        setIsEditMode((current) => !current);
-    };
-
   useEffect(() => {
     if (!user) {
       navigate('/signin');
@@ -54,9 +49,7 @@ const ViewScorecard = () => {
             <ScorecardCard 
               scorecard={scorecard}
               showEditBtn="true"
-              isEditMode={isEditMode}
-              setIsEditMode={setIsEditMode}
-              toggleEditMode={toggleEditMode} 
+              setIsEditMode={setIsEditMode} 
             />
           </>
           :
@@ -64,8 +57,7 @@ const ViewScorecard = () => {
             <EditScorecardForm 
               scorecard={scorecard} 
               isEditMode={isEditMode}
-              setIsEditMode={setIsEditMode}
-              toggleEditMode={toggleEditMode} />
+              setIsEditMode={setIsEditMode} />
           </>
         )
       }

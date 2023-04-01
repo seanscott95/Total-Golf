@@ -5,7 +5,7 @@ import { date_all } from '../../utils/helper/dateHelper';
 
 import { FaRegEdit } from 'react-icons/fa';
 
-function ScorecardCard({ scorecard, showEditBtn, isEditMode, setIsEditMode, toggleEditMode }) {
+function ScorecardCard({ scorecard, showEditBtn, setIsEditMode }) {
     const navigate = useNavigate();
 
     const isFirstNine = scorecard?.numberOfHoles === "1-9";
@@ -26,7 +26,7 @@ function ScorecardCard({ scorecard, showEditBtn, isEditMode, setIsEditMode, togg
                 <p><span>Course:</span> {scorecard?.courseName}</p>
                 <p><span>Date:</span> {date_all(scorecardDate)}</p>
                 {showEditBtn ? 
-                <button type='button' className="edit-btn" onClick={toggleEditMode}>
+                <button type='button' className="edit-btn" onClick={setIsEditMode}>
                     <FaRegEdit />
                 </button>
                 : <></>}
