@@ -1,15 +1,160 @@
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 
-const EditScorecardForm = ({ scorecard, setIsEditMode }) => {
+import { updateScorecard, deleteScorecard } from "../../utils/scorecard/scorecardSlice";
+import FormInputs from "../FormInputs/FormInputs";
+import { date_all } from "../../utils/helper/dateHelper";
 
-    const toggleEditMode = (e) => {
-        e.stopPropagation();
-        setIsEditMode((current) => !current);
+const EditScorecardForm = ({ scorecard, isEditMode, setIsEditMode }) => {
+    const dispatch = useDispatch();
+
+    const [formData, setFormData] = useState({
+        courseName: scorecard.courseName,
+        id: scorecard._id,
+        numberOfHoles: scorecard.numberOfHoles,
+        score: scorecard.score,
+        datePlayed: scorecard.datePlayed,
+    });
+
+    // Edits the scorecard when the user submits changes
+    const handleScorecardEditSubmit = (e) => {
+        e.preventDefault();
+
+        dispatch(updateScorecard({ formData }));
+        setIsEditMode((current) => !current)
+    }
+
+    // Handles the course name and date played input changes
+    const handleFormChange = (e) => {
+        setFormData((prev) => ({
+            ...prev,
+            [e.target.name]: e.target.value
+        }));
     };
+
+    // Handles the players score name input changes
+    const handleNameChange = (e, id) => {
+        const { name, value } = e.target;
+
+        let currentScores = formData.score;
+        const newScores = currentScores.map((score) => {
+            if (score._id === id) {
+                return {
+                    ...score,
+                    [name]: value,
+                }
+            } else {
+                return {
+                    ...score
+                }
+            }
+        });
+
+        setFormData({
+            ...formData,
+            score: newScores,
+        });
+    };
+
+    // Handles the first nine scores input changes
+    const handleFNChange = (e, id) => {
+        const { name, value } = e.target;
+
+        let currentScores = formData.score;
+        const newScores = currentScores.map((score) => {
+            if (score._id === id) {
+                return {
+                    ...score,
+                    firstNine: {
+                        ...score.firstNine,
+                        [name]: value,
+                    }
+                }
+            } else {
+                return {
+                    ...score
+                }
+            }
+        });
+
+        setFormData({
+            ...formData,
+            score: newScores,
+        });
+    };
+
+    // Handles the last nine scores input changes
+    const handleLNChange = (e, id) => {
+        const { name, value } = e.target;
+
+        let currentScores = formData.score;
+        const newScores = currentScores.map((score) => {
+            if (score._id === id) {
+                return {
+                    ...score,
+                    lastNine: {
+                        ...score.lastNine,
+                        [name]: value,
+                    }
+                }
+            } else {
+                return {
+                    ...score
+                }
+            }
+        });
+
+        setFormData({
+            ...formData,
+            score: newScores,
+        });
+    };
+
     return (
         <>
-            <button type='button' className="edit-btn" onClick={toggleEditMode}>
-                Hello World
-            </button>
+            <section className="scorecard-form">
+                <h1 className="section-heading">EDIT SCORECARD</h1>
+                <form onSubmit={handleScorecardEditSubmit}>
+                    <div className="form-group course-date-group">
+                        <label htmlFor="courseName">Course Name:</label>
+                        <input
+                            type="text"
+                            name="courseName"
+                            id="courseName"
+                            value={formData.courseName}
+                            onChange={handleFormChange} />
+
+                        <label htmlFor="datePlayed">Date Played:</label>
+                        <input
+                            type="date"
+                            name="datePlayed"
+                            id="datePlayed"
+                            value={date_all(formData.datePlayed).split("-").reverse().join("-")}
+                            onChange={handleFormChange} />
+                    </div>
+
+                    {
+                        formData.score.map((item) => {
+                            return <div key={item._id} className="form-group">
+                                <table>
+                                    <FormInputs
+                                        holes={formData.numberOfHoles}
+                                        scoreInputData={item}
+                                        handleFormChange={handleFormChange}
+                                        handleNameChange={handleNameChange}
+                                        handleFirstNineChange={handleFNChange}
+                                        handleLastNineChange={handleLNChange}
+                                        isEditMode={isEditMode} />
+                                </table>
+                            </div>
+                        })
+                    }
+                    <div className="form-group">
+                        <button type='submit' className='delete-btn' onClick={() => dispatch(deleteScorecard(scorecard?._id))}>Delete</button>
+                        <button type='submit' className='btn btn-block'>Submit</button>
+                    </div>
+                </form>
+            </section>
         </>
     );
 };
