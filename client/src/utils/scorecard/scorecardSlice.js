@@ -68,8 +68,8 @@ export const scorecardSlice = createSlice({
                 state.isLoading = false;
                 state.isSuccess = true;
                 // state.scores.push(action.meta.arg.formData);
-                console.log("scorecardslice, upful state - ", state)
-                console.log("scorecardslice, upful action - ", action)
+                // console.log("scorecardslice, upful state - ", state)
+                // console.log("scorecardslice, upful action - ", action)
                 // state.scores.push(action.payload);
             })
             .addCase(updateScorecard.rejected, (state, action) => {
