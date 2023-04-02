@@ -36,6 +36,7 @@ function Scores() {
       <section className="content">
         <div className="border-background-img">
           <h3>SCORES</h3>
+          <span></span>
         </div>
       </section>
 

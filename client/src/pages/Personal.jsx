@@ -89,6 +89,7 @@ function Personal() {
       <section className="content">
         <div className="border-background-img">
           <h3>{user && user.username.toUpperCase()}</h3>
+          <span></span>
         </div>
       </section>
 

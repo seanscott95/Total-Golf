@@ -81,6 +81,7 @@ const LeaderBoard = () => {
             <section className="content">
                 <div className="border-background-img">
                     <h3>LEADER BOARD</h3>
+                    <span></span>
                 </div>
             </section>
             <section className="content">
@@ -98,15 +99,15 @@ const LeaderBoard = () => {
                         <p>Played: {allScoresBothNineQP.length > 0 ? allScoresBothNineQP.length : 'N/A'}</p>
                         <p>
                             Best: {allScoresBothNineQP.length > 0 ? allScoresBothNineQP[0].total : 'N/A'}
-                            - {allScoresBothNineQP.length > 0 
-                                ? allScoresBothNineQP[0].username.charAt(0).toUpperCase() + allScoresBothNineQP[0].username.slice(1) 
+                            - {allScoresBothNineQP.length > 0
+                                ? allScoresBothNineQP[0].username.charAt(0).toUpperCase() + allScoresBothNineQP[0].username.slice(1)
                                 : 'N/A'}
                         </p>
                         <p>Average: {findTotalAvg(bothNineHoleGamesQP) || 'N/A'}</p>
                         <p>
                             Worst: {allScoresBothNineQP.length > 0 ? allScoresBothNineQP[allScoresBothNineQP.length - 1].total : 'N/A'}
-                            - {allScoresBothNineQP.length > 0 
-                                ? allScoresBothNineQP[allScoresBothNineQP.length - 1].username.charAt(0).toUpperCase() + allScoresBothNineQP[allScoresBothNineQP.length - 1].username.slice(1) 
+                            - {allScoresBothNineQP.length > 0
+                                ? allScoresBothNineQP[allScoresBothNineQP.length - 1].username.charAt(0).toUpperCase() + allScoresBothNineQP[allScoresBothNineQP.length - 1].username.slice(1)
                                 : 'N/A'}
                         </p>
                     </div>
@@ -114,16 +115,16 @@ const LeaderBoard = () => {
                         <h3>1-9</h3>
                         <p>Played: {allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP.length : 'N/A'}</p>
                         <p>
-                            Best: {allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP[0].total : 'N/A'}     
-                            - {allScoresFirstNineQP.length > 0 
-                                ? allScoresFirstNineQP[0].username.charAt(0).toUpperCase() + allScoresFirstNineQP[0].username.slice(1) 
+                            Best: {allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP[0].total : 'N/A'}
+                            - {allScoresFirstNineQP.length > 0
+                                ? allScoresFirstNineQP[0].username.charAt(0).toUpperCase() + allScoresFirstNineQP[0].username.slice(1)
                                 : 'N/A'}
                         </p>
                         <p>Average: {findTotalAvg(firstNineHoleGamesQP) || 'N/A'}</p>
                         <p>
                             Worst: {allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP[allScoresFirstNineQP.length - 1].total : 'N/A'}
-                            - {allScoresFirstNineQP.length > 0 
-                                ? allScoresFirstNineQP[allScoresFirstNineQP.length - 1].username.charAt(0).toUpperCase() + allScoresFirstNineQP[allScoresFirstNineQP.length - 1].username.slice(1) 
+                            - {allScoresFirstNineQP.length > 0
+                                ? allScoresFirstNineQP[allScoresFirstNineQP.length - 1].username.charAt(0).toUpperCase() + allScoresFirstNineQP[allScoresFirstNineQP.length - 1].username.slice(1)
                                 : 'N/A'}
                         </p>
                     </div>
@@ -132,14 +133,14 @@ const LeaderBoard = () => {
                         <p>Played: {allScoresLastNineQP.length > 0 ? allScoresLastNineQP.length : 'N/A'}</p>
                         <p>
                             Best: {allScoresLastNineQP.length > 0 ? allScoresLastNineQP[0].total : 'N/A'}
-                            - {allScoresLastNineQP.length > 0 
-                                ? allScoresLastNineQP[0].username.charAt(0).toUpperCase() + allScoresLastNineQP[0].username.slice(1) 
+                            - {allScoresLastNineQP.length > 0
+                                ? allScoresLastNineQP[0].username.charAt(0).toUpperCase() + allScoresLastNineQP[0].username.slice(1)
                                 : 'N/A'}
                         </p>
                         <p>Average: {findTotalAvg(lastNineHoleGamesQP) || 'N/A'}</p>
                         <p>
                             Worst: {allScoresLastNineQP.length > 0 ? allScoresLastNineQP[allScoresLastNineQP.length - 1].total : 'N/A'}
-                            - {allScoresLastNineQP.length > 0 
+                            - {allScoresLastNineQP.length > 0
                                 ? allScoresLastNineQP[allScoresLastNineQP.length - 1].username.charAt(0).toUpperCase() + allScoresLastNineQP[allScoresLastNineQP.length - 1].username.slice(1)
                                 : 'N/A'}
                         </p>
