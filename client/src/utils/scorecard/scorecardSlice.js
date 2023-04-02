@@ -25,7 +25,6 @@ export const scorecardSlice = createSlice({
                 state.isLoading = false;
                 state.isSuccess = true;
                 state.scores.push(action.meta.arg.formData);
-                // state.scores.push(action.payload);
             })
             .addCase(createScorecard.rejected, (state, action) => {
                 state.isLoading = false;
@@ -67,10 +66,8 @@ export const scorecardSlice = createSlice({
             .addCase(updateScorecard.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.isSuccess = true;
-                // state.scores.push(action.meta.arg.formData);
-                // console.log("scorecardslice, upful state - ", state)
-                // console.log("scorecardslice, upful action - ", action)
-                // state.scores.push(action.payload);
+                state.scores = state.scores.map(obj => obj._id === action.meta.arg.formData.id ? 
+                    {...obj, ...action.meta.arg.formData} : obj);
             })
             .addCase(updateScorecard.rejected, (state, action) => {
                 state.isLoading = false;
