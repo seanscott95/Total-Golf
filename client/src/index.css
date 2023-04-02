@@ -232,6 +232,7 @@ button:hover {
   margin-top: 1rem;
 }
 
+/* Score Position Medals */
 .position-medals {
   display: flex;
   justify-content: center;
