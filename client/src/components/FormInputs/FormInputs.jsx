@@ -385,7 +385,7 @@ const FormInputs = ({
                         <>
                             <td></td>
                             <td>
-                                <input readOnly value={scoreInputData.total} />
+                                <input readOnly value={scoreInputData.total || 0} />
                             </td>
                         </>
                         :
