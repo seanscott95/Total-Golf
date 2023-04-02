@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { updateScorecard, deleteScorecard } from "../../utils/scorecard/scorecardSlice";
 import FormInputs from "../FormInputs/FormInputs";
 import { date_all } from "../../utils/helper/dateHelper";
+import { totalScore } from "../../utils/helper/totalScore";
 
 const EditScorecardForm = ({ scorecard, isEditMode, setIsEditMode }) => {
     const dispatch = useDispatch();
@@ -76,10 +77,24 @@ const EditScorecardForm = ({ scorecard, isEditMode, setIsEditMode }) => {
                 }
             }
         });
+        
+        const newScoresAndTotals = newScores.map((score) => {
+            if (score._id === id) {
+                let sum = totalScore(score.firstNine, score.lastNine)
+                return {
+                    ...score,
+                    total: sum
+                }
+            } else {
+                return {
+                    ...score
+                };
+            };   
+        });
 
         setFormData({
             ...formData,
-            score: newScores,
+            score: newScoresAndTotals,
         });
     };
 
@@ -104,11 +119,27 @@ const EditScorecardForm = ({ scorecard, isEditMode, setIsEditMode }) => {
             }
         });
 
+        const newScoresAndTotals = newScores.map((score) => {
+            if (score._id === id) {
+                let sum = totalScore(score.firstNine, score.lastNine)
+                return {
+                    ...score,
+                    total: sum
+                }
+            } else {
+                return {
+                    ...score
+                };
+            };   
+        });
+
         setFormData({
             ...formData,
-            score: newScores,
+            score: newScoresAndTotals,
         });
     };
+
+    
 
     return (
         <>
