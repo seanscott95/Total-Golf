@@ -5,6 +5,9 @@ import { updateScorecard, deleteScorecard } from "../../utils/scorecard/scorecar
 import FormInputs from "../FormInputs/FormInputs";
 import { date_all } from "../../utils/helper/dateHelper";
 import { totalScore } from "../../utils/helper/totalScore";
+import { MdDeleteForever } from "react-icons/md"
+
+import "./EditScorecardForm.css";
 
 const EditScorecardForm = ({ scorecard, isEditMode, setIsEditMode }) => {
     const dispatch = useDispatch();
@@ -77,7 +80,7 @@ const EditScorecardForm = ({ scorecard, isEditMode, setIsEditMode }) => {
                 }
             }
         });
-        
+
         const newScoresAndTotals = newScores.map((score) => {
             if (score._id === id) {
                 let sum = totalScore(score.firstNine, score.lastNine)
@@ -89,7 +92,7 @@ const EditScorecardForm = ({ scorecard, isEditMode, setIsEditMode }) => {
                 return {
                     ...score
                 };
-            };   
+            };
         });
 
         setFormData({
@@ -130,7 +133,7 @@ const EditScorecardForm = ({ scorecard, isEditMode, setIsEditMode }) => {
                 return {
                     ...score
                 };
-            };   
+            };
         });
 
         setFormData({
@@ -139,12 +142,23 @@ const EditScorecardForm = ({ scorecard, isEditMode, setIsEditMode }) => {
         });
     };
 
-    
+
 
     return (
         <>
             <section className="scorecard-form">
-                <h1 className="section-heading">EDIT SCORECARD</h1>
+                <div className="">
+                    <h1 className="section-heading edit-heading-container">
+                        EDIT SCORECARD
+                        <button
+                            type='submit'
+                            className='btn delete-btn'
+                            onClick={() => dispatch(deleteScorecard(scorecard?._id))}>
+                            <MdDeleteForever />
+                        </button>
+                    </h1>
+
+                </div>
                 <form onSubmit={handleScorecardEditSubmit}>
                     <div className="form-group course-date-group">
                         <label htmlFor="courseName">Course Name:</label>
@@ -181,7 +195,6 @@ const EditScorecardForm = ({ scorecard, isEditMode, setIsEditMode }) => {
                         })
                     }
                     <div className="form-group">
-                        <button type='submit' className='delete-btn' onClick={() => dispatch(deleteScorecard(scorecard?._id))}>Delete</button>
                         <button type='submit' className='btn btn-block'>Submit</button>
                     </div>
                 </form>

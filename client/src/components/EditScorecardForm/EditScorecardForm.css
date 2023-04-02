@@ -1,0 +1,21 @@
+.edit-heading-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.delete-btn {
+    cursor: pointer;
+    border: none;
+    font-size: 2rem;
+    margin: 1px;
+    padding: 1px;
+    transition-duration: 0.3s;
+    color: var(--primary-color);
+    background: inherit;
+}
+
+.delete-btn:hover {
+    transform: scale(1.1);
+    color: red;
+    border-color: red;
+}
