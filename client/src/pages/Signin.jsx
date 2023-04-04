@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate , Link} from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { signin, reset } from '../utils/auth/authSlice';
 import spinner from '../assets/gif/Ghost.gif';
@@ -91,7 +91,7 @@ function Signin() {
           </form>
         </section>
         <section>
-          <p>New to Total Golf? <a href="/signup">Sign up here.</a></p>
+                  <p>New to Total Golf? <Link to='/signup'>Sign up here.</Link></p>
         </section>
       </div>
     </div>
