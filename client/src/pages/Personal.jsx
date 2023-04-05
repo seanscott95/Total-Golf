@@ -6,6 +6,7 @@ import ScoreCard from '../components/ScoreCard/ScoreCard';
 import ScorecardCard from '../components/ScorecardCard/ScorecardCard';
 import { getAllScorecards, reset } from '../utils/scorecard/scorecardSlice';
 import spinner from '../assets/gif/Ghost.gif';
+import { getUserCheckExpiry } from '../utils/helper/getUserCheckExpiry';
 
 function Personal() {
   const navigate = useNavigate();
@@ -75,6 +76,11 @@ function Personal() {
       console.log(`Error: ${scoresMessage}`);
     };
 
+    const isValid = getUserCheckExpiry(user)
+    if (!isValid) {
+      localStorage.removeItem("user");
+      window.location.reload();
+    };
     if (user) {
       dispatch(getAllScorecards());
     };

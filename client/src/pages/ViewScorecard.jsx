@@ -8,6 +8,7 @@ import { getAllScorecards, reset } from '../utils/scorecard/scorecardSlice';
 import ScorecardCard from "../components/ScorecardCard/ScorecardCard";
 import EditScorecardForm from "../components/EditScorecardForm/EditScorecardForm";
 import spinner from '../assets/gif/Ghost.gif';
+import { getUserCheckExpiry } from '../utils/helper/getUserCheckExpiry';
 
 const ViewScorecard = () => {
   const dispatch = useDispatch();
@@ -31,6 +32,11 @@ const ViewScorecard = () => {
     if (isError) {
       console.log(`Error: ${message}`);
     };
+    const isValid = getUserCheckExpiry(user)
+    if (!isValid) {
+      localStorage.removeItem("user");
+      window.location.reload();
+    };
     if (user) {
       dispatch(getAllScorecards());
     };
@@ -46,16 +52,16 @@ const ViewScorecard = () => {
       )
         : (!isEditMode ?
           <>
-            <ScorecardCard 
+            <ScorecardCard
               scorecard={scorecard}
               showEditBtn="true"
-              setIsEditMode={setIsEditMode} 
+              setIsEditMode={setIsEditMode}
             />
           </>
           :
           <>
-            <EditScorecardForm 
-              scorecard={scorecard} 
+            <EditScorecardForm
+              scorecard={scorecard}
               isEditMode={isEditMode}
               setIsEditMode={setIsEditMode} />
           </>

@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { getAllScorecards, reset } from '../utils/scorecard/scorecardSlice';
 import spinner from '../assets/gif/Ghost.gif';
 import ScoreCard from '../components/ScoreCard/ScoreCard';
+import { getUserCheckExpiry } from '../utils/helper/getUserCheckExpiry';
 
 const LeaderBoard = () => {
     const navigate = useNavigate();
@@ -34,6 +35,13 @@ const LeaderBoard = () => {
         if (isError) {
             console.log(`Error ${message}`);
         };
+        console.log("user", user)
+        const isValid = getUserCheckExpiry(user)
+        if (!isValid) {
+            localStorage.removeItem("user");
+            window.location.reload();
+        };
+
         if (user) {
             dispatch(getAllScorecards());
         };

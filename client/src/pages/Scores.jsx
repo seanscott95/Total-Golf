@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import ScorecardCard from '../components/ScorecardCard/ScorecardCard';
 import { getAllScorecards, reset } from '../utils/scorecard/scorecardSlice';
 import spinner from '../assets/gif/Ghost.gif';
+import { getUserCheckExpiry } from '../utils/helper/getUserCheckExpiry';
 
 function Scores() {
   const navigate = useNavigate();
@@ -20,6 +21,12 @@ function Scores() {
 
     if (isError) {
       console.log(`Error: ${message}`);
+    };
+
+    const isValid = getUserCheckExpiry(user)
+    if (!isValid) {
+      localStorage.removeItem("user");
+      window.location.reload();
     };
 
     if (user) {
