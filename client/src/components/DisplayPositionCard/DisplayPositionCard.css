@@ -1,0 +1,61 @@
+
+
+h1 {
+    padding: 0;
+    margin: 0;
+}
+img {
+    height: 5em;
+}
+.positionCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    --background: white;
+    --border-color: linear-gradient(to bottom right, red, blue);
+    --border-width: .5em;
+    --edge-size: .7em;
+}
+.mainContainer {
+    display: inline-grid;
+    width: 500px;
+    height: 100px;
+    background: purple;
+    border: 0;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    font-size: 2rem;
+    padding: 1.5rem 1rem 1rem 1rem;
+    color: white;
+    clip-path: 
+        polygon(
+            0% var(--edge-size),
+            var(--edge-size) 0%,
+            40% 0%,
+            45% var(--edge-size),
+            55% var(--edge-size),
+            60% 0%,
+            calc(100% - var(--edge-size)) 0%,
+            100% var(--edge-size),
+            100% calc(100% - var(--edge-size)),
+            calc(100% - var(--edge-size)) 100%,
+            var(--edge-size) 100%,
+            0% calc(100% - var(--edge-size))
+        );
+}
+.bottomContainer {
+    width: 250px;
+    background: blueviolet;
+    font-size: 1.2em;
+    border: 0;
+    color: white;
+    clip-path: 
+        polygon(
+            0% 0%,
+            100% 0%,
+            calc(80% - var(--edge-size)) 100%,
+            calc(20% + var(--edge-size)) 100%
+        );
+}
