@@ -1,20 +1,43 @@
 import "./DisplayPositionCard.css";
-import ImgPosition from "../../assets/svg/gold-medal.png"
+import GoldMedal from "../../assets/svg/gold-medal.png";
+import SilverMedal from "../../assets/svg/silver-medal.png";
+import BronzeMedal from "../../assets/svg/bronze-medal.png";
 
-function DisplayPositionCard() {
-  return (
-    <div className="positionCard">
-        <div className="imgPosition">
-            <img src={ImgPosition} alt="Position Place" />
-        </div>
-        <div className="mainContainer">
-            <h1>USERNAME</h1>
-        </div>
-        <div className="bottomContainer">
-            <h1>55</h1>
-        </div>
-    </div>
-  )
-}
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+ 
+function DisplayPositionCard({ position, name, score, id }) {
+    const navigate = useNavigate();
 
-export default DisplayPositionCard;
+    const { scores } = useSelector((state) => state.scores)
+
+    const handleClick = (e) => {
+        e.preventDefault()
+
+        // Returns full scorecard the score was on
+        const scorecard = scores.filter(obj => {
+            return obj.score.some(item => item._id === id)
+        })[0];
+        
+        const scorecardId = scorecard._id 
+        navigate(`/viewScorecard/${scorecardId}`);
+    }
+    return (
+        <div className="positionCard" onClick={handleClick}>
+            <div className="imgPosition">
+                {position === "gold" ? (<img src={GoldMedal} alt="Gold Medal" />) : <></>}
+                {position === "silver" ? (<img src={SilverMedal} alt="Silver medal" />) : <></>}
+                {position === "bronze" ? (<img src={BronzeMedal} alt="Bronze medal" />) : <></>}
+                
+            </div>
+            <div className="nameContainer">
+                <h1>{name}</h1>
+            </div>
+            <div className="scoreContainer">
+                <h1>{score}</h1>
+            </div>
+        </div>
+    )
+};
+
+export default DisplayPositionCard; 

@@ -6,6 +6,7 @@ import { getAllScorecards, reset } from '../utils/scorecard/scorecardSlice';
 import spinner from '../assets/gif/Ghost.gif';
 import ScoreCard from '../components/ScoreCard/ScoreCard';
 import { getUserCheckExpiry } from '../utils/helper/getUserCheckExpiry';
+import LeaderboardPositionLayout from '../components/LeaderboardPositionLayout/LeaderboardPositionLayout';
 
 const LeaderBoard = () => {
     const navigate = useNavigate();
@@ -35,7 +36,6 @@ const LeaderBoard = () => {
         if (isError) {
             console.log(`Error ${message}`);
         };
-        console.log("user", user)
         const isValid = getUserCheckExpiry(user)
         if (!isValid) {
             localStorage.removeItem("user");
@@ -86,6 +86,7 @@ const LeaderBoard = () => {
 
     return (
         <div className="page-container">
+
             <section className="content">
                 <div className="border-background-img">
                     <h3>LEADER BOARD</h3>
@@ -99,6 +100,141 @@ const LeaderBoard = () => {
             </section>
 
             {isLoading ? (
+                <img src={spinner} alt='Loading' className="spinner" />
+            ) : (
+                <>
+                    <section className='content'>
+                        <div className='section-heading centered-heading'>
+                            <h3>1-18</h3>
+                            <p>Below are the top scores for 1-18 hole games at Queens Park</p>
+                        </div>
+
+                        <div>
+                            <LeaderboardPositionLayout
+                                first={{
+                                    name: allScoresBothNineQP?.length > 0
+                                        ? allScoresBothNineQP[0]?.username.charAt(0).toUpperCase() + allScoresBothNineQP[0].username.slice(1)
+                                        : 'N/A',
+                                    score: allScoresBothNineQP.length > 0 ? allScoresBothNineQP[0].total : 'N/A',
+                                    id: allScoresBothNineQP.length > 0 ? allScoresBothNineQP[0]._id : 'N/A'
+                                }}
+                                second={{
+                                    name: allScoresBothNineQP?.length > 0
+                                        ? allScoresBothNineQP[1]?.username.charAt(0).toUpperCase() + allScoresBothNineQP[1].username.slice(1)
+                                        : 'N/A',
+                                    score: allScoresBothNineQP.length > 0 ? allScoresBothNineQP[1].total : 'N/A',
+                                    id: allScoresBothNineQP.length > 0 ? allScoresBothNineQP[1]._id : 'N/A'
+                                }}
+                                third={{
+                                    name: allScoresBothNineQP?.length > 0
+                                        ? allScoresBothNineQP[2]?.username.charAt(0).toUpperCase() + allScoresBothNineQP[2].username.slice(1)
+                                        : 'N/A',
+                                    score: allScoresBothNineQP.length > 0 ? allScoresBothNineQP[2].total : 'N/A',
+                                    id: allScoresBothNineQP.length > 0 ? allScoresBothNineQP[2]._id : 'N/A'
+                                }}
+                            />
+                        </div>
+
+                        {allScoresBothNineQP.length > 0 ? (
+                            <div className="position-medals">
+                                <div className='scores'>
+                                    {allScoresBothNineQP.slice(0, 3).map((item) => (
+                                        <ScoreCard key={item._id} score={item} />
+                                    ))}
+                                </div>
+                            </div>
+                        ) : (<h3>You have no scores!</h3>)}
+                    </section>
+
+                    <section className='content'>
+                        <div className='section-heading centered-heading'>
+                            <h3>1-9</h3>
+                            <p>Below are the top scores for 1-9 hole games at Queens Park</p>
+                        </div>
+
+                        <div>
+                            <LeaderboardPositionLayout
+                                first={{
+                                    name: allScoresFirstNineQP?.length > 0
+                                        ? allScoresFirstNineQP[0]?.username.charAt(0).toUpperCase() + allScoresFirstNineQP[0].username.slice(1)
+                                        : 'N/A',
+                                    score: allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP[0].total : 'N/A',
+                                    id: allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP[0]._id : 'N/A'
+                                }}
+                                second={{
+                                    name: allScoresFirstNineQP?.length > 0
+                                        ? allScoresFirstNineQP[1]?.username.charAt(0).toUpperCase() + allScoresFirstNineQP[1].username.slice(1)
+                                        : 'N/A',
+                                    score: allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP[1].total : 'N/A',
+                                    id: allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP[1]._id : 'N/A'
+                                }}
+                                third={{
+                                    name: allScoresFirstNineQP?.length > 0
+                                        ? allScoresFirstNineQP[2]?.username.charAt(0).toUpperCase() + allScoresFirstNineQP[2].username.slice(1)
+                                        : 'N/A',
+                                    score: allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP[2].total : 'N/A',
+                                    id: allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP[2]._id : 'N/A'
+                                }}
+                            />
+                        </div>
+
+                        {allScoresFirstNineQP.length > 0 ? (
+                            <div className="position-medals">
+                                <div className='scores'>
+                                    {allScoresFirstNineQP.slice(0, 3).map((item) => (
+                                        <ScoreCard key={item._id} score={item} />
+                                    ))}
+                                </div>
+                            </div>
+                        ) : (<h3>You have no scores!</h3>)}
+                    </section>
+
+                    <section className='content'>
+                        <div className='section-heading centered-heading'>
+                            <h3>10-18</h3>
+                            <p>Below are the top scores for 10-18 hole games at Queens Park</p>
+                        </div>
+
+                        <div>
+                            <LeaderboardPositionLayout
+                                first={{
+                                    name: allScoresLastNineQP?.length > 0
+                                        ? allScoresLastNineQP[0]?.username.charAt(0).toUpperCase() + allScoresLastNineQP[0].username.slice(1)
+                                        : 'N/A',
+                                    score: allScoresLastNineQP.length > 0 ? allScoresLastNineQP[0].total : 'N/A',
+                                    id: allScoresLastNineQP.length > 0 ? allScoresLastNineQP[0]._id : 'N/A'
+                                }}
+                                second={{
+                                    name: allScoresLastNineQP?.length > 0
+                                        ? allScoresLastNineQP[1]?.username.charAt(0).toUpperCase() + allScoresLastNineQP[1].username.slice(1)
+                                        : 'N/A',
+                                    score: allScoresLastNineQP.length > 0 ? allScoresLastNineQP[1].total : 'N/A',
+                                    id: allScoresLastNineQP.length > 0 ? allScoresLastNineQP[1]._id : 'N/A'
+                                }}
+                                third={{
+                                    name: allScoresLastNineQP?.length > 0
+                                        ? allScoresLastNineQP[2]?.username.charAt(0).toUpperCase() + allScoresLastNineQP[2].username.slice(1)
+                                        : 'N/A',
+                                    score: allScoresLastNineQP.length > 0 ? allScoresLastNineQP[2].total : 'N/A',
+                                    id: allScoresLastNineQP.length > 0 ? allScoresLastNineQP[2]._id : 'N/A'
+                                }}
+                            />
+                        </div>
+
+                        {allScoresLastNineQP.length > 0 ? (
+                            <div className="position-medals">
+                                <div className='scores'>
+                                    {allScoresLastNineQP.slice(0, 3).map((item) => (
+                                        <ScoreCard key={item._id} score={item} />
+                                    ))}
+                                </div>
+                            </div>
+                        ) : (<h3>You have no scores!</h3>)}
+                    </section>
+                </>
+            )}
+            
+            {/* {isLoading ? (
                 <img src={spinner} alt='Loading' className="spinner" />
             ) : (
                 <section className="content stats-section">
@@ -154,63 +290,7 @@ const LeaderBoard = () => {
                         </p>
                     </div>
                 </section>
-            )}
-            {isLoading ? (
-                <img src={spinner} alt='Loading' className="spinner" />
-            ) : (
-                <>
-                    <section className='content'>
-                        <div className='section-heading centered-heading'>
-                            <h3>1-18</h3>
-                            <p>Below are the top scores for 1-18 hole games at Queens Park</p>
-                        </div>
-
-                        {allScoresBothNineQP.length > 0 ? (
-                            <div className="position-medals">
-                                <div className='scores'>
-                                    {allScoresBothNineQP.slice(0, 3).map((item) => (
-                                        <ScoreCard key={item._id} score={item} />
-                                    ))}
-                                </div>
-                            </div>
-                        ) : (<h3>You have no scores!</h3>)}
-                    </section>
-
-                    <section className='content'>
-                        <div className='section-heading centered-heading'>
-                            <h3>1-9</h3>
-                            <p>Below are the top scores for 1-9 hole games at Queens Park</p>
-                        </div>
-
-                        {allScoresFirstNineQP.length > 0 ? (
-                            <div className="position-medals">
-                                <div className='scores'>
-                                    {allScoresFirstNineQP.slice(0, 3).map((item) => (
-                                        <ScoreCard key={item._id} score={item} />
-                                    ))}
-                                </div>
-                            </div>
-                        ) : (<h3>You have no scores!</h3>)}
-                    </section>
-
-                    <section className='content'>
-                        <div className='section-heading centered-heading'>
-                            <h3>10-18</h3>
-                            <p>Below are the top scores for 10-18 hole games at Queens Park</p>
-                        </div>
-
-                        {allScoresLastNineQP.length > 0 ? (
-                            <div className="position-medals">
-                                <div className='scores'>
-                                    {allScoresLastNineQP.slice(0, 3).map((item) => (
-                                        <ScoreCard key={item._id} score={item} />
-                                    ))}
-                                </div>
-                            </div>
-                        ) : (<h3>You have no scores!</h3>)}
-                    </section>
-                </>
-            )}
+            )} */}
         </div>
     );
 };

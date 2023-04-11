@@ -3,10 +3,6 @@ h1 {
     margin: 0;
 }
 
-img {
-    height: 5em;
-}
-
 .positionCard {
     display: flex;
     flex-direction: column;
@@ -25,7 +21,11 @@ img {
     top: 1.2em;
 }
 
-.mainContainer {
+.imgPosition img {
+    height: 5em;
+}
+
+.nameContainer {
     display: inline-grid;
     position: relative;
     isolation: isolate;
@@ -56,19 +56,19 @@ img {
             0% calc(100% - var(--edge-size)));
 }
 
-.mainContainer::before,
-.mainContainer::after {
+.nameContainer::before,
+.nameContainer::after {
     content: '';
     position: absolute;
     inset: 0;
 }
 
-.mainContainer::before {
+.nameContainer::before {
     background: var(--border-color);
     z-index: -2;
 }
 
-.mainContainer::after {
+.nameContainer::after {
     background: var(--background);
     z-index: -1;
     clip-path:
@@ -99,7 +99,7 @@ img {
             var(--border-width) calc(100% - calc(var(--edge-size) + var(--border-width) * .5)));
 }
 
-.bottomContainer {
+.scoreContainer {
     position: relative;
     top: -1em;
     z-index: 1;
@@ -118,19 +118,19 @@ img {
         );
 }
 
-.bottomContainer::before,
-.bottomContainer::after {
+.scoreContainer::before,
+.scoreContainer::after {
     content: '';
     position: absolute;
     inset: 0;
 }
 
-.bottomContainer::before {
+.scoreContainer::before {
     background: linear-gradient(to bottom right, blue, red);
     z-index: -2;
 }
 
-.bottomContainer::after {
+.scoreContainer::after {
     background: var(--background);
     z-index: -1;
     clip-path:
