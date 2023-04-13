@@ -46,6 +46,10 @@
     background-image: linear-gradient(140deg, var(--third-color) 0%, #989898 50%, var(--third-color) 100%);
 }
 
+.scorecard:hover {
+    cursor: pointer;
+}
+
 .scorecard-header {
     color: white;
     width: 100%;

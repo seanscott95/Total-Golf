@@ -15,6 +15,10 @@ h1 {
     --divit-edge-size: .6em;
 }
 
+.positionCard {
+    cursor: pointer;
+}
+
 .imgPosition {
     z-index: 1;
     position: relative;
