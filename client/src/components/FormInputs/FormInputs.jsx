@@ -393,7 +393,7 @@ const FormInputs = ({
                             <td></td>
                             <td></td>
                             <td>
-                                <button type='submit' onClick={handlePlayerSubmit}>Add</button>
+                                <button type='submit' className='addBtn' onClick={handlePlayerSubmit}>Add</button>
                             </td>
                         </>
                     }
