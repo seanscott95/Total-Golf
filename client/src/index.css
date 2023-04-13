@@ -6,6 +6,7 @@
   --third-color: #2a2e34;
   --fourth-color: #14213D;
   --black-fade: rgba(6, 6, 6, 0.8);
+  --background-color: rgba(42, 46, 52, .7);
   --primary-font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   --secondary-font-family: 'Brush Script MT', 'Brush Script Std', cursive;
   --cursive-font-family: 'Dancing Script';
@@ -35,7 +36,7 @@
   justify-content: center;
   width: 56vw;
   padding: 10px;
-  background: rgba(42, 46, 52, .7);
+  background: var(--background-color);
   border-radius: 10px;
   border: 2px solid var(--primary-color);
   margin: 2rem 1rem;
@@ -81,7 +82,7 @@ h3 {
 }
 
 /* Button Types */
-button {
+.btn {
   color: var(--primary-color);
   background: var(--secondary-color);
   border: 1px solid var(--primary-color);
@@ -91,12 +92,18 @@ button {
   transition-duration: 0.4s;
 }
 
-button:hover {
-  transform: scale(0.98);
+.addBtn {
+  font-size: 1rem;
+  color: var(--primary-color);
+  background: var(--secondary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 45px;
+  cursor: pointer;
+  padding: 3px 6px;
 }
 
-.add-btn {
-  width: 100%;
+.btn:hover, .addBtn:hover {
+  transform: scale(0.98);
 }
 
 .btn-square {
