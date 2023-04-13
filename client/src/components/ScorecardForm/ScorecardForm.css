@@ -86,6 +86,35 @@ th {
     margin: 1rem;
 }
 
+.deleteScoreBtn {
+    cursor: pointer;
+    border: none;
+    color: var(--primary-color);
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    transition-duration: 0.3s;
+}
+
+.deleteScoreBtn:hover {
+    transform: scale(1.1);
+    color: red;
+    border-color: red;
+}
+
+.deleteScoreIcon {
+    font-size: 1.8rem;
+    margin: 0;
+    padding: 0;
+}
+
+.deleteBtnTd {
+    background: black;
+    padding: 0;
+    margin: 5px;
+    border: 1px solid var(--primary-color);
+}
+
 /* --------- STYLED TABLE FOOT---------- */
 tfoot th,
 tfoot td {
@@ -96,12 +125,12 @@ tfoot td {
 }
 
 tfoot tr {
-    background-color: white;
+    background: white;
     border-bottom: 1px solid grey;
 }
 
 tfoot tr:nth-of-type(even) {
-    background-color: lightgrey;
+    background: lightgrey;
 }
 
 tfoot tr:last-of-type {
@@ -109,6 +138,6 @@ tfoot tr:last-of-type {
 }
 
 tfoot td:nth-child(2) {
-    background-color: var(--fourth-color);
+    background: var(--fourth-color);
     border-radius: 0px;
 }

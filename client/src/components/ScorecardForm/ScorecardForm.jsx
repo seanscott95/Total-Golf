@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { MdDeleteForever } from 'react-icons/md';
 
 import { createScorecard } from '../../utils/scorecard/scorecardSlice';
 import { totalScore } from '../../utils/helper/totalScore';
@@ -66,7 +67,7 @@ function ScorecardForm({ queensPark }) {
     // on the formData variable, then resets the formData and the scoresList
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        
+
         if (scoresList.length === 0) {
             toast.error("Please add a score");
             return;
@@ -97,14 +98,14 @@ function ScorecardForm({ queensPark }) {
         e.preventDefault();
 
         const isFieldEmpty = (obj, obj2) => {
-            if (holes === '1-18'){
-                return obj.some(hole => hole === '') + obj2.some(hole => hole === '');  
+            if (holes === '1-18') {
+                return obj.some(hole => hole === '') + obj2.some(hole => hole === '');
             };
-            if (holes === '1-9'){
-                return obj.some(hole => hole === '');  
+            if (holes === '1-9') {
+                return obj.some(hole => hole === '');
             };
-            if (holes === '10-18'){
-                return obj2.some(hole => hole === '')  
+            if (holes === '10-18') {
+                return obj2.some(hole => hole === '')
             };
         };
         let fnVal = Object.values(scoreInputData.firstNine);
@@ -115,7 +116,7 @@ function ScorecardForm({ queensPark }) {
             return;
         };
 
-        if(scoreInputData.username === '') {
+        if (scoreInputData.username === '') {
             toast.error("Make sure all fields are filled out");
             return;
         };
@@ -168,6 +169,13 @@ function ScorecardForm({ queensPark }) {
         });
         setScoresList([]);
         setScoreInputData(INITIAL_SCORE_STATE);
+    };
+
+    const handleDeleteBtn = (e) => {
+        e.preventDefault();
+        
+        const newScoresList = scoresList.filter((item) => item.username !== e.target.id);
+        setScoresList(newScoresList);
     };
 
     // Sets the formData score and number of holes properties when either value is 
@@ -229,7 +237,7 @@ function ScorecardForm({ queensPark }) {
                             name="courseName"
                             id="courseName"
                             value={courseName}
-                            onChange={handleFormChange} 
+                            onChange={handleFormChange}
                             required />
 
                         <label htmlFor="datePlayed">Date Played:</label>
@@ -238,7 +246,7 @@ function ScorecardForm({ queensPark }) {
                             name="datePlayed"
                             id="datePlayed"
                             value={datePlayed}
-                            onChange={handleFormChange} 
+                            onChange={handleFormChange}
                             required />
                     </div>
 
@@ -254,61 +262,71 @@ function ScorecardForm({ queensPark }) {
                                 handlePlayerSubmit={handlePlayerSubmit} />
 
                             <tfoot>
-                                {scoresList.map((item) => (
-                                    <tr key={item.username}>
-                                        <td>{item.username}</td>
-                                        <td></td>
-                                        {holes === '1-18' ?
-                                            <>
-                                                <td>{item.firstNine.hole1}</td>
-                                                <td>{item.firstNine.hole2}</td>
-                                                <td>{item.firstNine.hole3}</td>
-                                                <td>{item.firstNine.hole4}</td>
-                                                <td>{item.firstNine.hole5}</td>
-                                                <td>{item.firstNine.hole6}</td>
-                                                <td>{item.firstNine.hole7}</td>
-                                                <td>{item.firstNine.hole8}</td>
-                                                <td>{item.firstNine.hole9}</td>
-                                                <td>{item.lastNine.hole10}</td>
-                                                <td>{item.lastNine.hole11}</td>
-                                                <td>{item.lastNine.hole12}</td>
-                                                <td>{item.lastNine.hole13}</td>
-                                                <td>{item.lastNine.hole14}</td>
-                                                <td>{item.lastNine.hole15}</td>
-                                                <td>{item.lastNine.hole16}</td>
-                                                <td>{item.lastNine.hole17}</td>
-                                                <td>{item.lastNine.hole18}</td>
-                                            </> : <></>
-                                        }
-                                        {holes === '1-9' ?
-                                            <>
-                                                <td>{item.firstNine.hole1}</td>
-                                                <td>{item.firstNine.hole2}</td>
-                                                <td>{item.firstNine.hole3}</td>
-                                                <td>{item.firstNine.hole4}</td>
-                                                <td>{item.firstNine.hole5}</td>
-                                                <td>{item.firstNine.hole6}</td>
-                                                <td>{item.firstNine.hole7}</td>
-                                                <td>{item.firstNine.hole8}</td>
-                                                <td>{item.firstNine.hole9}</td>
-                                            </> : <></>
-                                        }
-                                        {holes === '10-18' ?
-                                            <>
-                                                <td>{item.lastNine.hole10}</td>
-                                                <td>{item.lastNine.hole11}</td>
-                                                <td>{item.lastNine.hole12}</td>
-                                                <td>{item.lastNine.hole13}</td>
-                                                <td>{item.lastNine.hole14}</td>
-                                                <td>{item.lastNine.hole15}</td>
-                                                <td>{item.lastNine.hole16}</td>
-                                                <td>{item.lastNine.hole17}</td>
-                                                <td>{item.lastNine.hole18}</td>
-                                            </> : <></>
-                                        }
-                                        <td className='hide'></td>
-                                        <td>{item.total}</td>
-                                    </tr>
+                                {scoresList.map((item, index) => (
+                                    <>
+                                        <tr key={item.username} value={"s"}>
+                                            <td>{item.username}</td>
+                                            <td></td>
+                                            {holes === '1-18' ?
+                                                <>
+                                                    <td>{item.firstNine.hole1}</td>
+                                                    <td>{item.firstNine.hole2}</td>
+                                                    <td>{item.firstNine.hole3}</td>
+                                                    <td>{item.firstNine.hole4}</td>
+                                                    <td>{item.firstNine.hole5}</td>
+                                                    <td>{item.firstNine.hole6}</td>
+                                                    <td>{item.firstNine.hole7}</td>
+                                                    <td>{item.firstNine.hole8}</td>
+                                                    <td>{item.firstNine.hole9}</td>
+                                                    <td>{item.lastNine.hole10}</td>
+                                                    <td>{item.lastNine.hole11}</td>
+                                                    <td>{item.lastNine.hole12}</td>
+                                                    <td>{item.lastNine.hole13}</td>
+                                                    <td>{item.lastNine.hole14}</td>
+                                                    <td>{item.lastNine.hole15}</td>
+                                                    <td>{item.lastNine.hole16}</td>
+                                                    <td>{item.lastNine.hole17}</td>
+                                                    <td>{item.lastNine.hole18}</td>
+                                                </> : <></>
+                                            }
+                                            {holes === '1-9' ?
+                                                <>
+                                                    <td>{item.firstNine.hole1}</td>
+                                                    <td>{item.firstNine.hole2}</td>
+                                                    <td>{item.firstNine.hole3}</td>
+                                                    <td>{item.firstNine.hole4}</td>
+                                                    <td>{item.firstNine.hole5}</td>
+                                                    <td>{item.firstNine.hole6}</td>
+                                                    <td>{item.firstNine.hole7}</td>
+                                                    <td>{item.firstNine.hole8}</td>
+                                                    <td>{item.firstNine.hole9}</td>
+                                                </> : <></>
+                                            }
+                                            {holes === '10-18' ?
+                                                <>
+                                                    <td>{item.lastNine.hole10}</td>
+                                                    <td>{item.lastNine.hole11}</td>
+                                                    <td>{item.lastNine.hole12}</td>
+                                                    <td>{item.lastNine.hole13}</td>
+                                                    <td>{item.lastNine.hole14}</td>
+                                                    <td>{item.lastNine.hole15}</td>
+                                                    <td>{item.lastNine.hole16}</td>
+                                                    <td>{item.lastNine.hole17}</td>
+                                                    <td>{item.lastNine.hole18}</td>
+                                                </> : <></>
+                                            }
+                                            <td className='hide'></td>
+                                            <td>{item.total}</td>
+                                            <td className="deleteBtnTd">
+                                                <button
+                                                    type='submit'
+                                                    className='deleteScoreBtn'
+                                                    onClick={handleDeleteBtn}>
+                                                    <MdDeleteForever id={item.username} className='deleteScoreIcon'/>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </>
                                 ))}
                             </tfoot>
                         </table>
