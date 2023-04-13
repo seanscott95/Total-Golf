@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import { createScorecard } from '../../utils/scorecard/scorecardSlice';
 import { totalScore } from '../../utils/helper/totalScore';
@@ -8,6 +10,7 @@ import FormInputs from '../FormInputs/FormInputs';
 
 function ScorecardForm({ queensPark }) {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     // Sets the course name as Queens Park or blank depending if
     // the prop queensPark is truthy or not
@@ -73,6 +76,7 @@ function ScorecardForm({ queensPark }) {
             datePlayed: ''
         });
         setScoresList([]);
+        navigate("/scores");
     };
 
     // Handles the input for courseName and datePlayed
@@ -86,6 +90,30 @@ function ScorecardForm({ queensPark }) {
     // Handles the name and score input for each players score
     const handlePlayerSubmit = (e) => {
         e.preventDefault();
+
+        const isFieldEmpty = (obj, obj2) => {
+            if (holes === '1-18'){
+                return obj.some(hole => hole === '') + obj2.some(hole => hole === '');  
+            };
+            if (holes === '1-9'){
+                return obj.some(hole => hole === '');  
+            };
+            if (holes === '10-18'){
+                return obj2.some(hole => hole === '')  
+            };
+        };
+        let fnVal = Object.values(scoreInputData.firstNine);
+        let lnVal = Object.values(scoreInputData.lastNine);
+
+        if (isFieldEmpty(fnVal, lnVal)) {
+            toast.error("Make sure all fields are filled out");
+            return;
+        };
+
+        if(scoreInputData.username === '') {
+            toast.error("Make sure all fields are filled out");
+            return;
+        };
 
         const list = scoresList;
         list.push(scoreInputData);
@@ -189,7 +217,8 @@ function ScorecardForm({ queensPark }) {
                             name="courseName"
                             id="courseName"
                             value={courseName}
-                            onChange={handleFormChange} />
+                            onChange={handleFormChange} 
+                            required />
 
                         <label htmlFor="datePlayed">Date Played:</label>
                         <input
@@ -197,7 +226,8 @@ function ScorecardForm({ queensPark }) {
                             name="datePlayed"
                             id="datePlayed"
                             value={datePlayed}
-                            onChange={handleFormChange} />
+                            onChange={handleFormChange} 
+                            required />
                     </div>
 
                     <div className="form-group">
