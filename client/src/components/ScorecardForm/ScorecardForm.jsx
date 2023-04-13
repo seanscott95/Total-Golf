@@ -155,6 +155,13 @@ function ScorecardForm({ queensPark }) {
         setHoles(e.target.value);
 
         // Resets the form if the number of holes are changed
+        setFormData({
+            courseName: setCourseName,
+            numberOfHoles: holes,
+            score: [],
+            datePlayed: ''
+        });
+        setScoresList([]);
         setScoreInputData(INITIAL_SCORE_STATE);
     };
 
