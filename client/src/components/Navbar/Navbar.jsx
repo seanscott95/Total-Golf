@@ -59,7 +59,7 @@ const Navbar = () => {
               <Link to="/scores" className='nav-link'>Scores</Link>
             </li>
             <li className='nav-item'>
-              <button to="/logout" className='btn logout-btn' onClick={onLogout}>Logout</button>
+              <button to="/logout" className='logout-btn' onClick={onLogout}>Logout</button>
             </li>
           </>
         ) : (
