@@ -97,7 +97,7 @@ function Signup() {
                   />
                 </div>
                 <div className="form-group">
-                  <button type='submit' className='btn-square'>Submit</button>
+                  <button type='submit' className='btn btn-square'>Submit</button>
                 </div>
               </form>
             </section>
@@ -165,7 +165,7 @@ function Signup() {
                   <p>Already have an account? <Link to='/signin'>Sign in here.</Link></p>
                 </div>
                 <div className="form-group">
-                  <button type='submit' className='btn-square'>Submit</button>
+                  <button type='submit' className='btn btn-square'>Submit</button>
                 </div>
               </form>
             </section>

@@ -86,7 +86,7 @@ function Signin() {
               />
             </div>
             <div className="form-group">
-              <button type='submit' className='btn-square'>Sign in</button>
+              <button type='submit' className='btn btn-square'>Sign in</button>
             </div>
           </form>
         </section>
