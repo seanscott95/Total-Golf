@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import { updateScorecard, deleteScorecard } from "../../utils/scorecard/scorecardSlice";
 import FormInputs from "../FormInputs/FormInputs";
@@ -11,6 +12,7 @@ import "./EditScorecardForm.css";
 
 const EditScorecardForm = ({ scorecard, isEditMode, setIsEditMode }) => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         courseName: scorecard.courseName,
@@ -142,7 +144,10 @@ const EditScorecardForm = ({ scorecard, isEditMode, setIsEditMode }) => {
         });
     };
 
-
+    const handleDeleteBtn = () => {
+        dispatch(deleteScorecard(scorecard._id));
+        navigate("/scores");
+    };
 
     return (
         <>
@@ -153,7 +158,7 @@ const EditScorecardForm = ({ scorecard, isEditMode, setIsEditMode }) => {
                         <button
                             type='submit'
                             className='btn delete-btn'
-                            onClick={() => dispatch(deleteScorecard(scorecard?._id))}>
+                            onClick={handleDeleteBtn}>
                             <MdDeleteForever />
                         </button>
                     </h1>
