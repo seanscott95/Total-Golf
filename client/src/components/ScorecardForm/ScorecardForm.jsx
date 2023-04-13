@@ -66,6 +66,11 @@ function ScorecardForm({ queensPark }) {
     // on the formData variable, then resets the formData and the scoresList
     const handleFormSubmit = (e) => {
         e.preventDefault();
+        
+        if (scoresList.length === 0) {
+            toast.error("Please add a score");
+            return;
+        };
 
         dispatch(createScorecard({ formData }));
 
