@@ -122,17 +122,21 @@ h3 {
 
 .edit-btn {
   cursor: pointer;
+  color: var(--primary-color);
+  background: black;
   padding: 2px 3px 0px 4px;
   margin: 0;
   transition-duration: .4s;
   font-size: 1em;
   border: none;
+  border-radius: 45px;
 }
 
 .edit-btn:hover {
   transform: scale(1.1);
   color: var(--secondary-color);
   background: var(--primary-color);
+
 }
 
 /* -------- CSS FOR PAGES ------- */

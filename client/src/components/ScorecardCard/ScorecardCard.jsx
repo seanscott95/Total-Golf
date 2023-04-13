@@ -26,7 +26,7 @@ function ScorecardCard({ scorecard, showEditBtn, setIsEditMode }) {
                 <p><span>Course:</span> {scorecard?.courseName}</p>
                 <p><span>Date:</span> {date_all(scorecardDate)}</p>
                 {showEditBtn ? 
-                <button type='button' className="btn edit-btn" onClick={setIsEditMode}>
+                <button type='button' className="edit-btn" onClick={setIsEditMode}>
                     <FaRegEdit />
                 </button>
                 : <></>}
