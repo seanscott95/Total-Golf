@@ -34,7 +34,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 56vw;
+  max-width: 968px;
   padding: 10px;
   background: var(--background-color);
   border-radius: 10px;
@@ -211,7 +211,6 @@ h3 {
   font-size: 3.5rem;
   font-weight: 700;
   font-family: var(--cursive-font-family);
-  /* padding-bottom: 8rem; */
   color: var(--primary-color);
   margin: 0;
   margin-top: 2rem;
