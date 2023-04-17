@@ -1,5 +1,5 @@
 .photo-container {
-    margin: 5px 5px 50px 5px;
+    margin: 10px;
     display: flex;
     flex-direction: row;
     font-family: var(--cursive-font-family);
@@ -46,7 +46,7 @@
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
-        width: 100%;
+        width: 100vw;
         height: 20vh;
     }
     .photo-item > img, .photo-item > p {

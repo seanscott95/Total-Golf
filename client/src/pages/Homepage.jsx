@@ -22,7 +22,7 @@ function Homepage() {
   };
 
   return (
-    <>
+    <div className='homepage-container'>
       <PhotoMontage />
       
       <section className='course-buttons'>
@@ -39,7 +39,7 @@ function Homepage() {
           image={newCourse.image}
         />
       </section>
-    </>
+    </div>
   )
 }
 

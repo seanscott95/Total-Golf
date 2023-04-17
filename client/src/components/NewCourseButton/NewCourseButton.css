@@ -58,3 +58,12 @@
         font-size: 14px;
     }
 }
+
+@media (max-width: 370px) {
+    .button-container {
+        width: 80%;
+        /* display: flex; */
+        flex-direction: column;
+        align-items: center;
+    }
+}
