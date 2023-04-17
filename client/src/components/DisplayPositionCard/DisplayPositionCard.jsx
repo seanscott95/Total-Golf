@@ -1,43 +1,43 @@
-import "./DisplayPositionCard.css";
-import GoldMedal from "../../assets/svg/gold-medal.png";
-import SilverMedal from "../../assets/svg/silver-medal.png";
-import BronzeMedal from "../../assets/svg/bronze-medal.png";
+import './DisplayPositionCard.css';
+import GoldMedal from '../../assets/svg/gold-medal.png';
+import SilverMedal from '../../assets/svg/silver-medal.png';
+import BronzeMedal from '../../assets/svg/bronze-medal.png';
 
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
  
-function DisplayPositionCard({ position, name, score, id }) {
+const DisplayPositionCard = ({ position, name, score, id }) => {
     const navigate = useNavigate();
 
-    const { scores } = useSelector((state) => state.scores)
+    const { scores } = useSelector((state) => state.scores);
 
     const handleClick = (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
         // Returns full scorecard the score was on
         const scorecard = scores.filter(obj => {
-            return obj.score.some(item => item._id === id)
+            return obj.score.some(item => item._id === id);
         })[0];
         
-        const scorecardId = scorecard._id 
+        const scorecardId = scorecard._id;
         navigate(`/viewScorecard/${scorecardId}`);
     }
     return (
-        <div className="positionCard" onClick={handleClick}>
-            <div className="imgPosition">
-                {position === "gold" ? (<img src={GoldMedal} alt="Gold Medal" />) : <></>}
-                {position === "silver" ? (<img src={SilverMedal} alt="Silver medal" />) : <></>}
-                {position === "bronze" ? (<img src={BronzeMedal} alt="Bronze medal" />) : <></>}
+        <div className='positionCard' onClick={handleClick}>
+            <div className='imgPosition'>
+                {position === 'gold' ? (<img src={GoldMedal} alt='Gold Medal' />) : <></>}
+                {position === 'silver' ? (<img src={SilverMedal} alt='Silver medal' />) : <></>}
+                {position === 'bronze' ? (<img src={BronzeMedal} alt='Bronze medal' />) : <></>}
                 
             </div>
-            <div className="nameContainer">
+            <div className='nameContainer'>
                 <h1>{name}</h1>
             </div>
-            <div className="scoreContainer">
+            <div className='scoreContainer'>
                 <h1>{score}</h1>
             </div>
         </div>
-    )
+    );
 };
 
 export default DisplayPositionCard; 
