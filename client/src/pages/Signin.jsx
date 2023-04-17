@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { signin, reset } from '../utils/auth/authSlice';
 import spinner from '../assets/gif/Ghost.gif';
 
-function Signin() {
+const Signin = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -34,8 +34,8 @@ function Signin() {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value
-    }))
-  }
+    }));
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -44,27 +44,27 @@ function Signin() {
       email,
       password
     };
-    dispatch(signin(userData))
-  }
+    dispatch(signin(userData));
+  };
 
   if (isLoading) {
-    return <img src={spinner} alt='Loading' className="spinner" />
-  }
+    return <img src={spinner} alt='Loading' className='spinner' />;
+  };
 
   return (
-    <div className="signin-page">
+    <div className='signin-page'>
       <div className='signin-container'>
-        <section className="heading">
+        <section className='heading'>
           <h1>Sign in</h1>
         </section>
 
-        <section className="form">
+        <section className='form'>
           <form onSubmit={onSubmit}>
-            <div className="form-group">
+            <div className='form-group'>
               <input
-                type="email"
-                className="form-control"
-                id="email"
+                type='email'
+                className='form-control'
+                id='email'
                 name='email'
                 value={email}
                 placeholder='Email'
@@ -72,11 +72,11 @@ function Signin() {
                 required
               />
             </div>
-            <div className="form-group">
+            <div className='form-group'>
               <input
-                type="password"
-                className="form-control"
-                id="password"
+                type='password'
+                className='form-control'
+                id='password'
                 name='password'
                 value={password}
                 placeholder='Password'
@@ -85,7 +85,7 @@ function Signin() {
                 required
               />
             </div>
-            <div className="form-group">
+            <div className='form-group'>
               <button type='submit' className='btn btn-square'>Sign in</button>
             </div>
           </form>
