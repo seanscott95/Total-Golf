@@ -1,19 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import "./NewCourseButton.css";
+import './NewCourseButton.css';
 
-function NewCourseButton({ header, text, link, image }) {
+const NewCourseButton = ({ header, text, link, image }) => {
   return (
-    <div className="button-container">
-        <section className="text-section">
+    <div className='button-container'>
+        <section className='text-section'>
             <h1>{header}</h1>
             <p>Create a new Scorecard for {text}</p>
             <Link to={link}>
-                <button className="btn">GET STARTED &gt;</button>
+                <button className='btn'>GET STARTED &gt;</button>
             </Link>
         </section>
-        <div className="image-container">
-          <img src={image} alt="Cartoon Golfer" className="svg" />
+        <div className='image-container'>
+          <img src={image} alt='Cartoon Golfer' className='svg' />
         </div>
     </div>
   )

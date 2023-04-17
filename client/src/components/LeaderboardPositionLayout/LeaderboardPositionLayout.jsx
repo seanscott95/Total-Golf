@@ -1,26 +1,26 @@
-import "./LeaderboardPositionLayout.css"
-import DisplayPositionCard from "../DisplayPositionCard/DisplayPositionCard";
+import './LeaderboardPositionLayout.css'
+import DisplayPositionCard from '../DisplayPositionCard/DisplayPositionCard';
 
 const LeaderboardPositionLayout = ({ first, second, third }) => {
   return (
-    <div className="mainContainer">
-        <section className="topContainer">
+    <div className='mainContainer'>
+        <section className='topContainer'>
             <DisplayPositionCard 
-                position="gold"
+                position='gold'
                 name={first.name}
                 score={first.score}
                 id={first.id}
             />
         </section>
-        <section className="bottomContainer">
+        <section className='bottomContainer'>
             <DisplayPositionCard 
-                position="silver"
+                position='silver'
                 name={second.name}
                 score={second.score}
                 id={second.id}
             />
             <DisplayPositionCard 
-                position="bronze"
+                position='bronze'
                 name={third.name}
                 score={third.score}
                 id={third.id}

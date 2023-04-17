@@ -1,9 +1,9 @@
 import ScorecardForm from '../components/ScorecardForm/ScorecardForm';
 
-function CreateScorecard() {
+const CreateScorecard = () => {
   return (
     <div className='scorecard-page-container'>
-      <div className="page-container">
+      <div className='page-container'>
         <ScorecardForm />
       </div>
     </div>

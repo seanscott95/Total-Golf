@@ -5,28 +5,28 @@ import { date_all } from '../../utils/helper/dateHelper';
 
 import { FaRegEdit } from 'react-icons/fa';
 
-function ScorecardCard({ scorecard, showEditBtn, setIsEditMode }) {
+const ScorecardCard = ({ scorecard, showEditBtn, setIsEditMode }) => {
     const navigate = useNavigate();
 
-    const isFirstNine = scorecard?.numberOfHoles === "1-9";
-    const isLastNine = scorecard?.numberOfHoles === "10-18";
-    const isBothNine = scorecard?.numberOfHoles === "1-18";
+    const isFirstNine = scorecard?.numberOfHoles === '1-9';
+    const isLastNine = scorecard?.numberOfHoles === '10-18';
+    const isBothNine = scorecard?.numberOfHoles === '1-18';
 
-    const scorecardDate = scorecard?.datePlayed || "N/A";
+    const scorecardDate = scorecard?.datePlayed || 'N/A';
 
     const handleScorecardClick = (e) => {
         e.preventDefault();
-        const id = scorecard._id
+        const id = scorecard._id;
         navigate(`/viewScorecard/${id}`);
     };
 
     return (
-        <div className="scorecard" onClick={handleScorecardClick}>
+        <div className='scorecard' onClick={handleScorecardClick}>
             <div className='scorecard-header'>
                 <p><span>Course:</span> {scorecard?.courseName}</p>
                 <p><span>Date:</span> {date_all(scorecardDate)}</p>
                 {showEditBtn ? 
-                <button type='button' className="edit-btn" onClick={setIsEditMode}>
+                <button type='button' className='edit-btn' onClick={setIsEditMode}>
                     <FaRegEdit />
                 </button>
                 : <></>}

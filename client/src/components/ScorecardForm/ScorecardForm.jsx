@@ -6,10 +6,10 @@ import { MdDeleteForever } from 'react-icons/md';
 
 import { createScorecard } from '../../utils/scorecard/scorecardSlice';
 import { totalScore } from '../../utils/helper/totalScore';
-import './ScorecardForm.css';
 import FormInputs from '../FormInputs/FormInputs';
+import './ScorecardForm.css';
 
-function ScorecardForm({ queensPark }) {
+const ScorecardForm = ({ queensPark }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -69,7 +69,7 @@ function ScorecardForm({ queensPark }) {
         e.preventDefault();
 
         if (scoresList.length === 0) {
-            toast.error("Please add a score");
+            toast.error('Please add a score');
             return;
         };
 
@@ -82,7 +82,7 @@ function ScorecardForm({ queensPark }) {
             datePlayed: ''
         });
         setScoresList([]);
-        navigate("/scores");
+        navigate('/scores');
     };
 
     // Handles the input for courseName and datePlayed
@@ -112,12 +112,12 @@ function ScorecardForm({ queensPark }) {
         let lnVal = Object.values(scoreInputData.lastNine);
 
         if (isFieldEmpty(fnVal, lnVal)) {
-            toast.error("Make sure all fields are filled out");
+            toast.error('Make sure all fields are filled out');
             return;
         };
 
         if (scoreInputData.username === '') {
-            toast.error("Make sure all fields are filled out");
+            toast.error('Make sure all fields are filled out');
             return;
         };
 
@@ -196,13 +196,13 @@ function ScorecardForm({ queensPark }) {
             ...prev,
             total: JSON.stringify(sum)
         }));
-    }, [scoreInputData.firstNine, scoreInputData.lastNine])
+    }, [scoreInputData.firstNine, scoreInputData.lastNine]);
 
     return (
         <div>
             <section >
                 <h1 className='section-heading'>SELECT HOW MANY HOLES</h1>
-                <div className="btn-group">
+                <div className='btn-group'>
                     <button
                         type='submit'
                         className='btn btn-block'
@@ -227,30 +227,30 @@ function ScorecardForm({ queensPark }) {
                 </div>
 
             </section>
-            <section className="scorecard-form">
-                <h1 className="section-heading">ENTER YOUR SCORECARD</h1>
+            <section className='scorecard-form'>
+                <h1 className='section-heading'>ENTER YOUR SCORECARD</h1>
                 <form onSubmit={handleFormSubmit}>
-                    <div className="form-group course-date-group">
-                        <label htmlFor="courseName">Course Name:</label>
+                    <div className='form-group course-date-group'>
+                        <label htmlFor='courseName'>Course Name:</label>
                         <input
-                            type="text"
-                            name="courseName"
-                            id="courseName"
+                            type='text'
+                            name='courseName'
+                            id='courseName'
                             value={courseName}
                             onChange={handleFormChange}
                             required />
 
-                        <label htmlFor="datePlayed">Date Played:</label>
+                        <label htmlFor='datePlayed'>Date Played:</label>
                         <input
-                            type="date"
-                            name="datePlayed"
-                            id="datePlayed"
+                            type='date'
+                            name='datePlayed'
+                            id='datePlayed'
                             value={datePlayed}
                             onChange={handleFormChange}
                             required />
                     </div>
 
-                    <div className="form-group">
+                    <div className='form-group'>
                         <table>
 
                             <FormInputs
@@ -264,7 +264,7 @@ function ScorecardForm({ queensPark }) {
                             <tfoot>
                                 {scoresList.map((item, index) => (
                                     <>
-                                        <tr key={item.username} value={"s"}>
+                                        <tr key={item.username} value={'s'}>
                                             <td>{item.username}</td>
                                             <td></td>
                                             {holes === '1-18' ?
@@ -317,7 +317,7 @@ function ScorecardForm({ queensPark }) {
                                             }
                                             <td className='hide'></td>
                                             <td>{item.total}</td>
-                                            <td className="deleteBtnTd">
+                                            <td className='deleteBtnTd'>
                                                 <button
                                                     type='submit'
                                                     className='deleteScoreBtn'
@@ -331,7 +331,7 @@ function ScorecardForm({ queensPark }) {
                             </tfoot>
                         </table>
                     </div >
-                    <div className="form-group">
+                    <div className='form-group'>
                         <button type='submit' className='btn btn-block'>Submit</button>
                     </div>
                 </form >

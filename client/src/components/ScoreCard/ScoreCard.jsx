@@ -2,10 +2,10 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import '../ScorecardCard/ScorecardCard.css';
 
-function ScoreCard({ score }) {
+const ScoreCard = ({ score }) => {
     const navigate = useNavigate();
 
-    const { scores } = useSelector((state) => state.scores)
+    const { scores } = useSelector((state) => state.scores);
 
     const firstNine = score.firstNine;
     const lastNine = score.lastNine;
@@ -19,7 +19,7 @@ function ScoreCard({ score }) {
 
         // Returns full scorecard the score was on
         const scorecard = scores.filter(obj => {
-            return obj.score.some(item => item._id === score._id)
+            return obj.score.some(item => item._id === score._id);
         })[0];
 
         const id = scorecard._id;
@@ -27,7 +27,7 @@ function ScoreCard({ score }) {
     };
 
     return (
-        <div className="scorecard" onClick={handleScorecardClick}>
+        <div className='scorecard' onClick={handleScorecardClick}>
             <div>
                 <table className='styled-table'>
                     <thead>

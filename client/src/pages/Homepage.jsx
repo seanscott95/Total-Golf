@@ -4,7 +4,7 @@ import NewCourseButton from '../components/NewCourseButton/NewCourseButton';
 import GolfCroc from '../assets/svg/GolfCroc.svg';
 import GolfEagle from '../assets/svg/GolfEagle.png';
 
-function Homepage() {
+const Homepage = () => {
   // Values for the New Course Button
   const newCourse = {
     header: 'Any Golf Course',
@@ -40,7 +40,7 @@ function Homepage() {
         />
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default Homepage
+export default Homepage;

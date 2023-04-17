@@ -8,7 +8,7 @@ import { getAllScorecards, reset } from '../utils/scorecard/scorecardSlice';
 import spinner from '../assets/gif/Ghost.gif';
 import { getUserCheckExpiry } from '../utils/helper/getUserCheckExpiry';
 
-function Personal() {
+const Personal = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -28,14 +28,14 @@ function Personal() {
   };
 
   // Creates new variables and groups all the scores depending on holes played
-  const firstNineHoleGames = sortHoles(scores, "1-9");
-  const lastNineHoleGames = sortHoles(scores, "10-18");
-  const bothNineHoleGames = sortHoles(scores, "1-18");
+  const firstNineHoleGames = sortHoles(scores, '1-9');
+  const lastNineHoleGames = sortHoles(scores, '10-18');
+  const bothNineHoleGames = sortHoles(scores, '1-18');
 
   // Filters through array of scores and returns all courseNames for Queens Park
   const findQPGames = (arr) => {
     return arr.filter((obj) => {
-      return obj.courseName === "Queens Park";
+      return obj.courseName === 'Queens Park';
     });
   };
 
@@ -76,9 +76,9 @@ function Personal() {
       console.log(`Error: ${scoresMessage}`);
     };
 
-    const isValid = getUserCheckExpiry(user)
+    const isValid = getUserCheckExpiry(user);
     if (!isValid) {
-      localStorage.removeItem("user");
+      localStorage.removeItem('user');
       window.location.reload();
     };
     if (user) {
@@ -91,21 +91,21 @@ function Personal() {
   }, [user, navigate, scoresIsError, scoresMessage, dispatch]);
 
   return (
-    <div className="page-container">
-      <section className="content">
-        <div className="border-background-img">
+    <div className='page-container'>
+      <section className='content'>
+        <div className='border-background-img'>
           <h3>{user && user.username.toUpperCase()}</h3>
           <span></span>
         </div>
       </section>
 
-      <section className="content">
-        <div className="section-heading ">
+      <section className='content'>
+        <div className='section-heading '>
           <h2>QUEENS PARK</h2>
         </div>
       </section>
 
-      <section className="content stats-section">
+      <section className='content stats-section'>
         <div>
           <h3>1-18</h3>
           <p>Played: {usersScoresBothNineQP.length > 0 ? usersScoresBothNineQP.length : 'N/A'}</p>
@@ -130,7 +130,7 @@ function Personal() {
       </section>
 
       {scoresIsLoading ? (
-        <img src={spinner} alt='Loading' className="spinner" />
+        <img src={spinner} alt='Loading' className='spinner' />
       ) : (
         <>
           <section className='content'>
@@ -140,7 +140,7 @@ function Personal() {
             </div>
 
             {bothNineHoleGamesQP.length > 0 ? (
-              <div className="position-medals">
+              <div className='position-medals'>
                 <div className='scores'>
                   {getUsersScores(bothNineHoleGamesQP).map((item) => (
                     <ScoreCard key={item._id} score={item} />
@@ -157,7 +157,7 @@ function Personal() {
             </div>
 
             {firstNineHoleGamesQP.length > 0 ? (
-              <div className="position-medals">
+              <div className='position-medals'>
 
                 <div className='scores'>
                   {getUsersScores(firstNineHoleGamesQP).map((item) => (
@@ -175,7 +175,7 @@ function Personal() {
             </div>
 
             {lastNineHoleGamesQP.length > 0 ? (
-              <div className="position-medals">
+              <div className='position-medals'>
                 <div className='scores'>
                   {getUsersScores(lastNineHoleGamesQP).map((item) => (
                     <ScoreCard key={item._id} score={item} />
@@ -188,11 +188,11 @@ function Personal() {
       )}
 
       {scoresIsLoading ? (
-        <img src={spinner} alt='Loading' className="spinner" />
+        <img src={spinner} alt='Loading' className='spinner' />
       ) : (
         <>
           <section className='content'>
-            <div className="section-heading ">
+            <div className='section-heading '>
               <h2>{user && user.username.toUpperCase()}'S GAMES</h2>
             </div>
 

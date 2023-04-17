@@ -37,7 +37,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar">
+    <nav className='navbar'>
       <Link to='/'>
         <img src={Logo} alt='Logo' />
       </Link>
@@ -46,25 +46,25 @@ const Navbar = () => {
         {user ? (
           <>
             <li className='nav-item'>
-              <Link to="/leaderBoard" className='nav-link'>Leaderboard</Link>
+              <Link to='/leaderBoard' className='nav-link'>Leaderboard</Link>
             </li>
             <li className='nav-item'>
-              <Link to="/personal" className='nav-link'>Personal</Link>
+              <Link to='/personal' className='nav-link'>Personal</Link>
             </li>
             <li className='nav-item'>
-              <Link to="/scores" className='nav-link'>Scores</Link>
+              <Link to='/scores' className='nav-link'>Scores</Link>
             </li>
             <li className='nav-item'>
-              <button to="/logout" className='logout-btn' onClick={onLogout}>Logout</button>
+              <button to='/logout' className='logout-btn' onClick={onLogout}>Logout</button>
             </li>
           </>
         ) : (
           <>
             <li className='nav-item'>
-              <Link to="/signin" className='nav-link'>Sign in</Link>
+              <Link to='/signin' className='nav-link'>Sign in</Link>
             </li>
             <li className='nav-item'>
-              <Link to="/signup" className='nav-link'>Sign up</Link>
+              <Link to='/signup' className='nav-link'>Sign up</Link>
             </li>
           </>
         )}

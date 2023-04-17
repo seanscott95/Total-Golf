@@ -7,7 +7,7 @@ import { getAllScorecards, reset } from '../utils/scorecard/scorecardSlice';
 import spinner from '../assets/gif/Ghost.gif';
 import { getUserCheckExpiry } from '../utils/helper/getUserCheckExpiry';
 
-function Scores() {
+const Scores = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -23,9 +23,9 @@ function Scores() {
       console.log(`Error: ${message}`);
     };
 
-    const isValid = getUserCheckExpiry(user)
+    const isValid = getUserCheckExpiry(user);
     if (!isValid) {
-      localStorage.removeItem("user");
+      localStorage.removeItem('user');
       window.location.reload();
     };
 
@@ -39,9 +39,9 @@ function Scores() {
   }, [user, navigate, isError, message, dispatch]);
 
   return (
-    <div className="page-container">
-      <section className="content">
-        <div className="border-background-img">
+    <div className='page-container'>
+      <section className='content'>
+        <div className='border-background-img'>
           <h3>SCORES</h3>
           <span></span>
         </div>
@@ -49,12 +49,12 @@ function Scores() {
 
       <section className='content'>
         <div className='centered-heading'>
-          <h3 className="heading">EVERYONE</h3>
+          <h3 className='heading'>EVERYONE</h3>
           <p>This is a list of all recorded games for all users</p>
         </div>
       </section>
       {isLoading ? (
-        <img src={spinner} alt='Loading' className="spinner" />
+        <img src={spinner} alt='Loading' className='spinner' />
       ) : (
         <>
           <section className='content'>
@@ -71,7 +71,7 @@ function Scores() {
         </>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Scores
+export default Scores;

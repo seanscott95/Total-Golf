@@ -36,9 +36,10 @@ const LeaderBoard = () => {
         if (isError) {
             console.log(`Error ${message}`);
         };
-        const isValid = getUserCheckExpiry(user)
+        
+        const isValid = getUserCheckExpiry(user);
         if (!isValid) {
-            localStorage.removeItem("user");
+            localStorage.removeItem('user');
             window.location.reload();
         };
 
@@ -59,14 +60,14 @@ const LeaderBoard = () => {
     };
 
     // Creates new variables and groups all the scores depending on holes played
-    const firstNineHoleGames = sortHoles(scores, "1-9");
-    const lastNineHoleGames = sortHoles(scores, "10-18");
-    const bothNineHoleGames = sortHoles(scores, "1-18");
+    const firstNineHoleGames = sortHoles(scores, '1-9');
+    const lastNineHoleGames = sortHoles(scores, '10-18');
+    const bothNineHoleGames = sortHoles(scores, '1-18');
 
     // Filters through array of scores and returns all courseNames for Queens Park
     const findQPGames = (arr) => {
         return arr.filter((obj) => {
-            return obj.courseName === "Queens Park";
+            return obj.courseName === 'Queens Park';
         });
     };
 
@@ -85,22 +86,22 @@ const LeaderBoard = () => {
     const allScoresBothNineQP = getAllUsersScoresArr(bothNineHoleGamesQP);
 
     return (
-        <div className="page-container">
+        <div className='page-container'>
 
-            <section className="content">
-                <div className="border-background-img">
+            <section className='content'>
+                <div className='border-background-img'>
                     <h3>LEADER BOARD</h3>
                     <span></span>
                 </div>
             </section>
-            <section className="content">
-                <div className="section-heading ">
+            <section className='content'>
+                <div className='section-heading '>
                     <h2>QUEENS PARK</h2>
                 </div>
             </section>
 
             {isLoading ? (
-                <img src={spinner} alt='Loading' className="spinner" />
+                <img src={spinner} alt='Loading' className='spinner' />
             ) : (
                 <>
                     <section className='content'>
@@ -136,7 +137,7 @@ const LeaderBoard = () => {
                         </div>
 
                         {allScoresBothNineQP.length > 0 ? (
-                            <div className="position-medals">
+                            <div className='position-medals'>
                                 <div className='scores'>
                                     {allScoresBothNineQP.slice(0, 3).map((item) => (
                                         <ScoreCard key={item._id} score={item} />
@@ -179,7 +180,7 @@ const LeaderBoard = () => {
                         </div>
 
                         {allScoresFirstNineQP.length > 0 ? (
-                            <div className="position-medals">
+                            <div className='position-medals'>
                                 <div className='scores'>
                                     {allScoresFirstNineQP.slice(0, 3).map((item) => (
                                         <ScoreCard key={item._id} score={item} />
@@ -222,7 +223,7 @@ const LeaderBoard = () => {
                         </div>
 
                         {allScoresLastNineQP.length > 0 ? (
-                            <div className="position-medals">
+                            <div className='position-medals'>
                                 <div className='scores'>
                                     {allScoresLastNineQP.slice(0, 3).map((item) => (
                                         <ScoreCard key={item._id} score={item} />
@@ -235,9 +236,9 @@ const LeaderBoard = () => {
             )}
             
             {/* {isLoading ? (
-                <img src={spinner} alt='Loading' className="spinner" />
+                <img src={spinner} alt='Loading' className='spinner' />
             ) : (
-                <section className="content stats-section">
+                <section className='content stats-section'>
                     <div>
                         <h3>1-18</h3>
                         <p>Played: {allScoresBothNineQP.length > 0 ? allScoresBothNineQP.length : 'N/A'}</p>

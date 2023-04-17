@@ -6,7 +6,7 @@ import BBPhotoMain from '../../assets/images/BB/Capture.jpg';
 import NKPhotoMain from '../../assets/images/NK/Capture8.PNG';
 import JJPhotoMain from '../../assets/images/JJ/Capture.PNG';
 
-function PhotoMontage() {
+const PhotoMontage = () => {
     const photoArray = [{
         photo: SSPhotoMain,
         text: 'SS'
@@ -37,7 +37,7 @@ function PhotoMontage() {
             </div>
             )}
         </div>
-    )
-}
+    );
+};
 
-export default PhotoMontage
+export default PhotoMontage;
