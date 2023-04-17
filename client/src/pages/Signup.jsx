@@ -5,8 +5,8 @@ import { toast } from 'react-toastify';
 import { signup, reset } from '../utils/auth/authSlice';
 import spinner from '../assets/gif/Ghost.gif';
 
-function Signup() {
-  const [sitePassword, setSitePassword] = useState("");
+const Signup = () => {
+  const [sitePassword, setSitePassword] = useState('');
   const [isVerified, setIsVerified] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -42,7 +42,7 @@ function Signup() {
     if (process.env.REACT_APP_SITE_PASSWORD === sitePassword) {
       setIsVerified((current) => !current);
     } else {
-      setSitePassword("");
+      setSitePassword('');
       toast.error('Password is incorrect');
     };
   };
@@ -70,33 +70,32 @@ function Signup() {
   };
 
   if (isLoading) {
-    return <img src={spinner} alt='Loading' className="spinner" />
-  }
+    return <img src={spinner} alt='Loading' className='spinner' />;
+  };
 
   return (
-    <div className="signup-page">
+    <div className='signup-page'>
       <div className='signin-container'>
         {!isVerified ? (
           <>
-            <section className="heading">
+            <section className='heading'>
               <h1>Sign Up</h1>
-              <p>Please enter the site password</p>
             </section>
 
-            <section >
+            <section className='form'>
               <form onSubmit={sitePasswordOnSubmit}>
-                <div className="form-group">
+                <div className='form-group'>
                   <input
-                    type="password"
-                    id="site-password"
-                    name="site-password"
-                    placeholder="Site Password"
+                    type='password'
+                    id='site-password'
+                    name='site-password'
+                    placeholder='Site Password'
                     value={sitePassword}
                     onChange={(e) => setSitePassword(e.target.value)}
                     required
                   />
                 </div>
-                <div className="form-group">
+                <div className='form-group'>
                   <button type='submit' className='btn btn-square'>Submit</button>
                 </div>
               </form>
@@ -104,18 +103,18 @@ function Signup() {
           </>
         ) : (
           <>
-            <section className="heading">
+            <section className='heading'>
               <h1>Sign Up</h1>
               <p>Please create an account</p>
             </section>
 
-            <section className="form">
+            <section className='form'>
               <form onSubmit={onSubmit}>
-                <div className="form-group">
+                <div className='form-group'>
                   <input
-                    type="text"
-                    className="form-control"
-                    id="username"
+                    type='text'
+                    className='form-control'
+                    id='username'
                     name='username'
                     value={username}
                     placeholder='Name'
@@ -123,11 +122,11 @@ function Signup() {
                     required
                   />
                 </div>
-                <div className="form-group">
+                <div className='form-group'>
                   <input
-                    type="email"
-                    className="form-control"
-                    id="email"
+                    type='email'
+                    className='form-control'
+                    id='email'
                     name='email'
                     value={email}
                     placeholder='Email'
@@ -135,11 +134,11 @@ function Signup() {
                     required
                   />
                 </div>
-                <div className="form-group">
+                <div className='form-group'>
                   <input
-                    type="password"
-                    className="form-control"
-                    id="password"
+                    type='password'
+                    className='form-control'
+                    id='password'
                     name='password'
                     value={password}
                     placeholder='Password'
@@ -148,11 +147,11 @@ function Signup() {
                     required
                   />
                 </div>
-                <div className="form-group">
+                <div className='form-group'>
                   <input
-                    type="password"
-                    className="form-control"
-                    id="password2"
+                    type='password'
+                    className='form-control'
+                    id='password2'
                     name='password2'
                     value={password2}
                     placeholder='Confirm password'
@@ -164,7 +163,7 @@ function Signup() {
                 <div>
                   <p>Already have an account? <Link to='/signin'>Sign in here.</Link></p>
                 </div>
-                <div className="form-group">
+                <div className='form-group'>
                   <button type='submit' className='btn btn-square'>Submit</button>
                 </div>
               </form>
