@@ -8,6 +8,7 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
     --background: var(--third-color);
     --border-color: linear-gradient(to bottom right, red, blue);
     --border-width: .25em;
@@ -33,11 +34,10 @@ h1 {
     display: inline-grid;
     position: relative;
     isolation: isolate;
-    width: 400px;
-    height: 110px;
+    width: 90%;
     border: 0;
     font-size: 2rem;
-    padding-top: 2rem;
+    padding: 2rem;
     color: white;
     clip-path:
         polygon(
@@ -107,7 +107,7 @@ h1 {
     position: relative;
     top: -1em;
     z-index: 1;
-    width: 225px;
+    width: 50%;
     background: blueviolet;
     font-size: 1.2em;
     border: 0;
