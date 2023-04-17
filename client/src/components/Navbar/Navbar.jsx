@@ -11,24 +11,24 @@ const Navbar = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.auth)
+  const { user } = useSelector((state) => state.auth);
 
   // Changes classes for burger
-  const [burger_class, setBurgerClass] = useState('burger')
-  const [menu_class, setMenuClass] = useState('menu')
-  const [isMenuClicked, setIsMenuClicked] = useState(false)
+  const [burger_class, setBurgerClass] = useState('burger');
+  const [menu_class, setMenuClass] = useState('menu');
+  const [isMenuClicked, setIsMenuClicked] = useState(false);
 
   // Toggles burger menu
   const updateMenu = () => {
     if (!isMenuClicked) {
-      setMenuClass('menu active')
-      setBurgerClass('burger toggle')
+      setMenuClass('menu active');
+      setBurgerClass('burger toggle');
     } else {
-      setMenuClass('menu')
-      setBurgerClass('burger')
-    }
-    setIsMenuClicked(!isMenuClicked)
-  }
+      setMenuClass('menu');
+      setBurgerClass('burger');
+    };
+    setIsMenuClicked(!isMenuClicked);
+  };
 
   const onLogout = () => {
     dispatch(logout());
@@ -42,11 +42,7 @@ const Navbar = () => {
         <img src={Logo} alt='Logo' />
       </Link>
 
-      <h1>Yeah The Boys</h1>
-
       <ul className={menu_class}>
-
-
         {user ? (
           <>
             <li className='nav-item'>
@@ -80,7 +76,7 @@ const Navbar = () => {
         <div className='line3'></div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

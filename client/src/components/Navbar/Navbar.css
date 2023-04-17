@@ -35,19 +35,6 @@ a {
     background-color: rgb(0, 0, 0, 0.9);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 1.1em;
-    /* background-color: #161616; */
-    /* background-color: rgb(20, 33, 61); */
-    /* background-image: linear-gradient(140deg, var(--fourth-color) 10%, var(--secondary-color) 40%, var(--fourth-color) 100%); */
-    /* background-image: linear-gradient(30deg, var(--secondary-color) 25%, var(--primary-color) 40%, var(--secondary-color) 55%); */
-    /* background-color: var(--secondary-color); */
-}
-
-.navbar > h1 {
-    font-family: var(--cursive-font-family);
-    color: var(--primary-color);
-    margin: 0;
-    margin-left: 14%;
-    font-size: 2em;
 }
 
 .menu {
