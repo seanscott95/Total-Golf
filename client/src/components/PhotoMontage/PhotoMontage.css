@@ -1,5 +1,5 @@
 .photo-container {
-    margin: 20px;
+    margin: 5px 5px 50px 5px;
     display: flex;
     flex-direction: row;
     font-family: var(--cursive-font-family);
@@ -12,11 +12,44 @@
 }
 
 .photo-item > img {
-    min-height: 300px;
     width: 100%;
+    height: 100%;
     border: .3em solid white;
 }
 
 .photo-item > p {
     font-size: 2.5em;
+}
+
+@media (max-width: 768px) {
+    .photo-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .photo-item {
+        width: 30%;
+        flex-direction: row;
+    }
+    .photo-item > img {
+        height: 200px; 
+    }
+    .photo-item > p {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 370px) {
+    .photo-container {
+        margin: 0;
+        background-image: url('../../assets/images/golf-green-mountain-bg.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 20vh;
+    }
+    .photo-item > img, .photo-item > p {
+        display: none;
+    }
 }
