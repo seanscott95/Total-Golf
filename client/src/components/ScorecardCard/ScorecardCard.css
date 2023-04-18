@@ -4,7 +4,8 @@
     margin: 10px 0;
     font-size: 0.9em;
     font-family: sans-serif;
-    min-width: 400px;
+    /* min-width: 400px; */
+    /* width: fit-content; */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -15,6 +16,7 @@
 
 .styled-table th,
 .styled-table td {
+    /* padding: clamp(2px, 5px, 10px); */
     padding: 5px;
 }
 
@@ -36,7 +38,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: fit-content;
+    width: 100%;
     padding: 0 .5rem;
     margin: .75rem auto;
     border-radius: 5px;
@@ -44,6 +46,28 @@
     border: 3px solid black;
     background-color: var(--third-color);
     background-image: linear-gradient(140deg, var(--third-color) 0%, #989898 50%, var(--third-color) 100%);
+    font-size: clamp(.7rem, 3vw, 1.2rem);
+}
+
+.bigTable  {
+    width: 100%;
+}
+
+.bigTable td {
+    padding: 8px;
+}
+
+@media (max-width: 520px) {
+    .hideHole {
+        display: none;
+    }
+    .bigTable  {
+        margin: .3rem auto;
+        min-width: 240px;
+    }
+    .bigTable td {
+        padding: 5px;
+    }
 }
 
 .scorecard:hover {
