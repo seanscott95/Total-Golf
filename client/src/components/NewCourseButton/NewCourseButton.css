@@ -8,6 +8,7 @@
     padding: 1em;
     margin: 10px;
     height: auto;
+    min-height: 150px;
     width: 45%;
     border-radius: 25px;
     border: 1px solid var(--primary-color);
@@ -15,7 +16,7 @@
 
 .text-section {
     padding-right: 2em;
-    width: 60%;
+    width: fit-content;
 }
 
 .svg {
