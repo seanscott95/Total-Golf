@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { date_all } from '../../utils/helper/dateHelper';
 
 import { FaRegEdit } from 'react-icons/fa';
-import ScoreCard from '../ScoreCard/ScoreCard';
 
 const ScorecardCard = ({ scorecard, showEditBtn, setIsEditMode }) => {
     const navigate = useNavigate();
