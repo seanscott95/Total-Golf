@@ -45,16 +45,16 @@ const Navbar = () => {
       <ul className={menu_class}>
         {user ? (
           <>
-            <li className='nav-item'>
-              <Link to='/leaderBoard' className='nav-link'>Leaderboard</Link>
+            <li className='nav-item' onClick={updateMenu}>
+              <Link to='/leaderBoard' className='nav-link' >Leaderboard</Link>
             </li>
-            <li className='nav-item'>
+            <li className='nav-item' onClick={updateMenu}>
               <Link to='/personal' className='nav-link'>Personal</Link>
             </li>
-            <li className='nav-item'>
+            <li className='nav-item' onClick={updateMenu}>
               <Link to='/scores' className='nav-link'>Scores</Link>
             </li>
-            <li className='nav-item'>
+            <li className='nav-item' onClick={updateMenu}>
               <button to='/logout' className='logout-btn' onClick={onLogout}>Logout</button>
             </li>
           </>
