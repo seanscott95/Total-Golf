@@ -201,7 +201,7 @@ const ScorecardForm = ({ queensPark }) => {
     return (
         <>
             <section className='scorecardFormContainer content'>
-                <h1 className='section-heading'>SELECT HOW MANY HOLES</h1>
+                <h3 className='section-heading'>SELECT HOW MANY HOLES</h3>
                 <div className='btn-group'>
                     <button
                         type='submit'
@@ -226,9 +226,9 @@ const ScorecardForm = ({ queensPark }) => {
                     </button>
                 </div>
 
+                <h3 className='section-heading'>ENTER YOUR SCORECARD</h3>
             </section>
             <section className='scorecard-form'>
-                <h1 className='section-heading'>ENTER YOUR SCORECARD</h1>
                 <form onSubmit={handleFormSubmit}>
                     <div className='course-date-group'>
                         <div className='form-group'>
