@@ -90,7 +90,7 @@ const LeaderBoard = () => {
 
             <section className='content'>
                 <div className='border-background-img'>
-                    <h3>LEADER BOARD</h3>
+                    <h1>LEADER BOARD</h1>
                     <span></span>
                 </div>
             </section>
@@ -107,7 +107,7 @@ const LeaderBoard = () => {
                     <section className='content'>
                         <div className='section-heading centered-heading'>
                             <h3>1-18</h3>
-                            <p>Below are the top scores for 1-18 hole games at Queens Park</p>
+                            <p>Top three for 1-18 hole games</p>
                         </div>
 
                         <div>
@@ -150,7 +150,8 @@ const LeaderBoard = () => {
                     <section className='content'>
                         <div className='section-heading centered-heading'>
                             <h3>1-9</h3>
-                            <p>Below are the top scores for 1-9 hole games at Queens Park</p>
+                            <p>Top three for 1-9 hole games</p>
+                            
                         </div>
 
                         <div>
@@ -193,7 +194,7 @@ const LeaderBoard = () => {
                     <section className='content'>
                         <div className='section-heading centered-heading'>
                             <h3>10-18</h3>
-                            <p>Below are the top scores for 10-18 hole games at Queens Park</p>
+                            <p>Top three for 10-18 hole games</p>
                         </div>
 
                         <div>

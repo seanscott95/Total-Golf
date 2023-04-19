@@ -94,7 +94,7 @@ const Personal = () => {
     <div className='page-container'>
       <section className='content'>
         <div className='border-background-img'>
-          <h3>{user && user.username.toUpperCase()}</h3>
+          <h1>{user && user.username.toUpperCase()}</h1>
           <span></span>
         </div>
       </section>

@@ -42,7 +42,7 @@ const Scores = () => {
     <div className='page-container'>
       <section className='content'>
         <div className='border-background-img'>
-          <h3>SCORES</h3>
+          <h1>SCORES</h1>
           <span></span>
         </div>
       </section>
