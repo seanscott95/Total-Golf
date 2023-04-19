@@ -272,7 +272,7 @@ h3 {
 
 .stats-section > div > h3 , .centered-heading {
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   color: var(--primary-color);
   border-bottom: 2px solid var(--primary-color);

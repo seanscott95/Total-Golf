@@ -107,7 +107,7 @@ const Personal = () => {
 
       <section className='content stats-section'>
         <div>
-          <h3>1-18</h3>
+          <h3 className=''>1-18</h3>
           <p>Played: {usersScoresBothNineQP.length > 0 ? usersScoresBothNineQP.length : 'N/A'}</p>
           <p>Best: {usersScoresBothNineQP.length > 0 ? usersScoresBothNineQP[0].total : 'N/A'}</p>
           <p>Average: {findTotalAvg(bothNineHoleGamesQP) || 'N/A'}</p>
