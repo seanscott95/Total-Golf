@@ -288,25 +288,25 @@ h3 {
 }
 .position-medals .scorecard:first-child {
   background-image: url(./assets/svg/gold-medal.png);
-  background-position: 15px;
+  background-position: .5rem;
   background-repeat: no-repeat;
-  background-size: 50px;
-  padding-left: 80px;
+  background-size: 4rem;
+  padding-left: 5rem;
 }
 
 .position-medals .scorecard:nth-child(2) {
   background-image: url(./assets/svg/silver-medal.png);
-  background-position: 15px;
+  background-position: .5rem;
   background-repeat: no-repeat;
-  background-size: 50px;
-  padding-left: 80px;
+  background-size: 4rem;
+  padding-left: 5rem;
 }
 .position-medals .scorecard:nth-child(3) {
   background-image: url(./assets/svg/bronze-medal.png);
-  background-position: 15px;
+  background-position: .5rem;
   background-repeat: no-repeat;
-  background-size: 50px;
-  padding-left: 80px;
+  background-size: 4rem;
+  padding-left: 5rem;
 }
 
 @media (max-width: 500px) {

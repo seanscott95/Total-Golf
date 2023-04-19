@@ -23,7 +23,7 @@ h1 {
 .imgPosition {
     z-index: 1;
     position: relative;
-    top: 1.2em;
+    top: 2em;
 }
 
 .imgPosition img {

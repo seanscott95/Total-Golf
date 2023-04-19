@@ -6,7 +6,7 @@ const NewCourseButton = ({ header, text, link, image }) => {
   return (
     <div className='button-container'>
         <section className='text-section'>
-            <h1>{header}</h1>
+            <h3>{header}</h3>
             <p>Create a new Scorecard for {text}</p>
             <Link to={link}>
                 <button className='btn'>GET STARTED &gt;</button>
