@@ -4,8 +4,6 @@
     margin: 10px 0;
     font-size: 0.9em;
     font-family: sans-serif;
-    /* min-width: 400px; */
-    /* width: fit-content; */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -16,7 +14,6 @@
 
 .styled-table th,
 .styled-table td {
-    /* padding: clamp(2px, 5px, 10px); */
     padding: 5px;
 }
 
@@ -67,6 +64,20 @@
     }
     .bigTable td {
         padding: 5px;
+    }
+}
+
+@media (max-width: 310px) {
+    .styled-table {
+        margin: 2px;
+        width: 50%;
+    }
+    .bigTable {
+        min-width: 225px;
+        /* max-width: 100px; */
+    }
+    .bigTable td {
+        padding: 1px;
     }
 }
 

@@ -5,8 +5,8 @@
 }
 
 .scorecard-form {
-    margin: 1rem 0;
-    padding: 20px 10px;
+    margin: 1rem auto;
+    padding: 0;
     border-radius: 10px;
 }
 
@@ -17,20 +17,26 @@
     align-items: center;
 }
 
+.scorecard-form .form-group table {
+    width: 100%;
+    font-size: clamp(.7rem, 2vw, 1rem);
+}
+
 .form-group input,
 .form-group textarea,
 .form-group select {
-    width: 80%;
+    width: 100%;
     padding: 5px;
     border: 1px solid black;
     border-radius: 5px;
     margin-bottom: 10px;
     font-family: inherit;
+    
 }
 
 .form-group label {
-    width: 150px;
-    padding: 5px;
+    width: fit-content;
+    padding: 10px;
     border-radius: 5px;
     margin-bottom: 10px;
     font-family: inherit;
@@ -38,23 +44,19 @@
     color: var(--primary-color);
 }
 
-td input {
-    width: 50px;
-}
-
 th {
     color: var(--primary-color);
 }
 
 .body-inputs input {
+    padding: 5px 0;
     width: 2rem;
-    height: auto;
     text-align: center;
-    margin: 1px;
 }
 
+
 #name {
-    width: 7rem;
+    width: 5rem;
     padding: 6px;
 }
 
@@ -63,12 +65,15 @@ th {
 }
 
 .course-date-group {
-    margin: 1rem .5rem;
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem auto;
     width: 100%;
 }
 
+
 .course-date-group > label {
-    min-width: fit-content;
+    width: 1rem;
     padding: 0 1rem 0 .1rem;
 }
 
@@ -76,14 +81,18 @@ th {
     margin-right: 1rem;
 }
 
+.hideHole2 {
+    visibility: hidden;
+}
+
 /* Button Group */
 .btn-group {
-    display: flex;
     border-radius: 10px;
 }
 
 .btn-group button {
-    margin: 1rem;
+    margin: .5rem;
+    min-width: 50%;
 }
 
 .deleteScoreBtn {
@@ -115,13 +124,39 @@ th {
     border: 1px solid var(--primary-color);
 }
 
+.deleteBtnTd:hover {
+    color: red;
+    border: 1px solid red;
+}
+
+.addedScore  {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.addedScore tr:nth-child(3) {
+    margin-bottom: 1rem;
+}
+.smallScreen {
+    width: 100%;
+    margin: 0 auto;
+}
+.bigScreen td, .smallScreen td {
+    color: black;
+}
+
+.formInputsContainer {
+    margin: 0 auto;
+}
+
 /* --------- STYLED TABLE FOOT---------- */
 tfoot th,
 tfoot td {
-    padding: 5px;
     margin: 1px;
     border-radius: 5px;
-    font-size: .9em;
+
 }
 
 tfoot tr {
@@ -140,4 +175,48 @@ tfoot tr:last-of-type {
 tfoot td:nth-child(2) {
     background: var(--fourth-color);
     border-radius: 0px;
+}
+
+
+@media (min-width: 769px) {
+    .smallScreen {
+        display: none;
+    }
+}
+@media (max-width: 768px) {
+    .bigScreen {
+        display: none;
+    }
+}
+
+
+
+@media (max-width: 520px) {
+    .course-date-group {
+        flex-direction: column;
+    }
+    .hideHole {
+        display: none;
+    }
+    .btn-group button {
+        margin: .5rem;
+        min-width: 40%;
+    }
+}
+
+@media (max-width: 420px) {
+    .name-header {
+        min-width: 50px;
+    }
+    .body-inputs input {
+        font-size: 10px;
+        padding: 2px;
+        max-width: 1.2rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .body-inputs input, .body-inputs tr {
+        padding: 1px;
+    }
 }

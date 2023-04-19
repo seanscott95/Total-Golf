@@ -134,8 +134,8 @@ const ScorecardCard = ({ scorecard, showEditBtn, setIsEditMode }) => {
             {isBothNine ?
                 <>
                     {/* {scorecard.score.map((item) => <ScoreCard score={item} />)} */}
-                    {splitBothNineScores(scorecard?.score).map((item, index) => (
-                        <div key={index}>
+                    {splitBothNineScores(scorecard?.score).map((item) => (
+                        <div key={item._id}>
                             <table className='styled-table bigTable'>
                                 <thead>
                                     <tr>
@@ -154,7 +154,7 @@ const ScorecardCard = ({ scorecard, showEditBtn, setIsEditMode }) => {
                                 </thead>
                                 <tbody >
                                     {item.fN.map((i) => (
-                                        <tr>
+                                        <tr key={i.name}>
                                             <td>{i.name.charAt(0).toUpperCase() + i.name.slice(1)}</td>
                                             <td className='hideHole'>&nbsp;</td>
                                             <td>{i.score.hole1}</td>
@@ -189,7 +189,7 @@ const ScorecardCard = ({ scorecard, showEditBtn, setIsEditMode }) => {
                                 </thead>
                                 <tbody >
                                     {item.lN.map((i) => (
-                                        <tr>
+                                        <tr key={i.name}>
                                             <td>{i.name.charAt(0).toUpperCase() + i.name.slice(1)}</td>
                                             <td className='hideHole'>&nbsp;</td>
                                             <td>{i.score.hole10}</td>
