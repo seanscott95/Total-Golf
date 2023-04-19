@@ -73,7 +73,6 @@
     }
     .bigTable {
         min-width: 225px;
-        /* max-width: 100px; */
     }
     .bigTable td {
         padding: 1px;
