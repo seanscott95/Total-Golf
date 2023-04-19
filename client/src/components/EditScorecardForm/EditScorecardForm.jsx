@@ -151,9 +151,9 @@ const EditScorecardForm = ({ scorecard, isEditMode, setIsEditMode }) => {
 
     return (
         <>
-            <section className='scorecard-form'>
-                <div className=''>
-                    <h1 className='section-heading edit-heading-container'>
+            <section>
+                <div>
+                    <h3 className='section-heading edit-heading-container'>
                         EDIT SCORECARD
                         <button
                             type='submit'
@@ -161,11 +161,11 @@ const EditScorecardForm = ({ scorecard, isEditMode, setIsEditMode }) => {
                             onClick={handleDeleteBtn}>
                             <MdDeleteForever />
                         </button>
-                    </h1>
+                    </h3>
 
                 </div>
-                <form onSubmit={handleScorecardEditSubmit}>
-                    <div className='form-group course-date-group'>
+                <form onSubmit={handleScorecardEditSubmit} className='content'>
+                    <div className='form-group '>
                         <label htmlFor='courseName'>Course Name:</label>
                         <input
                             type='text'

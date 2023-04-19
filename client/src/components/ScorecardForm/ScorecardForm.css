@@ -63,7 +63,9 @@ th {
 }
 
 .name-header {
-    text-align: left;
+    padding: .5rem;
+    min-width: 5rem;
+    /* display: block; */
 }
 
 .course-date-group {
@@ -185,6 +187,7 @@ tfoot td:nth-child(2) {
         display: none;
     }
 }
+
 @media (max-width: 768px) {
     .bigScreen {
         display: none;
@@ -206,14 +209,14 @@ tfoot td:nth-child(2) {
     }
 }
 
-@media (max-width: 420px) {
-    .name-header {
-        min-width: 50px;
+@media (max-width: 450px) {
+    .name-header input {
+        min-width: 3rem;
     }
     .body-inputs input {
-        font-size: 10px;
+        font-size: 12px;
         padding: 2px;
-        max-width: 1.2rem;
+        max-width: 1.4rem;
     }
 }
 

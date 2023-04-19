@@ -11,11 +11,12 @@ const FormInputs = ({
         <>
             <thead>
                 <tr>
-                    <th className='name-header'>Name</th>
+                    <th>Name</th>
                     <th className="hideHole">Hole</th>
                     <th className="hideHole2"></th>
                     {holes === '1-18' ?
                         <>
+                            <th className="hiddeHole2"></th>
                             <th className='bigScreen'>1</th>
                             <th className='bigScreen'>2</th>
                             <th className='bigScreen'>3</th>
@@ -49,7 +50,7 @@ const FormInputs = ({
                             <th>7</th>
                             <th>8</th>
                             <th>9</th>
-                    <th>T</th>
+                            <th>T</th>
                         </> : <></>
                     }
 
@@ -70,16 +71,17 @@ const FormInputs = ({
             </thead>
             <tbody className='body-inputs'>
                 <tr>
-                    <td>
+                    <td className='name-header'>
                         <input
                             type='text'
                             name='username'
                             id='name'
-                            className='name-header'
+
                             value={scoreInputData.username}
                             onChange={(e) => handleNameChange(e, scoreInputData._id)} />
                     </td>
                     <td className="hideHole"></td>
+                    <td className="hideHole2"></td>
                     {holes === '1-9' ?
                         <>
                             <td>
@@ -572,24 +574,19 @@ const FormInputs = ({
                     }
 
                     {isEditMode ?
-                        <>
-                            <td></td>
-                            <td>
-                                <input readOnly value={scoreInputData.total || 0} />
-                            </td>
-                        </>
-                        :
-                        <>
-                            <td></td>
-                            <td></td>
-                        </>
+                    
+                        <td className='totalInput'>
+                            <input readOnly value={scoreInputData.total || 0} />
+                        </td>
+                        : <></>
                     }
                 </tr>
-                <tr>
-                    <td>
-                        <button type='submit' className='btn btn-block' onClick={handlePlayerSubmit}>Add</button>
-                    </td>
-                </tr>
+                {!isEditMode ?
+                    
+                        <td>
+                            <button type='submit' className='btn btn-block' onClick={handlePlayerSubmit}>Add</button>
+                        </td>: <></>
+                }
             </tbody>
 
         </>

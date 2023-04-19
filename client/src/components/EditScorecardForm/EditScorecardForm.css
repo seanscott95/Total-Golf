@@ -19,3 +19,10 @@
     color: red;
     border-color: red;
 }
+
+@media (max-width: 768px) {
+    .totalInput {
+        display: inline-block;
+        margin-top: 1.5em;
+    }
+}
