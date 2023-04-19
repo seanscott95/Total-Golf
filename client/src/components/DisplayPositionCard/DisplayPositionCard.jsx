@@ -34,7 +34,7 @@ const DisplayPositionCard = ({ position, name, score, id }) => {
                 <h1>{name}</h1>
             </div>
             <div className='scoreContainer'>
-                <h1>{score}</h1>
+                <h3>{score}</h3>
             </div>
         </div>
     );

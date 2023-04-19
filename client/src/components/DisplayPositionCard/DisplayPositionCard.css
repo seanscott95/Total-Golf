@@ -36,9 +36,10 @@ h1 {
     isolation: isolate;
     width: 90%;
     border: 0;
-    font-size: 2rem;
-    padding: 2rem;
+    font-size: 1.5rem;
+    padding: 1.5rem;
     color: white;
+    text-shadow: -.1em 0 0 grey, -.3em 0 .2em black;
     clip-path:
         polygon(
             /* Top Left */
@@ -105,14 +106,16 @@ h1 {
 
 .scoreContainer {
     position: relative;
-    top: -1em;
+    top: -1.1em;
     z-index: 1;
-    width: 50%;
+    width: 40%;
+    min-width: 4em;
     background: blueviolet;
-    font-size: 1.2em;
+    font-size: 1em;
+    text-shadow: -.1em 0 0 grey, -.2em 0 0 black;
     border: 0;
     color: white;
-    padding: .25em;
+    padding: .25em .25em 0 .5em;
     clip-path:
         polygon(
             0% 0%,
