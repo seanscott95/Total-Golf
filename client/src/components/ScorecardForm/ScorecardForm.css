@@ -1,3 +1,4 @@
+/* ------------SCORECARD AND FORM ------------ */
 .form,
 .content {
     width: 90%;
@@ -56,6 +57,9 @@ th {
     text-align: center;
 }
 
+.formInputsContainer {
+    margin: 0 auto;
+}
 
 #name {
     width: 5rem;
@@ -65,16 +69,15 @@ th {
 .name-header {
     padding: .5rem;
     min-width: 5rem;
-    /* display: block; */
 }
 
+/* Course Date Group */
 .course-date-group {
     display: flex;
     justify-content: space-around;
     margin: 2rem auto;
     width: 100%;
 }
-
 
 .course-date-group > label {
     width: 1rem;
@@ -83,10 +86,6 @@ th {
 
 .course-date-group > input {
     margin-right: 1rem;
-}
-
-.hideHole2 {
-    visibility: hidden;
 }
 
 /* Button Group */
@@ -99,6 +98,7 @@ th {
     min-width: 50%;
 }
 
+/* Delete Button */
 .deleteScoreBtn {
     cursor: pointer;
     border: none;
@@ -133,6 +133,7 @@ th {
     border: 1px solid red;
 }
 
+/* Helpers */
 .addedScore  {
     display: flex;
     flex-direction: row;
@@ -151,11 +152,11 @@ th {
     color: black;
 }
 
-.formInputsContainer {
-    margin: 0 auto;
+.hideHole2 {
+    visibility: hidden;
 }
 
-/* --------- STYLED TABLE FOOT---------- */
+/* -----------STYLED TABLE FOOT----------- */
 tfoot th,
 tfoot td {
     margin: 1px;
@@ -181,21 +182,7 @@ tfoot td:nth-child(2) {
     border-radius: 0px;
 }
 
-
-@media (min-width: 769px) {
-    .smallScreen {
-        display: none;
-    }
-}
-
-@media (max-width: 768px) {
-    .bigScreen {
-        display: none;
-    }
-}
-
-
-
+/* --------------RESPONSIVENESS--------------- */
 @media (max-width: 520px) {
     .course-date-group {
         flex-direction: column;

@@ -144,7 +144,7 @@ h3 {
 
 }
 
-/* -------- CSS FOR PAGES ------- */
+/* ------------------ CSS FOR PAGES ------------------ */
 /* Page Headings */
 .heading {
   font-weight: 700;
@@ -157,7 +157,7 @@ h3 {
   color: white;
 }
 
-/* Signin and Signup Page Background*/
+/* Signin and Signup Page Background */
 .container > .signin-page, 
 .container > .signup-page {
   background-image: url(./assets/images/golf-karts.jpg);
@@ -256,7 +256,7 @@ h3 {
   text-align: start;
 }
 
-/* Personal */
+/*Personal */
 .stats-section {
   width: 90%;
   display: flex;
@@ -280,7 +280,7 @@ h3 {
   margin: 5%;
 }
 
-/* Score Position Medals */
+/* ----------Score Position Medals-------------*/
 .position-medals {
   display: flex;
   justify-content: center;
@@ -313,13 +313,15 @@ h3 {
   .position-medals .scorecard:first-child,
   .position-medals .scorecard:nth-child(2),
   .position-medals .scorecard:nth-child(3) {
-    background-image: none;
-    padding: 0px 5px;
-    width: fit-content;
+    width: 100%;
+    padding-left: 5%;
+    background-image: linear-gradient(140deg, var(--third-color) 0%, #989898 50%, var(--third-color) 100%);
+    background-size: auto;
+    background-position: 0%;
   }
 }
 
-/* Spinner */
+/* ------------SPINNER-------------- */
 .spinner {
   height: 5rem;
   width: 5rem;
@@ -338,7 +340,7 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
-/* Responsiveness */
+/*-------------RESPONSIVENESS-------------*/
 @media (max-width: 768px) {
   .homepage-container {
     gap: .1rem;
@@ -352,5 +354,23 @@ input[type=number] {
   .course-buttons {
     flex-direction: column;
     align-items: center;
+  }
+}
+
+@media (min-width: 769px) {
+  .smallScreen {
+      display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .bigScreen {
+      display: none;
+  }
+  .allNineSmallScreen {
+    display: none;
+  }
+  .hideIfBigScreen {
+    display: none;
   }
 }

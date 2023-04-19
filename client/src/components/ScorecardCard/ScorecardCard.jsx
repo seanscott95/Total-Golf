@@ -52,8 +52,69 @@ const ScorecardCard = ({ scorecard, showEditBtn, setIsEditMode }) => {
                     </button>
                     : <></>}
             </div>
-            <div>
-                <table className='styled-table'>
+
+            {isBothNine ?
+                <table className='styled-table hideIfBigScreen'>
+                    <thead>
+                        <tr>
+                            {isBothNine ?
+                                <>
+                                    <th className='bigScreen'>Name</th>
+                                    <th className='hideHole bigScreen'>Hole</th>
+                                    <th className='bigScreen'>1</th>
+                                    <th className='bigScreen'>2</th>
+                                    <th className='bigScreen'>3</th>
+                                    <th className='bigScreen'>4</th>
+                                    <th className='bigScreen'>5</th>
+                                    <th className='bigScreen'>6</th>
+                                    <th className='bigScreen'>7</th>
+                                    <th className='bigScreen'>8</th>
+                                    <th className='bigScreen'>9</th>
+                                    <th className='bigScreen'>10</th>
+                                    <th className='bigScreen'>11</th>
+                                    <th className='bigScreen'>12</th>
+                                    <th className='bigScreen'>13</th>
+                                    <th className='bigScreen'>14</th>
+                                    <th className='bigScreen'>15</th>
+                                    <th className='bigScreen'>16</th>
+                                    <th className='bigScreen'>17</th>
+                                    <th className='bigScreen'>18</th>
+                                </> : <></>}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {scorecard?.score.map((item) => (
+                            <tr key={item._id}>
+                                {isBothNine ?
+                                    <>
+                                        <td className='bigScreen'>{item.username.charAt(0).toUpperCase() + item.username.slice(1)}</td>
+                                        <td className='hideHole bigScreen'>&nbsp;</td>
+                                        <td className='bigScreen'>{item.firstNine.hole1}</td>
+                                        <td className='bigScreen'>{item.firstNine.hole2}</td>
+                                        <td className='bigScreen'>{item.firstNine.hole3}</td>
+                                        <td className='bigScreen'>{item.firstNine.hole4}</td>
+                                        <td className='bigScreen'>{item.firstNine.hole5}</td>
+                                        <td className='bigScreen'>{item.firstNine.hole6}</td>
+                                        <td className='bigScreen'>{item.firstNine.hole7}</td>
+                                        <td className='bigScreen'>{item.firstNine.hole8}</td>
+                                        <td className='bigScreen'>{item.firstNine.hole9}</td>
+                                        <td className='bigScreen'>{item.lastNine.hole10}</td>
+                                        <td className='bigScreen'>{item.lastNine.hole11}</td>
+                                        <td className='bigScreen'>{item.lastNine.hole12}</td>
+                                        <td className='bigScreen'>{item.lastNine.hole13}</td>
+                                        <td className='bigScreen'>{item.lastNine.hole14}</td>
+                                        <td className='bigScreen'>{item.lastNine.hole15}</td>
+                                        <td className='bigScreen'>{item.lastNine.hole16}</td>
+                                        <td className='bigScreen'>{item.lastNine.hole17}</td>
+                                        <td className='bigScreen'>{item.lastNine.hole18}</td>
+                                    </> : <></>
+                                }
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+                :
+                <table className='styled-table hideIfSmallScreen'>
                     <thead>
                         <tr>
                             {isFirstNine ?
@@ -88,12 +149,12 @@ const ScorecardCard = ({ scorecard, showEditBtn, setIsEditMode }) => {
                                     <th>T</th>
                                 </> : <></>
                             }
+
                         </tr>
                     </thead>
                     <tbody>
                         {scorecard?.score.map((item) => (
                             <tr key={item._id}>
-
                                 {isFirstNine ?
                                     <>
                                         <td>{item.username.charAt(0).toUpperCase() + item.username.slice(1)}</td>
@@ -130,13 +191,12 @@ const ScorecardCard = ({ scorecard, showEditBtn, setIsEditMode }) => {
                         ))}
                     </tbody>
                 </table>
-            </div>
+            }
             {isBothNine ?
                 <>
-                    {/* {scorecard.score.map((item) => <ScoreCard score={item} />)} */}
                     {splitBothNineScores(scorecard?.score).map((item) => (
-                        <div key={item._id}>
-                            <table className='styled-table bigTable'>
+                        <>
+                            <table className='styled-table smallScreen'>
                                 <thead>
                                     <tr>
                                         <th>Name</th>
@@ -171,7 +231,7 @@ const ScorecardCard = ({ scorecard, showEditBtn, setIsEditMode }) => {
                                 </tbody>
                             </table>
 
-                            <table className='styled-table bigTable'>
+                            <table className='styled-table smallScreen'>
                                 <thead>
                                     <tr>
                                         <th>Name</th>
@@ -205,7 +265,7 @@ const ScorecardCard = ({ scorecard, showEditBtn, setIsEditMode }) => {
                                     ))}
                                 </tbody>
                             </table>
-                        </div>
+                        </>
                     ))}
                 </> : <></>}
         </div>
