@@ -60,7 +60,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background-color: var(--secondary-color);
+    background-color: var(--black-fade);
     border-radius: 5px;
     margin-top: .5rem;
 }
