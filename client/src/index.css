@@ -209,8 +209,7 @@ h3 {
   align-items: center;
   color: var(--primary-color);
   border-bottom: 2px solid var(--primary-color);
-  padding: 15px 5px 5px 15px;
-  margin: 1rem;
+  padding: 1em;
   font-family: var(--primary-font-family);
 }
 
@@ -278,8 +277,8 @@ h3 {
   align-items: center;
   color: var(--primary-color);
   border-bottom: 2px solid var(--primary-color);
-  padding: .5rem;
-  margin: 5%;
+  padding: .5em;
+  margin: 1em 0;
 }
 
 .styledStatsCard {
