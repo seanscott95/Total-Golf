@@ -2,10 +2,9 @@
 .styled-table {
     border-collapse: collapse;
     margin: 10px 0;
-    font-size: 0.9em;
+    font-size: 1em;
     font-family: sans-serif;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);   
 }
 
 .styled-table > tbody {
@@ -13,7 +12,7 @@
 }
 
 .styled-table thead tr {
-    background-color: var(--secondary-color);
+    background-color: var(--black-fade);
     color: var(--primary-color);
 }
 
@@ -46,7 +45,7 @@
     margin: .75rem auto;
     border-radius: 5px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    border: 3px solid black;
+    border: 1px solid var(--primary-color);
     background-color: var(--third-color);
     background-image: linear-gradient(140deg, var(--third-color) 0%, #989898 50%, var(--third-color) 100%);
 }
