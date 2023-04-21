@@ -108,7 +108,8 @@ h3 {
   padding: 3px 6px;
 }
 
-.btn:hover, .addBtn:hover {
+.btn:hover,
+.addBtn:hover {
   transform: scale(0.98);
 }
 
@@ -158,8 +159,8 @@ h3 {
 }
 
 /* Signin and Signup Page Background */
-.container > .signin-page, 
-.container > .signup-page {
+.container>.signin-page,
+.container>.signup-page {
   background-image: url(./assets/images/golf-karts.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -174,7 +175,7 @@ h3 {
 .signin-container {
   border-radius: 15px;
   padding: 2rem;
-  background: 	rgba(6, 6, 6, 0.8);
+  background: rgba(6, 6, 6, 0.8);
 }
 
 /* Homepage */
@@ -194,7 +195,7 @@ h3 {
 
 /* Scorecard Page */
 
-.scorecardFormContainer > .btn-group {
+.scorecardFormContainer>.btn-group {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -214,6 +215,7 @@ h3 {
   margin: 0 1rem;
   font-family: var(--primary-font-family);
 }
+
 @media (max-width: 600px) {
   .section-heading {
     justify-content: center;
@@ -232,7 +234,7 @@ h3 {
   background-image: url(./assets/svg/gold-fancy-border.png);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 100%; 
+  background-size: 100%;
   width: 60%;
   height: 9vh;
   padding: 1px;
@@ -244,6 +246,7 @@ h3 {
   justify-content: center;
   align-items: center;
 }
+
 @media (max-width: 600px) {
   .border-background-img span {
     display: none;
@@ -258,19 +261,21 @@ h3 {
 
 /*Personal */
 .stats-section {
-  width: 90%;
+  background: var(--background-color);
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  border: 1px solid var(--primary-color);
+  border-radius: 10px;
 }
 
 .stats-section > div {
-  width: 25%;
+  width: 90%;
   margin-bottom: 1rem;
 }
 
-.stats-section > div > h3 , .centered-heading {
+.stats-section > div > h3,
+.centered-heading {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -280,12 +285,54 @@ h3 {
   margin: 5%;
 }
 
+.styledStatsCard {
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
+  width: 25%;
+  margin: .5em;
+  border-radius: 10px;
+}
+
+.styledStatsCard h4 {
+  background-color: var(--black-fade);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-size: 1.2em;
+  color: var(--primary-color);
+  margin: 0;
+  padding: .6em;
+}
+
+.styledStatsCard div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .2em 1em;
+  background: linear-gradient(to bottom, rgb(179, 179, 179), rgb(204, 204, 204), rgb(153, 153, 153));
+}
+
+.styledStatsCard p {
+  color: var(--black-fade);
+}
+
+.styledStatsCard p:nth-of-type(even) {
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: 0;
+  margin: 0;
+}
+.styledStatsCard div:last-of-type {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
 /* ----------Score Position Medals-------------*/
 .position-medals {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .position-medals .scorecard:first-child {
   background-image: url(./assets/svg/gold-medal.png);
   background-position: .5rem;
@@ -301,6 +348,7 @@ h3 {
   background-size: 4rem;
   padding-left: 5rem;
 }
+
 .position-medals .scorecard:nth-child(3) {
   background-image: url(./assets/svg/bronze-medal.png);
   background-position: .5rem;
@@ -310,6 +358,7 @@ h3 {
 }
 
 @media (max-width: 500px) {
+
   .position-medals .scorecard:first-child,
   .position-medals .scorecard:nth-child(2),
   .position-medals .scorecard:nth-child(3) {
@@ -332,12 +381,14 @@ h3 {
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
 }
+
 /* Firefox */
 input[type=number] {
-    -moz-appearance: textfield;
+  -moz-appearance: textfield;
 }
 
 /*-------------RESPONSIVENESS-------------*/
@@ -345,12 +396,16 @@ input[type=number] {
   .homepage-container {
     gap: .1rem;
   }
+  .stats-section {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 370px) {
   .homepage-container {
     gap: 3rem;
   }
+
   .course-buttons {
     flex-direction: column;
     align-items: center;
@@ -359,17 +414,19 @@ input[type=number] {
 
 @media (min-width: 769px) {
   .smallScreen {
-      display: none;
+    display: none;
   }
 }
 
 @media (max-width: 768px) {
   .bigScreen {
-      display: none;
+    display: none;
   }
+
   .allNineSmallScreen {
     display: none;
   }
+
   .hideIfBigScreen {
     display: none;
   }

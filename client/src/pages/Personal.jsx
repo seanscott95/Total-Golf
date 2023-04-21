@@ -63,7 +63,7 @@ const Personal = () => {
     // Reduces array of totals to a single average value
     return arrTotal.reduce((acc, val) => {
       let avg = acc + (val / length);
-      return +avg.toFixed(2);   // Converts avg to a string and to two deciaml places
+      return +avg.toFixed(1);   // Converts avg to a string and to two deciaml places
     }, 0);
   };
 
@@ -99,33 +99,66 @@ const Personal = () => {
         </div>
       </section>
 
-      <section className='content'>
-        <div className='section-heading '>
+      <section className='content stats-section'>
+        <div className='heading '>
           <h2>QUEENS PARK</h2>
         </div>
-      </section>
-
-      <section className='content stats-section'>
-        <div>
-          <h3 className=''>1-18</h3>
-          <p>Played: {usersScoresBothNineQP.length > 0 ? usersScoresBothNineQP.length : 'N/A'}</p>
-          <p>Best: {usersScoresBothNineQP.length > 0 ? usersScoresBothNineQP[0].total : 'N/A'}</p>
-          <p>Average: {findTotalAvg(bothNineHoleGamesQP) || 'N/A'}</p>
-          <p>Worst: {usersScoresBothNineQP.length > 0 ? usersScoresBothNineQP[usersScoresBothNineQP.length - 1].total : 'N/A'}</p>
+        <div className='styledStatsCard'>
+          <h4>1-18</h4>
+          <div>
+            <p>Played:</p>
+            <p>{usersScoresBothNineQP.length > 0 ? usersScoresBothNineQP.length : 'N/A'}</p>
+          </div>
+          <div>
+            <p>Best:</p>
+            <p>{usersScoresBothNineQP.length > 0 ? usersScoresBothNineQP[0].total : 'N/A'}</p>
+          </div>
+          <div>
+            <p>Avg:</p>
+            <p>{findTotalAvg(bothNineHoleGamesQP) || 'N/A'}</p>
+          </div>
+          <div>
+            <p>Worst:</p>
+            <p>{usersScoresBothNineQP.length > 0 ? usersScoresBothNineQP[usersScoresBothNineQP.length - 1].total : 'N/A'}</p>
+          </div>
         </div>
-        <div>
-          <h3>1-9</h3>
-          <p>Played: {usersScoresFirstNineQP.length > 0 ? usersScoresFirstNineQP.length : 'N/A'}</p>
-          <p>Best: {usersScoresFirstNineQP.length > 0 ? usersScoresFirstNineQP[0].total : 'N/A'}</p>
-          <p>Average: {findTotalAvg(firstNineHoleGamesQP) || 'N/A'}</p>
-          <p>Worst: {usersScoresFirstNineQP.length > 0 ? usersScoresFirstNineQP[usersScoresFirstNineQP.length - 1].total : 'N/A'}</p>
+        <div className='styledStatsCard'>
+          <h4 className='heading'>1-9</h4>
+          <div>
+            <p>Played:</p>
+            <p>{usersScoresFirstNineQP.length > 0 ? usersScoresFirstNineQP.length : 'N/A'}</p>
+          </div>
+          <div>
+            <p>Best:</p>
+            <p>{usersScoresFirstNineQP.length > 0 ? usersScoresFirstNineQP[0].total : 'N/A'}</p>
+          </div>
+          <div>
+            <p>Avg:</p>
+            <p>{findTotalAvg(firstNineHoleGamesQP) || 'N/A'}</p>
+          </div>
+          <div>
+            <p>Worst:</p>
+            <p>{usersScoresFirstNineQP.length > 0 ? usersScoresFirstNineQP[usersScoresFirstNineQP.length - 1].total : 'N/A'}</p>
+          </div>
         </div>
-        <div>
-          <h3>10-18</h3>
-          <p>Played: {usersScoresLastNineQP.length > 0 ? usersScoresLastNineQP.length : 'N/A'}</p>
-          <p>Best: {usersScoresLastNineQP.length > 0 ? usersScoresLastNineQP[0].total : 'N/A'}</p>
-          <p>Average: {findTotalAvg(lastNineHoleGamesQP) || 'N/A'}</p>
-          <p>Worst: {usersScoresLastNineQP.length > 0 ? usersScoresLastNineQP[usersScoresLastNineQP.length - 1].total : 'N/A'}</p>
+        <div className='styledStatsCard'>
+          <h4 className='heading'>10-18</h4>
+          <div>
+            <p>Played:</p>
+            <p>{usersScoresLastNineQP.length > 0 ? usersScoresLastNineQP.length : 'N/A'}</p>
+          </div>
+          <div>
+            <p>Best:</p>
+            <p>{usersScoresLastNineQP.length > 0 ? usersScoresLastNineQP[0].total : 'N/A'}</p>
+          </div>
+          <div>
+            <p>Avg:</p>
+            <p>{findTotalAvg(lastNineHoleGamesQP) || 'N/A'}</p>
+          </div>
+          <div>
+            <p>Worst: </p>
+            <p>{usersScoresLastNineQP.length > 0 ? usersScoresLastNineQP[usersScoresLastNineQP.length - 1].total : 'N/A'}</p>
+          </div>
         </div>
       </section>
 
