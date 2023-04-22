@@ -195,7 +195,7 @@ const ScorecardCard = ({ scorecard, showEditBtn, setIsEditMode }) => {
             {isBothNine ?
                 <>
                     {splitBothNineScores(scorecard?.score).map((item) => (
-                        <>
+                        <div key={`${item._id} ${new Date().getTime()}`}>
                             <table className='styled-table smallScreen'>
                                 <thead>
                                     <tr>
@@ -265,7 +265,7 @@ const ScorecardCard = ({ scorecard, showEditBtn, setIsEditMode }) => {
                                     ))}
                                 </tbody>
                             </table>
-                        </>
+                        </div>
                     ))}
                 </> : <></>}
         </div>
