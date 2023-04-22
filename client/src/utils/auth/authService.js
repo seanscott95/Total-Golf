@@ -15,7 +15,7 @@ const signup = async (userData) => {
         
         // Adds an expiry to the data
         const now = new Date();
-        response.data.expiry = now.getTime() + 7199999
+        response.data.expiry = now.getTime() + 7199999;
         
         localStorage.setItem('user', JSON.stringify(response.data));
     };
@@ -41,12 +41,10 @@ const signin = async (userData) => {
         
         // Adds an expiry to the data
         const now = new Date();
-        response.data.expiry = now.getTime() + 7199999
+        response.data.expiry = now.getTime() + 7199999;
 
         localStorage.setItem('user', JSON.stringify(response.data));
     };
-
-
 
     return response.data;
 };
@@ -57,4 +55,4 @@ const authService = {
     signin
 };
 
-export default authService
+export default authService;

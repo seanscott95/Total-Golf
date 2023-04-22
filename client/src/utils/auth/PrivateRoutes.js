@@ -6,6 +6,6 @@ const PrivateRoutes = ({ user }) => {
     };
 
     return <Outlet />;
-}
+};
 
-export default PrivateRoutes
+export default PrivateRoutes;
