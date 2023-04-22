@@ -69,4 +69,4 @@ module.exports = {
     getMe,
     signupUser,
     signinUser
-}
+};

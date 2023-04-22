@@ -11,17 +11,17 @@ module.exports = {
 
         if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
             token = token.split(' ').pop().trim();
-        }
+        };
 
         if (!token) {
             res.status(401);
             throw new Error('Not authorised');
-        }
+        };
 
         try {
             const { data } = jwt.verify(token, secret, { maxAge: expiration });
             req.user = data;
-            next()
+            next();
         } catch (error) {
             console.log('Invalid token. Error:', error);
             res.status(401);
