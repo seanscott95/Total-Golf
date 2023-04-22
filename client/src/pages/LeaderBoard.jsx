@@ -15,19 +15,20 @@ const LeaderBoard = () => {
     const { user } = useSelector((state => state.auth));
     const { scores, isLoading, isError, message } = useSelector((state) => state.scores);
 
-    // Finds the average of the users scorecard totals
-    const findTotalAvg = (arr) => {
-        // Narrows and orders the scorecard to just the scores objects
-        const scoresArr = arr.map(item => item.score).flat().sort((a, b) => a.total - b.total);
-        const { length } = scoresArr;
-        // Creates array of totals for each scorecard
-        const arrTotal = scoresArr.map(item => item.total);
-        // Reduces array of totals to a single average value
-        return arrTotal.reduce((acc, val) => {
-            let avg = acc + (val / length);
-            return +avg.toFixed(1);   // Converts avg to a string and to two decimal places
-        }, 0);
-    };
+    // // FUTURE DEV
+    // // Finds the average of the users scorecard totals
+    // const findTotalAvg = (arr) => {
+    //     // Narrows and orders the scorecard to just the scores objects
+    //     const scoresArr = arr.map(item => item.score).flat().sort((a, b) => a.total - b.total);
+    //     const { length } = scoresArr;
+    //     // Creates array of totals for each scorecard
+    //     const arrTotal = scoresArr.map(item => item.total);
+    //     // Reduces array of totals to a single average value
+    //     return arrTotal.reduce((acc, val) => {
+    //         let avg = acc + (val / length);
+    //         return +avg.toFixed(1);   // Converts avg to a string and to two decimal places
+    //     }, 0);
+    // };
 
     useEffect(() => {
         if (!user) {
@@ -236,6 +237,7 @@ const LeaderBoard = () => {
                 </>
             )}
             
+            {/* FUTURE DEV */}
             {/* {isLoading ? (
                 <img src={spinner} alt='Loading' className='spinner' />
             ) : (
