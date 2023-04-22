@@ -582,10 +582,11 @@ const FormInputs = ({
                     }
                 </tr>
                 {!isEditMode ?
-                    
+                    <tr>
                         <td>
                             <button type='submit' className='btn btn-block' onClick={handlePlayerSubmit}>Add</button>
-                        </td>: <></>
+                        </td>
+                    </tr> : <></>
                 }
             </tbody>
 
