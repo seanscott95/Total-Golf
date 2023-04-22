@@ -70,6 +70,7 @@ const Signin = () => {
                 placeholder='Email'
                 onChange={onChange}
                 required
+                autoComplete='off'
               />
             </div>
             <div className='form-group'>
@@ -83,6 +84,7 @@ const Signin = () => {
                 onChange={onChange}
                 minLength='8'
                 required
+                autoComplete='off'
               />
             </div>
             <div className='form-group'>

@@ -93,6 +93,7 @@ const Signup = () => {
                     value={sitePassword}
                     onChange={(e) => setSitePassword(e.target.value)}
                     required
+                    autoComplete='off'
                   />
                 </div>
                 <div className='form-group'>
@@ -120,6 +121,7 @@ const Signup = () => {
                     placeholder='Name'
                     onChange={onChange}
                     required
+                    autoComplete='off'
                   />
                 </div>
                 <div className='form-group'>
@@ -132,6 +134,7 @@ const Signup = () => {
                     placeholder='Email'
                     onChange={onChange}
                     required
+                    autoComplete='off'
                   />
                 </div>
                 <div className='form-group'>
@@ -145,6 +148,7 @@ const Signup = () => {
                     onChange={onChange}
                     minLength='8'
                     required
+                    autoComplete='off'
                   />
                 </div>
                 <div className='form-group'>
@@ -158,6 +162,7 @@ const Signup = () => {
                     onChange={onChange}
                     minLength='8'
                     required
+                    autoComplete='off'
                   />
                 </div>
                 <div>
