@@ -1,4 +1,3 @@
-import PhotoMontage from '../components/PhotoMontage/PhotoMontage';
 import NewCourseButton from '../components/NewCourseButton/NewCourseButton';
 
 import GolfCroc from '../assets/svg/GolfCroc.svg';
@@ -23,8 +22,7 @@ const Homepage = () => {
 
   return (
     <div className='homepage-container'>
-      <PhotoMontage />
-      
+      <div className='photo-container'></div>
       <section className='course-buttons'>
         <NewCourseButton 
           header={queensPark.header}

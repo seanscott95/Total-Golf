@@ -191,6 +191,17 @@ h3 {
   margin: 10px;
 }
 
+.photo-container {
+  margin: 0;
+  background-image: url('./assets/images/golf-green-mountain-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  width: 100vw;
+  max-width: 1200px;
+  height: 45vh;
+}
+
 /* Scorecard Page */
 
 .scorecardFormContainer>.btn-group {
