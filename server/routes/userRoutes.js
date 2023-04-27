@@ -7,7 +7,7 @@ const {
 
 const { authMiddleware } = require('../utils/auth');
 
-router.post('/signup', signupUser);
+router.post('/', signupUser);
 router.post('/signin', signinUser);
 router.get('/me', authMiddleware, getMe);
 
