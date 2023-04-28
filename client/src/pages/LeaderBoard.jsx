@@ -159,24 +159,24 @@ const LeaderBoard = () => {
                             <LeaderboardPositionLayout
                                 first={{
                                     name: allScoresFirstNineQP?.length > 0
-                                        ? allScoresFirstNineQP[0]?.username.charAt(0).toUpperCase() + allScoresFirstNineQP[0].username.slice(1)
+                                        ? allScoresFirstNineQP[0]?.username.charAt(0).toUpperCase() + allScoresFirstNineQP[0]?.username.slice(1)
                                         : 'N/A',
                                     score: allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP[0].total : 'N/A',
                                     id: allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP[0]._id : 'N/A'
                                 }}
                                 second={{
                                     name: allScoresFirstNineQP?.length > 0
-                                        ? allScoresFirstNineQP[1]?.username.charAt(0).toUpperCase() + allScoresFirstNineQP[1].username.slice(1)
+                                        ? allScoresFirstNineQP[1]?.username.charAt(0).toUpperCase() + allScoresFirstNineQP[1]?.username.slice(1)
                                         : 'N/A',
-                                    score: allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP[1].total : 'N/A',
-                                    id: allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP[1]._id : 'N/A'
+                                    score: allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP[1]?.total : 'N/A',
+                                    id: allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP[1]?._id : 'N/A'
                                 }}
                                 third={{
                                     name: allScoresFirstNineQP?.length > 0
-                                        ? allScoresFirstNineQP[2]?.username.charAt(0).toUpperCase() + allScoresFirstNineQP[2].username.slice(1)
+                                        ? allScoresFirstNineQP[2]?.username.charAt(0).toUpperCase() + allScoresFirstNineQP[2]?.username.slice(1)
                                         : 'N/A',
-                                    score: allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP[2].total : 'N/A',
-                                    id: allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP[2]._id : 'N/A'
+                                    score: allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP[2]?.total : 'N/A',
+                                    id: allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP[2]?._id : 'N/A'
                                 }}
                             />
                         </div>
