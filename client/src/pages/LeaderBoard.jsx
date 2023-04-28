@@ -114,25 +114,25 @@ const LeaderBoard = () => {
                         <div>
                             <LeaderboardPositionLayout
                                 first={{
-                                    name: allScoresBothNineQP?.length > 0
-                                        ? allScoresBothNineQP[0]?.username.charAt(0).toUpperCase() + allScoresBothNineQP[0].username.slice(1)
-                                        : 'N/A',
-                                    score: allScoresBothNineQP.length > 0 ? allScoresBothNineQP[0].total : 'N/A',
+                                    name: allScoresBothNineQP.length > 0
+                                        ? allScoresBothNineQP[0].username.charAt(0).toUpperCase() + allScoresBothNineQP[0].username.slice(1)
+                                        : '-',
+                                    score: allScoresBothNineQP.length > 0 ? allScoresBothNineQP[0].total : '-',
                                     id: allScoresBothNineQP.length > 0 ? allScoresBothNineQP[0]._id : 'N/A'
                                 }}
                                 second={{
-                                    name: allScoresBothNineQP?.length > 0
-                                        ? allScoresBothNineQP[1]?.username.charAt(0).toUpperCase() + allScoresBothNineQP[1].username.slice(1)
-                                        : 'N/A',
-                                    score: allScoresBothNineQP.length > 0 ? allScoresBothNineQP[1].total : 'N/A',
-                                    id: allScoresBothNineQP.length > 0 ? allScoresBothNineQP[1]._id : 'N/A'
+                                    name: allScoresBothNineQP.length > 1
+                                        ? allScoresBothNineQP[1].username.charAt(0).toUpperCase() + allScoresBothNineQP[1].username.slice(1)
+                                        : '-',
+                                    score: allScoresBothNineQP.length > 1 ? allScoresBothNineQP[1].total : '-',
+                                    id: allScoresBothNineQP.length > 1 ? allScoresBothNineQP[1]._id : 'N/A'
                                 }}
                                 third={{
-                                    name: allScoresBothNineQP?.length > 0
-                                        ? allScoresBothNineQP[2]?.username.charAt(0).toUpperCase() + allScoresBothNineQP[2].username.slice(1)
-                                        : 'N/A',
-                                    score: allScoresBothNineQP.length > 0 ? allScoresBothNineQP[2].total : 'N/A',
-                                    id: allScoresBothNineQP.length > 0 ? allScoresBothNineQP[2]._id : 'N/A'
+                                    name: allScoresBothNineQP.length > 2
+                                        ? allScoresBothNineQP[2].username.charAt(0).toUpperCase() + allScoresBothNineQP[2].username.slice(1)
+                                        : '-',
+                                    score: allScoresBothNineQP.length > 2 ? allScoresBothNineQP[2].total : '-',
+                                    id: allScoresBothNineQP.length > 2 ? allScoresBothNineQP[2]._id : 'N/A'
                                 }}
                             />
                         </div>
@@ -145,7 +145,7 @@ const LeaderBoard = () => {
                                     ))}
                                 </div>
                             </div>
-                        ) : (<h3>You have no scores!</h3>)}
+                        ) : (<h3>There are no scores!</h3>)}
                     </section>
 
                     <section className='content'>
@@ -158,25 +158,25 @@ const LeaderBoard = () => {
                         <div>
                             <LeaderboardPositionLayout
                                 first={{
-                                    name: allScoresFirstNineQP?.length > 0
-                                        ? allScoresFirstNineQP[0]?.username.charAt(0).toUpperCase() + allScoresFirstNineQP[0]?.username.slice(1)
-                                        : 'N/A',
-                                    score: allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP[0].total : 'N/A',
+                                    name: allScoresFirstNineQP.length > 0
+                                        ? allScoresFirstNineQP[0].username.charAt(0).toUpperCase() + allScoresFirstNineQP[0].username.slice(1)
+                                        : '-',
+                                    score: allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP[0].total : '-',
                                     id: allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP[0]._id : 'N/A'
                                 }}
                                 second={{
-                                    name: allScoresFirstNineQP?.length > 0
-                                        ? allScoresFirstNineQP[1]?.username.charAt(0).toUpperCase() + allScoresFirstNineQP[1]?.username.slice(1)
-                                        : 'N/A',
-                                    score: allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP[1]?.total : 'N/A',
-                                    id: allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP[1]?._id : 'N/A'
+                                    name: allScoresFirstNineQP.length > 1
+                                        ? allScoresFirstNineQP[1].username.charAt(0).toUpperCase() + allScoresFirstNineQP[1].username.slice(1)
+                                        : '-',
+                                    score: allScoresFirstNineQP.length > 1 ? allScoresFirstNineQP[1]?.total : '-',
+                                    id: allScoresFirstNineQP.length > 1 ? allScoresFirstNineQP[1]?._id : 'N/A'
                                 }}
                                 third={{
-                                    name: allScoresFirstNineQP?.length > 0
-                                        ? allScoresFirstNineQP[2]?.username.charAt(0).toUpperCase() + allScoresFirstNineQP[2]?.username.slice(1)
-                                        : 'N/A',
-                                    score: allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP[2]?.total : 'N/A',
-                                    id: allScoresFirstNineQP.length > 0 ? allScoresFirstNineQP[2]?._id : 'N/A'
+                                    name: allScoresFirstNineQP.length > 2
+                                        ? allScoresFirstNineQP[2].username.charAt(0).toUpperCase() + allScoresFirstNineQP[2].username.slice(1)
+                                        : '-',
+                                    score: allScoresFirstNineQP.length > 2 ? allScoresFirstNineQP[2].total : '-',
+                                    id: allScoresFirstNineQP.length > 2 ? allScoresFirstNineQP[2]._id : 'N/A'
                                 }}
                             />
                         </div>
@@ -189,7 +189,7 @@ const LeaderBoard = () => {
                                     ))}
                                 </div>
                             </div>
-                        ) : (<h3>You have no scores!</h3>)}
+                        ) : (<h3>There are no scores!</h3>)}
                     </section>
 
                     <section className='content'>
@@ -201,25 +201,25 @@ const LeaderBoard = () => {
                         <div>
                             <LeaderboardPositionLayout
                                 first={{
-                                    name: allScoresLastNineQP?.length > 0
-                                        ? allScoresLastNineQP[0]?.username.charAt(0).toUpperCase() + allScoresLastNineQP[0].username.slice(1)
-                                        : 'N/A',
-                                    score: allScoresLastNineQP.length > 0 ? allScoresLastNineQP[0].total : 'N/A',
+                                    name: allScoresLastNineQP.length > 0
+                                        ? allScoresLastNineQP[0].username.charAt(0).toUpperCase() + allScoresLastNineQP[0].username.slice(1)
+                                        : '-',
+                                    score: allScoresLastNineQP.length > 0 ? allScoresLastNineQP[0].total : '-',
                                     id: allScoresLastNineQP.length > 0 ? allScoresLastNineQP[0]._id : 'N/A'
                                 }}
                                 second={{
-                                    name: allScoresLastNineQP?.length > 0
-                                        ? allScoresLastNineQP[1]?.username.charAt(0).toUpperCase() + allScoresLastNineQP[1].username.slice(1)
-                                        : 'N/A',
-                                    score: allScoresLastNineQP.length > 0 ? allScoresLastNineQP[1].total : 'N/A',
-                                    id: allScoresLastNineQP.length > 0 ? allScoresLastNineQP[1]._id : 'N/A'
+                                    name: allScoresLastNineQP.length > 1
+                                        ? allScoresLastNineQP[1].username.charAt(0).toUpperCase() + allScoresLastNineQP[1].username.slice(1)
+                                        : '-',
+                                    score: allScoresLastNineQP.length > 1 ? allScoresLastNineQP[1].total : '-',
+                                    id: allScoresLastNineQP.length > 1 ? allScoresLastNineQP[1]._id : 'N/A'
                                 }}
                                 third={{
-                                    name: allScoresLastNineQP?.length > 0
-                                        ? allScoresLastNineQP[2]?.username.charAt(0).toUpperCase() + allScoresLastNineQP[2].username.slice(1)
-                                        : 'N/A',
-                                    score: allScoresLastNineQP.length > 0 ? allScoresLastNineQP[2].total : 'N/A',
-                                    id: allScoresLastNineQP.length > 0 ? allScoresLastNineQP[2]._id : 'N/A'
+                                    name: allScoresLastNineQP.length > 2
+                                        ? allScoresLastNineQP[2].username.charAt(0).toUpperCase() + allScoresLastNineQP[2].username.slice(1)
+                                        : '-',
+                                    score: allScoresLastNineQP.length > 2 ? allScoresLastNineQP[2].total : '-',
+                                    id: allScoresLastNineQP.length > 2 ? allScoresLastNineQP[2]._id : 'N/A'
                                 }}
                             />
                         </div>
@@ -232,7 +232,7 @@ const LeaderBoard = () => {
                                     ))}
                                 </div>
                             </div>
-                        ) : (<h3>You have no scores!</h3>)}
+                        ) : (<h3>There are no scores!</h3>)}
                     </section>
                 </>
             )}
