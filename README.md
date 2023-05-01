@@ -2,7 +2,7 @@
 
 ## Links
 - [GitHub](https://github.com/seanscott95/total-golf)
-- [Tough Tracking](https://total-golf.herokuapp.com/)
+- [Total Golf](https://total-golf.herokuapp.com/)
 <p>Please allow site to load for 10-15 seconds</p>
 
 ## Description
