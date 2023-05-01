@@ -273,16 +273,7 @@ const ScorecardForm = ({ localCourse }) => {
                                         <tr>
                                             <th>{`${item.username} - ${item.total}`}</th>
                                         </tr>
-                                        <tr>
-                                            <th className='deleteBtnTd'>
-                                                <button
-                                                    type='submit'
-                                                    className='deleteScoreBtn'
-                                                    onClick={handleDeleteBtn}>
-                                                    <MdDeleteForever id={item.username} className='deleteScoreIcon' />
-                                                </button>
-                                            </th>
-                                        </tr>
+                                        
                                         <tr key={item.username}>
                                             {holes === '1-18' ?
                                                 <th>
@@ -302,15 +293,15 @@ const ScorecardForm = ({ localCourse }) => {
                                                         </thead>
                                                         <tbody>
                                                             <tr>
-                                                                <td className='smallScree'>{item.firstNine.hole1}</td>
-                                                                <td className='smallScren'>{item.firstNine.hole2}</td>
-                                                                <td className='smallScren'>{item.firstNine.hole3}</td>
-                                                                <td className='smallSceen'>{item.firstNine.hole4}</td>
-                                                                <td className='smallSreen'>{item.firstNine.hole5}</td>
-                                                                <td className='smallcreen'>{item.firstNine.hole6}</td>
-                                                                <td className='smalScreen'>{item.firstNine.hole7}</td>
-                                                                <td className='smalScreen'>{item.firstNine.hole8}</td>
-                                                                <td className='smllScreen'>{item.firstNine.hole9}</td>
+                                                                <td className=''>{item.firstNine.hole1}</td>
+                                                                <td className=''>{item.firstNine.hole2}</td>
+                                                                <td>{item.firstNine.hole3}</td>
+                                                                <td>{item.firstNine.hole4}</td>
+                                                                <td>{item.firstNine.hole5}</td>
+                                                                <td>{item.firstNine.hole6}</td>
+                                                                <td>{item.firstNine.hole7}</td>
+                                                                <td>{item.firstNine.hole8}</td>
+                                                                <td>{item.firstNine.hole9}</td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -393,7 +384,7 @@ const ScorecardForm = ({ localCourse }) => {
                                                 </th> : <></>
                                             }
                                             {holes === '1-9' ?
-                                                <>
+                                                <th>
                                                     <td>{item.firstNine.hole1}</td>
                                                     <td>{item.firstNine.hole2}</td>
                                                     <td>{item.firstNine.hole3}</td>
@@ -403,19 +394,10 @@ const ScorecardForm = ({ localCourse }) => {
                                                     <td>{item.firstNine.hole7}</td>
                                                     <td>{item.firstNine.hole8}</td>
                                                     <td>{item.firstNine.hole9}</td>
-
-                                                    <td className='deleteBtnTd'>
-                                                        <button
-                                                            type='submit'
-                                                            className='deleteScoreBtn'
-                                                            onClick={handleDeleteBtn}>
-                                                            <MdDeleteForever id={item.username} className='deleteScoreIcon' />
-                                                        </button>
-                                                    </td>
-                                                </> : <></>
+                                                </th> : <></>
                                             }
                                             {holes === '10-18' ?
-                                                <>
+                                                <th>
                                                     <td>{item.lastNine.hole10}</td>
                                                     <td>{item.lastNine.hole11}</td>
                                                     <td>{item.lastNine.hole12}</td>
@@ -425,18 +407,19 @@ const ScorecardForm = ({ localCourse }) => {
                                                     <td>{item.lastNine.hole16}</td>
                                                     <td>{item.lastNine.hole17}</td>
                                                     <td>{item.lastNine.hole18}</td>
-
-                                                    <td className='deleteBtnTd'>
-                                                        <button
-                                                            type='submit'
-                                                            className='deleteScoreBtn'
-                                                            onClick={handleDeleteBtn}>
-                                                            <MdDeleteForever id={item.username} className='deleteScoreIcon' />
-                                                        </button>
-                                                    </td>
-                                                </> : <></>
+                                                </th> : <></>
                                             }
 
+                                        </tr>
+                                        <tr>
+                                            <th className='deleteBtnTd'>
+                                                <button
+                                                    type='submit'
+                                                    className='deleteScoreBtn'
+                                                    onClick={handleDeleteBtn}>
+                                                    <MdDeleteForever id={item.username} className='deleteScoreIcon' />
+                                                </button>
+                                            </th>
                                         </tr>
                                     </>
                                 ))}
