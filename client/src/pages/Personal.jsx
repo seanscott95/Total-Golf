@@ -32,14 +32,14 @@ const Personal = () => {
   const lastNineHoleGames = sortHoles(scores, '10-18');
   const bothNineHoleGames = sortHoles(scores, '1-18');
 
-  // Filters through array of scores and returns all courseNames for Queens Park
+  // Filters through array of scores and returns all courseNames for the Local Course
   const findQPGames = (arr) => {
     return arr.filter((obj) => {
-      return obj.courseName === 'Queens Park';
+      return obj.courseName === process.env.REACT_APP_LOCAL_COURSE;
     });
   };
 
-  // Creates new variables for the Queens Park games
+  // Creates new variables for the Local Course games
   const firstNineHoleGamesQP = findQPGames(firstNineHoleGames);
   const lastNineHoleGamesQP = findQPGames(lastNineHoleGames);
   const bothNineHoleGamesQP = findQPGames(bothNineHoleGames);
@@ -101,7 +101,7 @@ const Personal = () => {
 
       <section className='content stats-section'>
         <div className='heading '>
-          <h2>QUEENS PARK</h2>
+          <h2>{process.env.REACT_APP_LOCAL_COURSE}</h2>
         </div>
         <div className='styledStatsCard'>
           <h4>1-18</h4>
@@ -169,7 +169,7 @@ const Personal = () => {
           <section className='content'>
             <div className='section-heading centered-heading'>
               <h3>1-18</h3>
-              <p>Below are all of your 1-18 hole games for Queens Park</p>
+              <p>Below are all of your 1-18 hole games for {process.env.REACT_APP_LOCAL_COURSE}</p>
             </div>
 
             {bothNineHoleGamesQP.length > 0 ? (
@@ -186,7 +186,7 @@ const Personal = () => {
           <section className='content'>
             <div className='section-heading centered-heading'>
               <h3>1-9</h3>
-              <p>Below are all of your 1-9 hole games for Queens Park</p>
+              <p>Below are all of your 1-9 hole games for {process.env.REACT_APP_LOCAL_COURSE}</p>
             </div>
 
             {firstNineHoleGamesQP.length > 0 ? (
@@ -204,7 +204,7 @@ const Personal = () => {
           <section className='content'>
             <div className='section-heading centered-heading'>
               <h3>10-18</h3>
-              <p>Below are all of your 10-18 hole games for Queens Park</p>
+              <p>Below are all of your 10-18 hole games for {process.env.REACT_APP_LOCAL_COURSE}</p>
             </div>
 
             {lastNineHoleGamesQP.length > 0 ? (

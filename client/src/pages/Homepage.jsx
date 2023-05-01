@@ -12,10 +12,10 @@ const Homepage = () => {
     image: GolfCroc,
   };
 
-  // Values for the Queens Park Course Button
-  const queensPark = {
-    header: 'Queens Park',
-    text: 'Queens Park',
+  // Values for the Local Course Button
+  const localCourse = {
+    header: process.env.REACT_APP_LOCAL_COURSE,
+    text: process.env.REACT_APP_LOCAL_COURSE,
     link: '/CreateScorecardQP',
     image: GolfEagle,
   };
@@ -25,10 +25,10 @@ const Homepage = () => {
       <div className='photo-container'></div>
       <section className='course-buttons'>
         <NewCourseButton 
-          header={queensPark.header}
-          text={queensPark.text}
-          link={queensPark.link}
-          image={queensPark.image}
+          header={localCourse.header}
+          text={localCourse.text}
+          link={localCourse.link}
+          image={localCourse.image}
         />
         <NewCourseButton 
           header={newCourse.header}

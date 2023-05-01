@@ -9,13 +9,13 @@ import { totalScore } from '../../utils/helper/totalScore';
 import FormInputs from '../FormInputs/FormInputs';
 import './ScorecardForm.css';
 
-const ScorecardForm = ({ queensPark }) => {
+const ScorecardForm = ({ localCourse }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    // Sets the course name as Queens Park or blank depending if
-    // the prop queensPark is truthy or not
-    const setCourseName = queensPark ? 'Queens Park' : '';
+    // Sets the course name as Local Course or blank depending if
+    // the prop localCourse is truthy or not
+    const setCourseName = localCourse ? process.env.REACT_APP_LOCAL_COURSE : '';
 
     // Holds the number of holes
     const [holes, setHoles] = useState('1-18');
@@ -292,7 +292,7 @@ const ScorecardForm = ({ queensPark }) => {
                                                                 <th>1</th>
                                                                 <th>2</th>
                                                                 <th>3</th>
-                                                                <th >4</th>
+                                                                <th>4</th>
                                                                 <th>5</th>
                                                                 <th>6</th>
                                                                 <th>7</th>
@@ -350,7 +350,7 @@ const ScorecardForm = ({ queensPark }) => {
                                                                 <th>1</th>
                                                                 <th>2</th>
                                                                 <th>3</th>
-                                                                <th >4</th>
+                                                                <th>4</th>
                                                                 <th>5</th>
                                                                 <th>6</th>
                                                                 <th>7</th>

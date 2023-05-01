@@ -65,14 +65,14 @@ const LeaderBoard = () => {
     const lastNineHoleGames = sortHoles(scores, '10-18');
     const bothNineHoleGames = sortHoles(scores, '1-18');
 
-    // Filters through array of scores and returns all courseNames for Queens Park
+    // Filters through array of scores and returns all courseNames for Local Course
     const findQPGames = (arr) => {
         return arr.filter((obj) => {
-            return obj.courseName === 'Queens Park';
+            return obj.courseName === process.env.REACT_APP_LOCAL_COURSE;
         });
     };
 
-    // Creates new variables for the Queens Park games
+    // Creates new variables for the Local Course games
     const firstNineHoleGamesQP = findQPGames(firstNineHoleGames);
     const lastNineHoleGamesQP = findQPGames(lastNineHoleGames);
     const bothNineHoleGamesQP = findQPGames(bothNineHoleGames);
@@ -97,7 +97,7 @@ const LeaderBoard = () => {
             </section>
             <section className='content'>
                 <div className='section-heading '>
-                    <h2>QUEENS PARK</h2>
+                    <h2>{process.env.REACT_APP_LOCAL_COURSE}</h2>
                 </div>
             </section>
 
