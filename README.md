@@ -8,13 +8,17 @@
 ## Description
 <p>This application creates a golf scorecard that keeps track of you and your mates scores.
 </p>
-<p>Setup a site password during installation so only you and your mates can sign up
+<p>Setup your local golf course where you can view statistics and compare your skill with your friends
+</p>
+<p>Setup a site password during installation so you control who signs up
 </p>
 <p>Create a scorecard that includes the date, course played at and all the players names and scores saved in your database
 </p>
-<p>Compete with your friends to see who is better by checking out the Leaderboard page where you'll be able to see the top three highest scores depending on the number of holes on the scorecard
+<p>Compete with your friends to see who is better by checking out the Leaderboard page where you'll be able to see the top three highest scores depending on the number of holes on the scorecard for the local course
 </p>
-<p>Check out your own scores where you can see your own average best and worst for all the games played broken down by number of holes played and below that all of the games you've played
+<p>Check out your own scores where you can see your own average best and worst for all the games played broken down by number of holes played for the local course
+</p>
+<p>View all of your own scorecards no matter the course on the personal page and view everyones scorecards on the scores page for all courses
 </p>
 
 <p>This application was created with JavaScript and included the following technologies:</p>
