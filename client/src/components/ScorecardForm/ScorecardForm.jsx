@@ -444,7 +444,7 @@ const ScorecardForm = ({ queensPark }) => {
                         </table>
                     </div >
                     <div className='form-group'>
-                        <button type='submit' className='btn btn-block'>Submit</button>
+                        <button type='submit' className='btn btn-block'>CREATE</button>
                     </div>
                 </form >
             </section >

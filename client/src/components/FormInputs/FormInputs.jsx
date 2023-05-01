@@ -584,7 +584,7 @@ const FormInputs = ({
                 {!isEditMode ?
                     <tr>
                         <td>
-                            <button type='submit' className='btn btn-block' onClick={handlePlayerSubmit}>Add</button>
+                            <button type='submit' className='btn btn-block' onClick={handlePlayerSubmit}>ADD</button>
                         </td>
                     </tr> : <></>
                 }
